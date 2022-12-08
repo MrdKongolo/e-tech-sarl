@@ -15,20 +15,20 @@
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/es_admin/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/resources/images/favicon.ico" />
 
     <!-- tag input css -->
-    <link rel="stylesheet" href="<?= base_url()?>/assets/es_admin/css/plugins/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="<?= base_url()?>/resources/css/plugins/bootstrap-tagsinput.css">
     <!-- data tables css -->
-    <link rel="stylesheet" href="<?= base_url()?>/assets/es_admin/css/plugins/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>/resources/css/plugins/dataTables.bootstrap4.min.css">
     <!-- select2 css -->
-    <link rel="stylesheet" href="<?= base_url()?>/assets/es_admin/css/plugins/select2.min.css">
-    <link rel="stylesheet" href="<?= base_url()?>/assets/es_admin/css/formulaire.css">
+    <link rel="stylesheet" href="<?= base_url()?>/resources/css/plugins/select2.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>/resources/css/formulaire.css">
 
     <!-- vendor css -->
-    <link rel="stylesheet" href="<?= base_url()?>/assets/es_admin/css/style.css">
+    <link rel="stylesheet" href="<?= base_url()?>/resources/css/style.css">
     <!-- fileupload-custom css -->
-    <link rel="stylesheet" href="<?= base_url()?>/assets/es_admin/css/plugins/dropzone.min.css">
+    <link rel="stylesheet" href="<?= base_url()?>/resources/css/plugins/dropzone.min.css">
     <style>
         body{
             font-family: "Century Gothic";
@@ -50,9 +50,9 @@
         <div class="navbar-content scroll-div">
             <div class="">
                 <div class="main-menu-header">
-                    <img class="img-radius img-fluid wid-100" src="<?= base_url()?>/assets/es_admin/images/user/<?= $user_data['u_picture'] ?? "no-image.jpg"?>" alt="User image">
+                    <img class="img-radius img-fluid wid-100" src="<?= base_url()?>/resources/images/user/<?= $user_data['photo'] ?? "no-image.jpg"?>" alt="User image">
                     <div class="user-details">
-                        <div id="more-details"><?= ucfirst($user_data['u_role']) ?? "Rôle" ?> <i class="fa fa-caret-down"></i></div>
+                        <div id="more-details"><?= ucfirst($user_data['role']) ?? "Rôle" ?> <i class="fa fa-caret-down"></i></div>
                     </div>
                 </div>
                 <div class="collapse" id="nav-user-link">
@@ -73,7 +73,7 @@
                 <li class="nav-item pcoded-hasmenu">
                     <a href="<?= base_url()?>/dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
-                <?php if ($user_data['u_role'] === 'admin'):?>
+                <?php if ($user_data['role'] === 'admin'):?>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Projets</span></a>
                         <ul class="pcoded-submenu">
@@ -130,7 +130,7 @@
         <a href="#!" class="b-brand">
             <!-- ========   change your logo hear   ============ -->
             <img
-                src="<?= base_url()?>/assets/es_admin/images/logo_eldad.png"
+                src="<?= base_url()?>/resources/images/logo_eldad.png"
                 alt="logo"
                 class="logo"
                 style="height: 45px; width: 70px;"
@@ -163,8 +163,8 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="<?= base_url()?>/assets/es_admin/images/user/<?= $user_data['u_picture'] /*?? "user-default-avatar.png"*/ ?>" class="img-radius" alt="pix">
-                            <span><?= ucfirst($user_data['u_firstname']) ?? "" ?></span>
+                            <img src="<?= base_url()?>/resources/images/user/<?= $user_data['photo'] /*?? "user-default-avatar.png"*/ ?>" class="img-radius" alt="pix">
+                            <span><?= ucfirst($user_data['username']) ?? "" ?></span>
                             <a href="<?= base_url()?>/logout" class="dud-logout" title="Déconnexion">
                                 <i class="feather icon-log-out"></i>
                             </a>
@@ -235,34 +235,34 @@
 <!-- Warning Section Ends -->
 
 <!-- Required Js -->
-<script src="<?= base_url()?>/assets/es_admin/js/vendor-all.min.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/bootstrap.min.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/ripple.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/pcoded.min.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/menu-setting.min.js"></script>
+<script src="<?= base_url()?>/resources/js/vendor-all.min.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/bootstrap.min.js"></script>
+<script src="<?= base_url()?>/resources/js/ripple.js"></script>
+<script src="<?= base_url()?>/resources/js/pcoded.min.js"></script>
+<script src="<?= base_url()?>/resources/js/menu-setting.min.js"></script>
 
 <!-- Apex Chart -->
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/apexcharts.min.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/apexcharts.min.js"></script>
 <!-- custom-chart js -->
-<script src="<?= base_url()?>/assets/es_admin/js/pages/dashboard-main.js"></script>
+<script src="<?= base_url()?>/resources/js/pages/dashboard-main.js"></script>
 <!-- tag-input js -->
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/bootstrap-tagsinput.min.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/bootstrap-tagsinput.min.js"></script>
 
 <!-- datatable Js -->
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/jquery.dataTables.min.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/dataTables.bootstrap4.min.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/pages/data-advance-custom.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/jquery.dataTables.min.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url()?>/resources/js/pages/data-advance-custom.js"></script>
 
 <!-- notification Js -->
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/bootstrap-notify.min.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/pages/ac-notification.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/bootstrap-notify.min.js"></script>
+<script src="<?= base_url()?>/resources/js/pages/ac-notification.js"></script>
 <!-- file-upload Js -->
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/dropzone-amd-module.min.js"></script>
-<script src="<?= base_url()?>/assets/es_admin/js/menu-setting.min.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/dropzone-amd-module.min.js"></script>
+<script src="<?= base_url()?>/resources/js/menu-setting.min.js"></script>
 <!-- select2 Js -->
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/select2.full.min.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/select2.full.min.js"></script>
 <!-- form-select-custom Js -->
-<script src="<?= base_url()?>/assets/es_admin/js/pages/form-select-custom.js"></script>
+<script src="<?= base_url()?>/resources/js/pages/form-select-custom.js"></script>
 
 <script>
     $('#user-list-table').DataTable();
@@ -317,7 +317,7 @@
     }
 </script>
 <!-- Ckeditor js -->
-<script src="<?= base_url()?>/assets/es_admin/js/plugins/ckeditor.js"></script>
+<script src="<?= base_url()?>/resources/js/plugins/ckeditor.js"></script>
 <script type="text/javascript">
     $(window).on('load', function() {
         ClassicEditor.create(document.querySelector('#classic-editor'))
@@ -327,7 +327,7 @@
     });
 </script>
 <!--Include Js Php file-->
-<?= $this->include('dashboard/js_script') ?>
+<?= $this->include('layouts/js_script') ?>
 <!-- Js Php file-->
 </body>
 </html>

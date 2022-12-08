@@ -71,6 +71,10 @@ $routes->get('services/(:segment)', 'Services::details');
 
 // Users
 
+$routes->get('signin', 'Users::signin');
+$routes->post('signin', 'Users::signin');
+$routes->get('dashboard', 'Users::dashboard');
+
 
 
 /*

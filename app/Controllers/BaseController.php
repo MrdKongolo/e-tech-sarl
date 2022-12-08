@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Element;
+use App\Models\Service;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -27,6 +29,11 @@ abstract class BaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
+    public $userModel;
+    public $catModel;
+    public $elmtModel;
+    public $servModel;
+    public $validation;
 
     /**
      * An array of helpers to be loaded automatically upon
@@ -35,7 +42,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['url','form'];
 
     /**
      * Constructor.
@@ -48,5 +55,10 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->validation = \Config\Services::validation();
+        $this->userModel = model(User::class);
+        $this->catModel = model(Category::class);
+        $this->elmtModel = model(Element::class);
+        $this->servModel = model(Service::class);
     }
 }

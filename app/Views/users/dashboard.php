@@ -1,4 +1,4 @@
-<?= $this->extend("dashboard/base")?>
+<?= $this->extend("layouts/base")?>
 <?= $title ;?>
 <?= $this->section("content")?>
 
@@ -36,11 +36,11 @@
             <div class="col-lg-12 col-md-12">
                 <!-- support-section start -->
                 <div class="row justify-content-center">
-                    <?php if ($user_data['u_role'] === 'admin'):?>
+                    <?php if ($user_data['role'] === 'admin'):?>
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"><?= $cars;?></h2>
+                                    <h2 class="m-0"></?= $cars;?></h2>
                                     <span class="text-c-green"><strong><a href="<?= base_url()?>/carousel-list">CAROUSEL</a></strong></span>
                                     <p class="mb-3 mt-3"><a href="">Total Images</a></p>
                                 </div>
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span><?= $cars;?></span>
+                                            <span></?= $cars;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/carousel-list" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -69,7 +69,7 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"><?= $services;?></h2>
+                                    <h2 class="m-0"></?= $services;?></h2>
                                     <span class="text-c-blue"><strong><a href="<?= base_url()?>/service-list">SERVICES</a></strong></span>
                                     <p class="mb-3 mt-3"><a style="color: black" href="<?= base_url()?>">Total Services</a></p>
                                 </div>
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span><?= $services;?></span>
+                                            <span></?= $services;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/service-list" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -98,7 +98,7 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"><?= $videos;?></h2>
+                                    <h2 class="m-0"></?= $videos;?></h2>
                                     <span class="text-c-red">
                                         <strong>
                                             <a class="text-c-red" href="">VIDEOS</a>
@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span><?= $videos;?></span>
+                                            <span></?= $videos;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -131,7 +131,7 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"><?= $tests;?></h2>
+                                    <h2 class="m-0"></?= $tests;?></h2>
                                     <span class="text-c-red">
                                         <strong>
                                             <a class="text-c-red" href="">TEMOIGNAGES</a>
@@ -149,7 +149,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span><?= $tests;?></span>
+                                            <span></?= $tests;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/testimonies-list" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -164,7 +164,7 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"><?= $projs;?></h2>
+                                    <h2 class="m-0"></?= $projs;?></h2>
                                     <span class="text-c-red">
                                         <strong>
                                             <a class="text-c-red" href="">PROJETS</a>
@@ -182,7 +182,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span><?= $projs;?></span>
+                                            <span></?= $projs;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/project-list" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -201,7 +201,7 @@
             <div class="col-lg-12 col-md-12">
                 <!-- page statistic card start -->
                 <div class="row justify-content-center">
-                    <?php if ($user_data['u_role'] === 'admin'):?>
+                    <?php if ($user_data['role'] === 'admin'):?>
                         <div class="col-sm-6 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">

@@ -9,7 +9,7 @@
     <meta name="keywords" content="imprimerie,construction,agropastoral,fournitures,consultance">
     <meta name="author" content="Medard Kongolo">
 
-    <title>E-Tech SARL</title>
+    <title><?= $title ?? 'E-Tech SARL'?></title>
 
     <link rel="icon" type="image/x-icon" href="<?= base_url()?>/assets/img/logo/logo-e-tech.png">
 
