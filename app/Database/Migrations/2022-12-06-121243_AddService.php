@@ -13,6 +13,7 @@ class AddService extends Migration
             'srv_title' => ['type' => 'VARCHAR','constraint'=>'100','null'=> false,],            
             'srv_slug' => ['type' => 'VARCHAR','constraint'=>'100','null'=> false,],            
             'srv_description' => ['type' => 'TEXT','null'=> true,],            
+            'photo' => ['type' => 'VARCHAR','constraint'=> '255', 'null' => true],            
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp',
         ]);

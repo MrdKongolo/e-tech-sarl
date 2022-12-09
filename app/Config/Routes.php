@@ -43,39 +43,48 @@ $routes->get(':any', 'Home::view/$1');
 
 // Auth
 $routes->get('about-us', 'Auth::about');
-
-
-// Admin
-
-
-// Categories
-
-
-// Elements
-
-
-// Projets
-$routes->get('projects', 'Projects::index');
-
-
-// Réalisations
-
-
-// Secteurs
-
-
-// Services
 $routes->get('services', 'Services::index');
-$routes->get('services/(:segment)', 'Services::details');
+
+$routes->match(['get', 'post'],'signin','Auth::signin', ['filter' => 'alreadyloggedin']);
+// Admin
+$routes->group('',['filter' =>'authcheck'], function($routes){
+    
+    // Auth
+    $routes->get('logout', 'Auth::logout');
+
+    // Categories
 
 
-// Users
-
-$routes->get('signin', 'Users::signin');
-$routes->post('signin', 'Users::signin');
-$routes->get('dashboard', 'Users::dashboard');
+    // Elements
 
 
+    // Projets
+    $routes->get('projects', 'Projects::index');
+
+
+    // Réalisations
+
+
+    // Secteurs
+
+
+    // Services
+    $routes->get('services-list', 'Services::list');
+    $routes->get('services/(:segment)', 'Services::details');
+    $routes->match(['get', 'post'],'add-service', 'Services::create');
+    $routes->put('update-service/(:segment)', 'Services::update/$1');
+    $routes->delete('delete-service/(:segment)', 'Services::delete/$1');
+    $routes->get('testing', 'Services::testing');
+
+
+    // Users
+
+   
+    $routes->get('profile', 'Users::profile');
+    $routes->get('dashboard', 'Users::dashboard');
+    $routes->get('details', 'Users::details');
+    $routes->get('list', 'Users::list');
+});
 
 /*
  * --------------------------------------------------------------------

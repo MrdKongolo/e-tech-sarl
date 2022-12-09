@@ -40,24 +40,24 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"></?= $cars;?></h2>
-                                    <span class="text-c-green"><strong><a href="<?= base_url()?>/carousel-list">CAROUSEL</a></strong></span>
-                                    <p class="mb-3 mt-3"><a href="">Total Images</a></p>
+                                    <h2 class="m-0"></?= $serv;?></h2>
+                                    <span class="text-c-green"><strong><a href="<?= base_url()?>/services-list">SERVICES</a></strong></span>
+                                    <p class="mb-3 mt-3"><a href="">Total Services</a></p>
                                 </div>
                                 <div class="card-footer bg-success text-white">
                                     <div class="row text-center">
                                         <div class="col">
-                                            <a type="button" href="<?= base_url()?>/add-carousel" data-toggle="tooltip" data-placement="top" title="Ajout Image" 
+                                            <a type="button" href="<?= base_url()?>/add-service" data-toggle="tooltip" data-placement="top" title="Ajout Services" 
                                             class="btn btn-icon btn-danger">
                                                 <i class="feather icon-plus"></i>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $cars;?></span>
+                                            <span></?= $serv;?></span>
                                         </div>
                                         <div class="col">
-                                            <a type="button" href="<?= base_url()?>/carousel-list" data-toggle="tooltip" data-placement="top" title="Liste"
+                                            <a type="button" href="<?= base_url()?>/services-list" data-toggle="tooltip" data-placement="top" title="Liste"
                                                 class="btn btn-icon btn-info">
                                                 <i class="feather icon-eye"></i>
                                             </a>
@@ -70,8 +70,8 @@
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
                                     <h2 class="m-0"></?= $services;?></h2>
-                                    <span class="text-c-blue"><strong><a href="<?= base_url()?>/service-list">SERVICES</a></strong></span>
-                                    <p class="mb-3 mt-3"><a style="color: black" href="<?= base_url()?>">Total Services</a></p>
+                                    <span class="text-c-blue"><strong><a href="<?= base_url()?>/service-list">CATEGORIES</a></strong></span>
+                                    <p class="mb-3 mt-3"><a style="color: black" href="<?= base_url()?>">Total Catégories</a></p>
                                 </div>
                                 <div class="card-footer bg-primary text-white">
                                     <div class="row text-center">
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $services;?></span>
+                                            <span></?= $cat;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/service-list" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -98,25 +98,25 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"></?= $videos;?></h2>
+                                    <h2 class="m-0"></?= $services;?></h2>
                                     <span class="text-c-red">
                                         <strong>
-                                            <a class="text-c-red" href="">VIDEOS</a>
+                                            <a class="text-c-red" href="">ELEMENTS</a>
                                         </strong>
                                     </span>
-                                    <p class="mb-3 mt-3"><a style="color: black" href="">Total Vidéos</a></p>
+                                    <p class="mb-3 mt-3"><a style="color: black" href="">Total Eléments</a></p>
                                 </div>
                                 <div class="card-footer bg-info text-white">
                                     <div class="row text-center">
                                     <div class="col">
-                                            <a type="button" href="<?= base_url()?>/add-video" data-placement="top" data-toggle="tooltip" title="Ajout Vidéo" 
+                                            <a type="button" href="<?= base_url()?>/add-service" data-placement="top" data-toggle="tooltip" title="Ajout Service" 
                                             class="btn btn-icon btn-danger">
                                                 <i class="feather icon-plus"></i>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $videos;?></span>
+                                            <span></?= $services;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -131,28 +131,28 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"></?= $tests;?></h2>
+                                    <h2 class="m-0"></?= $part;?></h2>
                                     <span class="text-c-red">
                                         <strong>
-                                            <a class="text-c-red" href="">TEMOIGNAGES</a>
+                                            <a class="text-c-red" href="">PARTENAIRES</a>
                                         </strong>
                                     </span>
-                                    <p class="mb-3 mt-3"><a style="color: black" href="">Total Témoignages</a></p>
+                                    <p class="mb-3 mt-3"><a style="color: black" href="">Total Partenaires</a></p>
                                 </div>
                                 <div class="card-footer bg-info text-white">
                                     <div class="row text-center">
                                     <div class="col">
-                                            <a type="button" href="<?= base_url()?>/add-testimony" data-placement="top" data-toggle="tooltip" title="Ajouter" 
+                                            <a type="button" href="<?= base_url()?>/add-partner" data-placement="top" data-toggle="tooltip" title="Ajouter" 
                                             class="btn btn-icon btn-danger">
                                                 <i class="feather icon-plus"></i>
                                             </a>
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $tests;?></span>
+                                            <span></?= $part;?></span>
                                         </div>
                                         <div class="col">
-                                            <a type="button" href="<?= base_url()?>/testimonies-list" data-toggle="tooltip" data-placement="top" title="Liste"
+                                            <a type="button" href="<?= base_url()?>/partners-list" data-toggle="tooltip" data-placement="top" title="Liste"
                                                 class="btn btn-icon btn-info">
                                                 <i class="feather icon-eye"></i>
                                             </a>

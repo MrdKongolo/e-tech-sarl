@@ -23,6 +23,8 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'authcheck' => \App\Filters\AuthCheckFilter::class,
+        'alreadyloggedin' => \App\Filters\AlreadyLoggedInFilter::class,
     ];
 
     /**

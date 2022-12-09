@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-    <title> <?= $title ?? "Eldad Services"?> </title>
+    <title> <?= $title ?? "E-Tech"?> </title>
   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -15,7 +15,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Phoenixcoded" />
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/resources/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/img/logo/logo-e-tech.png" />
 
     <!-- tag input css -->
     <link rel="stylesheet" href="<?= base_url()?>/resources/css/plugins/bootstrap-tagsinput.css">
@@ -32,9 +32,12 @@
     <style>
         body{
             font-family: "Century Gothic";
-            background:linear-gradient(95deg, white, red, black);
+            /* background:#ff5252; */
         }
-    }
+        .pcoded-navbar {
+            background: #101b33 !important;
+            color: #97a7c1 !important;
+        }
     </style>
 </head>
 <!-- [ Pre-loader ] start -->
@@ -75,31 +78,25 @@
                 </li>
                 <?php if ($user_data['role'] === 'admin'):?>
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Projets</span></a>
-                        <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/projects">Ajouter Un Projet</a></li>
-                            <li><a href="<?= base_url()?>/project-list">Tous Les Projets</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Services</span></a>
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Services</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="<?= base_url()?>/add-service">Ajouter Un Service</a></li>
-                            <li><a href="<?= base_url()?>/service-list">Tous Les Services</a></li>
+                            <li><a href="<?= base_url()?>/services-list">Tous Les Services</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Carousel</span></a>
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Catégorie</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/add-carousel">Ajouter Image Carousel</a></li>
-                            <li><a href="">Images</a></li>
+                            <li><a href="<?= base_url()?>/add-category">Ajouter Un Catégorie</a></li>
+                            <li><a href="<?= base_url()?>/categories-list">Tous Les Catégories</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Vidéos</span></a>
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Partenaire</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/add-video">Ajouter Vidéo</a></li>
-                            <li><a href="">Liste Vidéos</a></li>
+                            <li><a href="<?= base_url()?>/add-video">Ajouter Partenaire</a></li>
+                            <li><a href="">Liste Partenaires</a></li>
                         </ul>
                     </li>                    
                     <li class="nav-item pcoded-hasmenu">
@@ -130,10 +127,10 @@
         <a href="#!" class="b-brand">
             <!-- ========   change your logo hear   ============ -->
             <img
-                src="<?= base_url()?>/resources/images/logo_eldad.png"
+                src="<?= base_url()?>/assets/img/logo/logo-e-tech.png" alt="logo"
                 alt="logo"
                 class="logo"
-                style="height: 45px; width: 70px;"
+                style="height: 60px; width: 70px;"
             >
         </a>
         <a href="#!" class="mob-toggler">
