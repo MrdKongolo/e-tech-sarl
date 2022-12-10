@@ -34,13 +34,20 @@
                         <?= form_open_multipart('add-category') ?>
                         <?= csrf_field() ?>
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select name="srv_id" class="form-control">
+                                        <select name="srv_id" class="form-control" id="srv_id" onchange="getCategories(this.value)">
                                             <option value="">Sélectionnez Un Service</option>
                                             <?php foreach ($services as $srv) : ?>
                                                 <option value="<?= $srv->srv_id ?>" <?= set_select('srv_id', $srv->srv_id); ?>><?= ucfirst($srv->srv_title) ?></option>
                                             <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <select name="cat_id" class="form-control" id="cat_id">
+                                            <option value="">Sélectionnez Une categorie</option>
                                         </select>
                                     </div>
                                 </div>
@@ -72,4 +79,26 @@
     </div>
 </section>
 <!-- [ Main Content ] end -->
+<script>
+    function getCategories(svc){
+        var html = '<option>Sélectionnez Une Catégorie</option>';
+        if(svc !== ''){
+           $.ajax({
+                url:"<?= base_url()?>/categories/getCategoryService/" + svc,
+                method:"POST",
+                data: {srv_id:svc},
+                dataType:"JSON",
+                success: function(data){
+                    // var html = '<option value="" disabled selected>Sélectionnez Une Catégorie</option>';
+                    for(var count = 0; count < data.length; count++){
+                        html += '<option value="'+data[count].srv_id+'">'+data[count].cat_title+'</option>';
+                    }
+                    $('#cat_id').html(html);
+                }
+           });
+        }else {
+            $('#cat_id').html(html);
+        }
+    }
+</script>
 <?= $this->endSection() ?>

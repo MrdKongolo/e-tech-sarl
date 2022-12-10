@@ -44,10 +44,11 @@ class Categories extends BaseController
         return view ('categories/admin/add',$data);
     }
 
-    public function getCoursLevel(int $level){
-        $cours = $this->coursModel->join('levels','cours.level= levels.level_id')
-                                ->where('level', $level)
+    public function getCategoryService($svc){
+        $categ = $this->catModel->join('services','services.srv_id= categories.srv_id')
+                                ->where('categories.srv_id', $svc)
+                                ->where('services.srv_id', $svc)
                                 ->findAll();
-        return json_encode($cours);
+        return json_encode($categ);
     }
 }
