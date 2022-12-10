@@ -87,7 +87,7 @@
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Catégorie</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/add-category">Ajouter Un Catégorie</a></li>
+                            <li><a href="<?= base_url()?>/add-category">Ajouter Une Catégorie</a></li>
                             <li><a href="<?= base_url()?>/categories-list">Tous Les Catégories</a></li>
                         </ul>
                     </li>

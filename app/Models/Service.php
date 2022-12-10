@@ -14,7 +14,7 @@ class Service extends Model
     protected $validationRules      = [
         'srv_title' => [
             'label' => 'Service','rules' => 'required|is_unique[services.srv_title]',
-            'errors' => ['required' => 'Le nom est réquis','is_unique => Ce nom a été déjà été pris'],
+            'errors' => ['required' => 'Le nom est réquis','is_unique' => 'Ce nom a été déjà été pris'],
         ],
         'srv_description' => [
             'label' => 'Description','rules' => 'required',

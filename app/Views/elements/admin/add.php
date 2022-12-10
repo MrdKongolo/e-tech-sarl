@@ -44,6 +44,13 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="Text">Noms Eléments</label>
+                                        <input type="text" class="form-control" name="elmt_name" data-role="tagsinput" value="<?= set_value('elmt_name')?>" >
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['elmt_name'] ?? null ;  ?></small>
+                                    </div>
+                                </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label class="floating-label" for="name">Titre</label>

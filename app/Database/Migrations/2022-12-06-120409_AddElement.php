@@ -11,7 +11,7 @@ class AddElement extends Migration
         $this->forge->addField([
             'el_id' => ['type' => 'INT','constraint' =>11,'unsigned'=> true,'auto_increment' => true,],
             'cat_id' => ['type' => 'INT','constraint' =>11,'unsigned'=> true,],
-            'el_title' => ['type' => 'VARCHAR','constraint'=>'255','null'=> false,],          
+            'el_title' => ['type' => 'TEXT','null'=> false,],          
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp',
         ]);

@@ -10,12 +10,12 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Services</h5>
+                            <h5 class="m-b-10">Catégories</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>/dashboard"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Services</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Liste des Services</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Catégories</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Liste des Catégories</a></li>
                         </ul>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             </div>
                             <?php if ($user_data['role'] === 'admin'):?>
                                 <div class="col-sm-6 text-right">
-                                    <a type="button" href="<?= base_url()?>/add-service" class="btn btn-success btn-sm btn-round has-ripple"><i class="feather icon-plus"></i>&nbsp;Service</a>
+                                    <a type="button" href="<?= base_url()?>/add-category" class="btn btn-success btn-sm btn-round has-ripple"><i class="feather icon-plus"></i>&nbsp;Catégorie</a>
                                 </div>
                             <?php endif;?>
                         </div>
@@ -41,25 +41,19 @@
                             <table id="report-table" class="table mb-0">
                                 <thead class="thead-light">
                                     <tr>
+                                        <th>Catégorie</th>
                                         <th>Service</th>
-                                        <th>Description</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if ($services ) : ?>
-                                        <?php foreach ($services as $row) : ?>
+                                    <?php if ($categories ) : ?>
+                                        <?php foreach ($categories as $row) : ?>
                                             <?php if ($user_data['role'] === 'admin'):?>
                                                 <tr>
                                                     <td class="align-middle">
-                                                        <img src="<?= base_url();?>/resources/images/services/<?= $row['photo'];?>"
-                                                             alt="sect-img"
-                                                             title="service-img"
-                                                             class="rounded mr-3"
-                                                             style="width: 64px;height: 48px;"
-                                                        />
                                                         <p class="m-0 d-inline-block align-middle font-16">
-                                                            <a href="#!" class="text-body"><?= $row['srv_title']?></a>
+                                                            <a href="#!" class="text-body"><?= $row['cat_title']?></a>
                                                             <br />
 
                                                             <?php for($i = 0; $i < rand(1,4); $i++) :?>
@@ -68,20 +62,16 @@
                                                         </p>
                                                     </td>
                                                     <td class="align-middle">
-                                                        <?= word_limiter($row['srv_description'], 8) ?? 'No description'?>
+                                                        <?= word_limiter($row['srv_title'], 8) ?? 'Service'?>
                                                     </td>
                                                     
                                                     <td class="table-action">
                                                         
-                                                        <a type="button" href="<?= base_url()?>/service-edit/<?= $row['srv_id']?>" data-toggle="tooltip"  data-placement="top" title="Modifier"  class="btn btn-icon btn-outline-success">
+                                                        <a type="button" href="<?= base_url()?>/category-edit/<?= $row['cat_id']?>" data-toggle="tooltip"  data-placement="top" title="Modifier"  class="btn btn-icon btn-outline-success">
                                                             <i class="feather icon-edit"></i>
                                                         </a>
 
-                                                        <a type="button" href="<?= base_url()?>/service-image/<?= $row['srv_id']?>" data-toggle="tooltip" data-placement="top" title="Changer Image"
-                                                                class="btn btn-icon btn-outline-info">
-                                                            <i class="feather icon-image"></i>
-                                                        </a>
-                                                        <a href="<?= base_url()?>/delete-service/<?= $row['srv_id']?>" data-toggle="tooltip" data-placement="top" title="Supprimer"
+                                                        <a href="<?= base_url()?>/delete-service/<?= $row['cat_id']?>" data-toggle="tooltip" data-placement="top" title="Supprimer"
                                                             class="btn btn-icon btn-outline-danger" onclick="return confirm('Voulez-vous supprimmer cet élément ?')"
                                                         >
                                                             <i class="feather icon-trash-2"></i>

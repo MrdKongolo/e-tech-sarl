@@ -28,6 +28,7 @@ class Services extends BaseController
         ];
         return view('services/admin/index',$data);
     }
+    
 
     public function create(){
         $user = session()->get('user_data');

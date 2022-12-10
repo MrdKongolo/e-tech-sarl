@@ -53,6 +53,8 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->get('logout', 'Auth::logout');
 
     // Categories
+    $routes->get('categories-list', 'Categories::index');
+    $routes->match(['get', 'post'],'add-category', 'Categories::add');
 
 
     // Elements
