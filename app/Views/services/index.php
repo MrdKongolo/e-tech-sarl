@@ -4,10 +4,10 @@
 
 <div class="site-breadcrumb">
     <div class="container">
-        <h2 class="breadcrumb-title">Services</h2>
+        <h2 class="breadcrumb-title">Secteurs d'Activité</h2>
         <ul class="breadcrumb-menu">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Services</li>
+            <li><a href="<?=base_url()?>">Accueil</a></li>
+            <li class="active">Les Services</li>
         </ul>
     </div>
 </div>

@@ -43,7 +43,16 @@ $routes->get(':any', 'Home::view/$1');
 
 // Auth
 $routes->get('about-us', 'Auth::about');
+
+// Projects
+$routes->get('projects', 'Projects::index');
+
+// Services
 $routes->get('services', 'Services::index');
+$routes->get('services/(:segment)', 'Services::details/$1');
+
+// Team
+$routes->get('team', [\App\Controllers\Home::class, 'team']);
 
 $routes->match(['get', 'post'],'signin','Auth::signin', ['filter' => 'alreadyloggedin']);
 // Admin
@@ -63,7 +72,7 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
 
 
     // Projets
-    $routes->get('projects', 'Projects::index');
+    
 
 
     // Réalisations

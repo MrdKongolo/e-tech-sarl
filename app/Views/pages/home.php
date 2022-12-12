@@ -9,7 +9,7 @@
                 <div class="col-md-7 col-lg-7">
                     <div class="hero-content">
                         <h6 class="hero-sub-title wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".25s">
-                            A Propos de Nous
+                            Qui Sommes-Nous
                         </h6>
                         <h1 class="hero-title wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".50s">
                             E-Tech SARL
@@ -44,7 +44,7 @@
                     <h2 class="site-title">Nos Secteurs d'activité</h2>
                     <div class="heading-divider"></div>
                     <p>
-                        It is a long established fact that a reader will be distracted by the readable content.
+                        Voici certains de nos secteurs clés d'activité
                     </p>
                 </div>
             </div>
@@ -54,22 +54,27 @@
                 <div class="col-md-3 col-lg-3">
                     <div class="case-item">
                         <div class="case-img">
-                            <img class="img-fluid" src="assets/img/case/01.jpg" alt="">
-                            <a class="popup-img case-link" href="assets/img/case/01.jpg"> <i class="far fa-plus"></i></a>
+                            <img 
+                                class="img-fluid" 
+                                src="<?= base_url();?>/resources/images/services/<?= $services[0]['photo'];?>" style="width:300px;height:400px"
+                                alt="services"
+                                
+                            >
+                            <a class="popup-img case-link" href="<?=base_url()?>/services/<?=$services[0]['srv_slug']?>"> <i class="far fa-plus"></i></a>
                         </div>
                         <div class="case-content">
                             <div class="case-content-info">
                                 <h4><a href="#">Imprimerie </a></h4>
                                 <small>Textiles, Papiers & Calicots</small>
                             </div>
-                            <a href="#" class="case-arrow"><i class="far fa-arrow-right"></i></a>
+                            <a href="<?=base_url()?>/services/<?=$services[0]['srv_slug']?>" class="case-arrow"><i class="far fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-3">
                     <div class="case-item">
                         <div class="case-img">
-                            <img class="img-fluid" src="assets/img/case/02.jpg" alt="">
+                            <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[1]['photo'];?>" alt="" style="width:300px;height:400px">
                             <a class="popup-img case-link" href="assets/img/case/02.jpg"> <i class="far fa-plus"></i></a>
                         </div>
                         <div class="case-content">
@@ -84,7 +89,7 @@
                 <div class="col-md-3 col-lg-3">
                     <div class="case-item">
                         <div class="case-img">
-                            <img class="img-fluid" src="assets/img/case/03.jpg" alt="">
+                            <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[2]['photo'];?>" alt="" style="width:300px;height:400px">
                             <a class="popup-img case-link" href="assets/img/case/03.jpg"> <i class="far fa-plus"></i></a>
                         </div>
                         <div class="case-content">
@@ -99,7 +104,7 @@
                 <div class="col-md-3 col-lg-3">
                     <div class="case-item">
                         <div class="case-img">
-                            <img class="img-fluid" src="assets/img/case/05.jpg" alt="">
+                            <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[3]['photo'];?>" alt="" style="width:300px;height:400px">
                             <a class="popup-img case-link" href="assets/img/case/05.jpg"> <i class="far fa-plus"></i></a>
                         </div>
                         <div class="case-content">
@@ -293,32 +298,25 @@
     <div class="container">
         <div class="counter-wrapper">
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-social-media"></i></div>
-                        <span class="counter" data-count="+" data-to="500" data-speed="3000">500</span>
-                        <h6 class="title">+ Project Done</h6>
+                        <span class="counter" data-count="+" data-to="100" data-speed="3000">100</span>
+                        <h6 class="title">+ Projets Réalisés</h6>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-customer"></i></div>
-                        <span class="counter" data-count="+" data-to="250" data-speed="3000">250</span>
-                        <h6 class="title">+ Satisfied Clients</h6>
+                        <span class="counter" data-count="+" data-to="80" data-speed="3000">80</span>
+                        <h6 class="title">+ Clients Statisfaits</h6>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-recruit"></i></div>
-                        <span class="counter" data-count="+" data-to="120" data-speed="3000">120</span>
-                        <h6 class="title">+ Expert Teams</h6>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="counter-box">
-                        <div class="icon"><i class="icon-recommend"></i></div>
-                        <span class="counter" data-count="+" data-to="50" data-speed="3000">50</span>
-                        <h6 class="title">+ Win Awards</h6>
+                        <span class="counter" data-count="+" data-to="4" data-speed="3000">4</span>
+                        <h6 class="title">+ Equipe</h6>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,6 @@ class Elements extends BaseController
         $data =  [
             'title'=>'Ajout de catégorie | E-Tech',
             'services'=>$this->servModel->asObject()->findAll(),
-            'categories'=>$this->catModel->asObject()->findAll(),
         ];
 
         $rules = $this->elmtModel->getValidationRules();
@@ -28,9 +27,8 @@ class Elements extends BaseController
 
             $data = [
                 'srv_id' => $this->request->getVar('srv_id'),
-                'cat_title' => $this->request->getVar('cat_title'),
-                'cat_slug' => url_title($this->request->getVar('cat_title')),
-              
+                'cat_id' => $this->request->getVar('cat_id'),
+                'el_title' => url_title($this->request->getVar('el_title')),
                 'created_at' => date('Y-m-d H:s:i'),
             ];
             $this->elmtModel->save($data);

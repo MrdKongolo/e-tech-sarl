@@ -17,8 +17,8 @@ class Category extends Model
             'errors' => ['required' => 'Sélectionnez un service SVP !'],
         ],
         'cat_title' => [
-            'label' => 'Catégory','rules' => 'required|is_unique[categories.cat_title]',
-            'errors' => ['required' => 'La catégorie est réquise','is_unique' => 'Cete catégorie a été déjà été prise'],
+            'label' => 'Catégorie','rules' => 'required|is_unique[categories.cat_title]',
+            'errors' => ['required' => 'La catégorie est réquise','is_unique' => 'Cette catégorie a été déjà été prise'],
         ],
     ];
     protected $validationMessages   = [];

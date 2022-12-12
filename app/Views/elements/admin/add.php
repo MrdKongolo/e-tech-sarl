@@ -58,13 +58,6 @@
                                         <small id="input-help" class="form-text text-danger"><?= $validation['elmt_name'] ?? null ;  ?></small>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="floating-label" for="name">Titre</label>
-                                        <input type="text" class="form-control" name="cat_title" value="<?= set_value('cat_title') ?>">
-                                        <small id="input-help" class="form-text text-danger"><?= $validation['cat_title'] ?? null;  ?></small>
-                                    </div>
-                                </div>
                                 <div class="col-sm-6 text-right">
                                     <input type="submit" class="btn btn-md btn-primary" value="Enregistrer Service">
                                 </div>
@@ -81,7 +74,7 @@
 <!-- [ Main Content ] end -->
 <script>
     function getCategories(svc){
-        var html = '<option>Sélectionnez Une Catégorie</option>';
+        var html = '<option value="" disabled selected>Sélectionnez Une Catégorie</option>';
         if(svc !== ''){
            $.ajax({
                 url:"<?= base_url()?>/categories/getCategoryService/" + svc,
@@ -89,7 +82,6 @@
                 data: {srv_id:svc},
                 dataType:"JSON",
                 success: function(data){
-                    // var html = '<option value="" disabled selected>Sélectionnez Une Catégorie</option>';
                     for(var count = 0; count < data.length; count++){
                         html += '<option value="'+data[count].srv_id+'">'+data[count].cat_title+'</option>';
                     }

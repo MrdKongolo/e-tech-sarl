@@ -54,14 +54,27 @@
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="main_nav">
+                        <?php $uri = service('uri')?>
                         <ul class="navbar-nav ms-auto">
+
                             <li class="nav-item">
-                                <a class="nav-link  active" href="#">Accueil</a>                               
+                                <a class="nav-link  <?= ($uri->getSegment(1) == '' ? 'active' : null)?>" href="<?=base_url();?>">Accueil</a>                               
                             </li>
-                            <li class="nav-item"><a class="nav-link" href=""> A Propos </a></li>                            
-                            <li class="nav-item"><a class="nav-link" href=""> Services </a></li>                            
-                            <li class="nav-item"><a class="nav-link" href=""> Projets </a></li>                            
-                            <li class="nav-item"><a class="nav-link" href=""> Réalisations </a></li>                            
+                            <li class="nav-item">
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'about-us' ? 'active' : null)?>" href="<?=base_url();?>/about-us"> A Propos </a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'services' ? 'active' : null)?>" href="<?=base_url();?>/services"> Services </a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'team' ? 'active' : null)?>" href="<?=base_url();?>/team"> Equipe </a>
+                            </li>                            
+                            <!-- <li class="nav-item">
+                                <a class="nav-link </?= ($uri->getSegment(1) == 'projects' ? 'active' :null)?>" href="</?=base_url();?>/projects"> Projets </a>
+                            </li>                             -->
+                            <li class="nav-item">
+                                <a class="nav-link" href=""> Réalisations </a>
+                            </li>                            
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="">Contact</a>
@@ -112,7 +125,7 @@
                             <a href="#" class="footer-logo">
                                 <img src="<?= base_url()?>/assets/img/logo/logo-e-tech.png" alt="">
                             </a>
-                            <p class="mb-20" style="text-align: center;">
+                            <p class="mb-20" style="text-align: justify;">
                             E-Tech Sarl est une société de droit congolais composée des professionnels très ambitieux soucieux d’exceller et d’innover.
                             Nous garantissons la réussite et surtout la satisfaction de nos partenaires. 
                             </p>
@@ -128,11 +141,11 @@
                         <div class="footer-widget-box list">
                             <h4 class="footer-widget-title">Liens Utiles</h4>
                             <ul class="footer-list">
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Accueil</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> A Propos</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Services</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Réalisations</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i> Contact</a></li>
+                                <li><a href="<?=base_url()?>"><i class="fas fa-caret-right"></i> Accueil</a></li>
+                                <li><a href="<?=base_url()?>/about-us"><i class="fas fa-caret-right"></i> A Propos</a></li>
+                                <li><a href="<?=base_url()?>/services"><i class="fas fa-caret-right"></i> Services</a></li>
+                                <li><a href="<?=base_url()?>/"><i class="fas fa-caret-right"></i> Réalisations</a></li>
+                                <li><a href="<?=base_url()?>/contact"><i class="fas fa-caret-right"></i> Contact</a></li>
                             </ul>
                         </div>
                     </div>

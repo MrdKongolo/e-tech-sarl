@@ -12,7 +12,20 @@ class Element extends Model
 
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = [
+        'srv_id' => [
+            'label' => 'Service','rules' => 'required',
+            'errors' => ['required' => 'Sélectionnez un service SVP !'],
+        ],
+        'cat_id' => [
+            'label' => 'Catégorie','rules' => 'required',
+            'errors' => ['required' => 'Sélectionnez un service SVP !'],
+        ],
+        'el_title' => [
+            'label' => 'Eléments','rules' => 'required]',
+            'errors' => ['required' => 'Remplissez ce champ'],
+        ],
+    ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

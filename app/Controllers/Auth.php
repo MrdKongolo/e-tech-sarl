@@ -41,4 +41,13 @@ class Auth extends BaseController
         $data['title'] = "Connexion | E-Tech";
         return view('pages/signin',$data);
     }
+    function logout(){
+        if(session()->has('user_data')){
+            session()->remove('user_data');
+            return redirect()->to(site_url());
+        }
+        else{
+            return redirect()->to('/');
+        }
+     }
 }
