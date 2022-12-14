@@ -43,6 +43,7 @@ $routes->get(':any', 'Home::view/$1');
 
 // Auth
 $routes->get('about-us', 'Auth::about');
+$routes->get('contact', 'Home::contact');
 
 // Projects
 $routes->get('projects', 'Projects::index');

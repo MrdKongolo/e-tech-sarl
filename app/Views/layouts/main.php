@@ -77,13 +77,10 @@
                             </li>                            
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="">Contact</a>
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'contact' ? 'active' : null)?>" href="<?=base_url();?>/contact">Contact</a>
                             </li>
                         </ul>
                         <div class="header-nav-right">
-                            <div class="header-nav-search">
-                                <a href="#" class="search-box-outer"><i class="far fa-search"></i></a>
-                            </div>
                             <div class="header-phone">
                                 <div class="header-phone-icon">
                                     <i class="fal fa-mobile-android"></i>

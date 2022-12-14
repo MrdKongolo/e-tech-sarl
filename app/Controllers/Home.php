@@ -27,4 +27,13 @@ class Home extends BaseController
         ];
         return view ('team/index', $data);
     }
+    public function why(){
+        return view('pages/why');
+    }
+    public function contact(){
+        $data = [
+            'title' => 'Contact | E-Tech',
+        ];
+        return view('pages/contact', $data);
+    }
 }

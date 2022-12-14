@@ -28,6 +28,13 @@ class Services extends BaseController
         ];
         return view('services/admin/index',$data);
     }
+
+    public function services(){
+        $data = [
+            'services' => $this->servModel->findAll(),
+        ];
+        return view ('services/services',$data);
+    }
     
 
     public function create(){

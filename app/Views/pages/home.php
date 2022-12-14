@@ -21,7 +21,7 @@
                             Ce qui fait de nous un panel de talentueux.
                         </p>
                         <div class="hero-btn wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
-                            <a href="" class="theme-btn">Continuez<i class="far fa-long-arrow-down"></i></a>
+                            <a class="theme-btn" href="<?=base_url()?>/resources/docs/domino.pdf" target="_blank">Continuez<i class="far fa-long-arrow-down"></i></a>
                         </div>
                     </div>
                 </div>
@@ -34,192 +34,13 @@
         </div>
     </div>
 </div>
+<!-- Section Secteurs ou Services -->
+<?= view_cell('\App\Controllers\Services::services');?>
+<!-- End Sections Secteurs-->
 
-<div class="case-area py-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mx-auto">
-                <div class="site-heading text-center">
-                    <span class="site-title-tagline">Services</span>
-                    <h2 class="site-title">Nos Secteurs d'activité</h2>
-                    <div class="heading-divider"></div>
-                    <p>
-                        Voici certains de nos secteurs clés d'activité
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row popup-gallery">
-            <div class="row">
-                <div class="col-md-3 col-lg-3">
-                    <div class="case-item">
-                        <div class="case-img">
-                            <img 
-                                class="img-fluid" 
-                                src="<?= base_url();?>/resources/images/services/<?= $services[0]['photo'];?>" style="width:300px;height:400px"
-                                alt="services"
-                                
-                            >
-                            <a class="popup-img case-link" href="<?=base_url()?>/services/<?=$services[0]['srv_slug']?>"> <i class="far fa-plus"></i></a>
-                        </div>
-                        <div class="case-content">
-                            <div class="case-content-info">
-                                <h4><a href="#">Imprimerie </a></h4>
-                                <small>Textiles, Papiers & Calicots</small>
-                            </div>
-                            <a href="<?=base_url()?>/services/<?=$services[0]['srv_slug']?>" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3">
-                    <div class="case-item">
-                        <div class="case-img">
-                            <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[1]['photo'];?>" alt="" style="width:300px;height:400px">
-                            <a class="popup-img case-link" href="assets/img/case/02.jpg"> <i class="far fa-plus"></i></a>
-                        </div>
-                        <div class="case-content">
-                            <div class="case-content-info">
-                                <small>Agropastoral</small>
-                                <h4><a href="#">Agropastoral</a></h4>
-                            </div>
-                            <a href="#" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3">
-                    <div class="case-item">
-                        <div class="case-img">
-                            <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[2]['photo'];?>" alt="" style="width:300px;height:400px">
-                            <a class="popup-img case-link" href="assets/img/case/03.jpg"> <i class="far fa-plus"></i></a>
-                        </div>
-                        <div class="case-content">
-                            <div class="case-content-info">
-                                <h4><a href="#">Construction</a></h4>
-                                <small>Construction & Travaux Publics</small>
-                            </div>
-                            <a href="#" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3">
-                    <div class="case-item">
-                        <div class="case-img">
-                            <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[3]['photo'];?>" alt="" style="width:300px;height:400px">
-                            <a class="popup-img case-link" href="assets/img/case/05.jpg"> <i class="far fa-plus"></i></a>
-                        </div>
-                        <div class="case-content">
-                            <div class="case-content-info">
-                                <small>Formation</small>
-                                <h4><a href="#">Formation</a></h4>
-                            </div>
-                            <a href="#" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="service-area pb-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mx-auto">
-                <div class="site-heading text-center">
-                    <span class="site-title-tagline">Mille et une raison de nous choisir</span>
-                    <h2 class="site-title">Pourquoi Nous ?</h2>
-                    <p>
-                        
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="icon-growth"></i>
-                    </div>
-                    <h3 class="service-title">
-                        <a href="#">La compétence</a>
-                    </h3>
-                    <p class="service-text" style="text-align:justify;">
-                    Une équipe de passionnés pour des prestations de qualité. La Société ETech est constituée des personnes 
-                    qualifiées et dynamique chacune dans son domaine avec une expérience avérée.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="icon-front-end"></i>
-                    </div>
-                    <h3 class="service-title">
-                        <a href="#">La qualité de service</a>
-                    </h3>
-                    <p class="service-text" style="text-align:justify;">
-                    E-Tech est engagée dans une démarche d’amélioration continue de la qualité de ses produits et services pour la satisfaction de ses clients.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="icon-bullhorn"></i>
-                    </div>
-                    <h3 class="service-title">
-                        <a href="#">L’efficacité</a>
-                    </h3>
-                    <p class="service-text" style="text-align:justify;">
-                    Notre objectif est de satisfaire nos clients en leur offrant un travail de qualité au-delà de leurs attentes et 
-                    dans le respect strict des délais. L’excellence est l’un de nos leitmotivs.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="icon-online-shopping"></i>
-                    </div>
-                    <h3 class="service-title">
-                        <a href="#">L’expérience</a>
-                    </h3>
-                    <p class="service-text" style="text-align:justify;">
-                    5 ans d’expérience et une forte capacité d’innovation pour vous apporter le meilleur service dans le meilleur délai.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="icon-webpage"></i>
-                    </div>
-                    <h3 class="service-title">
-                        <a href="#">La vision</a>
-                    </h3>
-                    <p class="service-text" style="text-align:justify;">
-                    La performance se mesure, non pas au volume d’activités ni au seul chiffre d’affaires, mais au succès et à la pérennité de l’entreprise.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="icon-conversation"></i>
-                    </div>
-                    <h3 class="service-title">
-                        <a href="#">La dimension humaine</a>
-                    </h3>
-                    <p class="service-text" style="text-align:justify;">
-                    Au-delà de la prestation technique, l’humain est au cœur de notre action.
-                    Tout ce que nous faisons est pour faciliter la vie de nos concitoyens.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<!-- Section Why-->
+<?= view_cell('\App\Controllers\Home::why');?>
+<!-- End Section Why-->
 
 <div class="case-area py-120">
     <div class="container">
