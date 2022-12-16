@@ -29,7 +29,7 @@ class Categories extends BaseController
                 'srv_id' => $this->request->getVar('srv_id'),
                 'cat_title' => $this->request->getVar('cat_title'),
                 'cat_slug' => url_title($this->request->getVar('cat_title')),
-              
+                
                 'created_at' => date('Y-m-d H:s:i'),
             ];
             $this->catModel->save($data);
@@ -47,7 +47,6 @@ class Categories extends BaseController
     public function getCategoryService($svc){
         $categ = $this->catModel->join('services','services.srv_id= categories.srv_id')
                                 ->where('categories.srv_id', $svc)
-                                ->where('services.srv_id', $svc)
                                 ->findAll();
         return json_encode($categ);
     }

@@ -70,13 +70,13 @@
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
                                     <h2 class="m-0"></?= $services;?></h2>
-                                    <span class="text-c-blue"><strong><a href="<?= base_url()?>/service-list">CATEGORIES</a></strong></span>
+                                    <span class="text-c-blue"><strong><a href="<?= base_url()?>/categories-list">CATEGORIES</a></strong></span>
                                     <p class="mb-3 mt-3"><a style="color: black" href="<?= base_url()?>">Total Catégories</a></p>
                                 </div>
                                 <div class="card-footer bg-primary text-white">
                                     <div class="row text-center">
                                         <div class="col">
-                                            <a type="button" href="<?= base_url()?>/add-service" data-placement="top" data-toggle="tooltip" title="Ajout Service" 
+                                            <a type="button" href="<?= base_url()?>/add-category" data-placement="top" data-toggle="tooltip" title="Ajout Catégorie" 
                                             class="btn btn-icon btn-danger">
                                                 <i class="feather icon-plus"></i>
                                             </a>
@@ -86,7 +86,7 @@
                                             <span></?= $cat;?></span>
                                         </div>
                                         <div class="col">
-                                            <a type="button" href="<?= base_url()?>/service-list" data-toggle="tooltip" data-placement="top" title="Liste"
+                                            <a type="button" href="<?= base_url()?>/categories-list" data-toggle="tooltip" data-placement="top" title="Liste"
                                                 class="btn btn-icon btn-info">
                                                 <i class="feather icon-eye"></i>
                                             </a>
@@ -109,7 +109,7 @@
                                 <div class="card-footer bg-info text-white">
                                     <div class="row text-center">
                                     <div class="col">
-                                            <a type="button" href="<?= base_url()?>/add-service" data-placement="top" data-toggle="tooltip" title="Ajout Service" 
+                                            <a type="button" href="<?= base_url()?>/add-element" data-placement="top" data-toggle="tooltip" title="Ajout Elément" 
                                             class="btn btn-icon btn-danger">
                                                 <i class="feather icon-plus"></i>
                                             </a>
@@ -153,39 +153,6 @@
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/partners-list" data-toggle="tooltip" data-placement="top" title="Liste"
-                                                class="btn btn-icon btn-info">
-                                                <i class="feather icon-eye"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 text-center">
-                            <div class="card support-bar overflow-hidden">
-                                <div class="card-body pb-0">
-                                    <h2 class="m-0"></?= $projs;?></h2>
-                                    <span class="text-c-red">
-                                        <strong>
-                                            <a class="text-c-red" href="">PROJETS</a>
-                                        </strong>
-                                    </span>
-                                    <p class="mb-3 mt-3"><a style="color: black" href="">Total Projets</a></p>
-                                </div>
-                                <div class="card-footer bg-facebook text-white">
-                                    <div class="row text-center">
-                                    <div class="col">
-                                            <a type="button" href="<?= base_url()?>/add-project" data-placement="top" data-toggle="tooltip" title="Ajouter" 
-                                            class="btn btn-icon btn-danger">
-                                                <i class="feather icon-plus"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $projs;?></span>
-                                        </div>
-                                        <div class="col">
-                                            <a type="button" href="<?= base_url()?>/project-list" data-toggle="tooltip" data-placement="top" title="Liste"
                                                 class="btn btn-icon btn-info">
                                                 <i class="feather icon-eye"></i>
                                             </a>

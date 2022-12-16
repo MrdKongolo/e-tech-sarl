@@ -6,18 +6,18 @@ use App\Controllers\BaseController;
 
 class Elements extends BaseController
 {
-    public function index()
-    {
-        $data =  [
-            'title' => 'Ajout de catégorie | E-Tech',
-            // 'categories'=>$this->catModel->join('services','services.srv_id=categories.srv_id')
-                                            // ->findAll(),
-        ];
-        return view ('elements/admin/list', $data);
-    }
+    // public function index()
+    // {
+    //     $data =  [
+    //         'title' => 'Ajout de catégorie | E-Tech',
+    //         // 'categories'=>$this->catModel->join('services','services.srv_id=categories.srv_id')
+    //                                         // ->findAll(),
+    //     ];
+    //     return view ('elements/admin/list', $data);
+    // }
     public function add(){
         $data =  [
-            'title'=>'Ajout de catégorie | E-Tech',
+            'title'=>'Ajout élément | E-Tech',
             'services'=>$this->servModel->asObject()->findAll(),
         ];
 
@@ -28,13 +28,11 @@ class Elements extends BaseController
             $data = [
                 'srv_id' => $this->request->getVar('srv_id'),
                 'cat_id' => $this->request->getVar('cat_id'),
-                'el_title' => url_title($this->request->getVar('el_title')),
+                'el_title' => $this->request->getVar('el_title'),
                 'created_at' => date('Y-m-d H:s:i'),
             ];
             $this->elmtModel->save($data);
-            $session = session();
-            $session->setFlashData("success", "Ajouté avec succès");
-            return redirect()->to('/elements-list');
+            return redirect()->back()->with('success','Elément ajouté avec succès');
               
         } else {
             $data['validation'] = $this->validation->getErrors();

@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <input type="submit" class="btn btn-md btn-primary" value="Enregistrer Service">
+                                    <input type="submit" class="btn btn-md btn-primary" value="Enregistrer Catégorie">
                                 </div>
                             </div>
                         </form>

@@ -65,19 +65,11 @@
                                                         <?= word_limiter($row['srv_title'], 8) ?? 'Service'?>
                                                     </td>
                                                     
-                                                    <td class="table-action">
-                                                        
-                                                        <a type="button" href="<?= base_url()?>/category-edit/<?= $row['cat_id']?>" data-toggle="tooltip"  data-placement="top" title="Modifier"  class="btn btn-icon btn-outline-success">
-                                                            <i class="feather icon-edit"></i>
+                                                    <td class="table-action"> 
+                                                        <a type="button" href="<?= base_url()?>/add-element" data-toggle="tooltip"  data-placement="top" title="Ajout Elément"  class="btn btn-icon btn-outline-primary">
+                                                            <i class="feather icon-file-plus"></i>
                                                         </a>
-
-                                                        <a href="<?= base_url()?>/delete-service/<?= $row['cat_id']?>" data-toggle="tooltip" data-placement="top" title="Supprimer"
-                                                            class="btn btn-icon btn-outline-danger" onclick="return confirm('Voulez-vous supprimmer cet élément ?')"
-                                                        >
-                                                            <i class="feather icon-trash-2"></i>
-                                                        </a>
-                                                    </td>
-                                                   
+                                                    </td>                                                   
                                                 </tr>                                                
                                             
                                             <?php endif; ?>

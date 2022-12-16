@@ -33,6 +33,7 @@ abstract class BaseController extends Controller
     public $catModel;
     public $elmtModel;
     public $servModel;
+    public $teamModel;
     public $validation;
 
     /**
@@ -60,5 +61,6 @@ abstract class BaseController extends Controller
         $this->catModel = model(Category::class);
         $this->elmtModel = model(Element::class);
         $this->servModel = model(Service::class);
+        $this->teamModel = model(Team::class);
     }
 }

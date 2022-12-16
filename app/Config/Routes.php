@@ -72,7 +72,10 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->match(['get', 'post'],'add-element', 'Elements::add');
 
 
-    // Projets
+    // Partenaires
+    $routes->get('partners-list', 'Partners::index');
+    $routes->match(['get', 'post'],'add-partner', 'Partners::add');
+
     
 
 
@@ -90,14 +93,16 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->delete('delete-service/(:segment)', 'Services::delete/$1');
     $routes->get('testing', 'Services::testing');
 
+    // Team 
+    $routes->get('team-list', 'Teams::list');
+    $routes->match(['get', 'post'],'add-team', 'Teams::create');
 
-    // Users
-
-   
+    // Users   
     $routes->get('profile', 'Users::profile');
     $routes->get('dashboard', 'Users::dashboard');
     $routes->get('details', 'Users::details');
     $routes->get('list', 'Users::list');
+    $routes->get('/save-picture', 'Users::saveImage');
 });
 
 /*

@@ -22,7 +22,7 @@ class Element extends Model
             'errors' => ['required' => 'Sélectionnez un service SVP !'],
         ],
         'el_title' => [
-            'label' => 'Eléments','rules' => 'required]',
+            'label' => 'Eléments','rules' => 'required',
             'errors' => ['required' => 'Remplissez ce champ'],
         ],
     ];

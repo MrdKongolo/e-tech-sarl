@@ -88,22 +88,21 @@
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Catégorie</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="<?= base_url()?>/add-category">Ajouter Une Catégorie</a></li>
-                            <li><a href="<?= base_url()?>/categories-list">Tous Les Catégories</a></li>
+                            <li><a href="<?= base_url()?>/categories-list">Toutes Les Catégories</a></li>
                         </ul>
                     </li>
                     
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Partenaire</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/add-video">Ajouter Partenaire</a></li>
+                            <li><a href="<?= base_url()?>/add-partner">Ajouter Partenaire</a></li>
                             <li><a href="">Liste Partenaires</a></li>
                         </ul>
                     </li>                    
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Utilisateurs</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/add-user">Ajouter Utilisateur</a></li>
-                            <li><a href="<?= base_url()?>/list-users"">Liste Utilisateurs</a></li>
+                            <li><a href="<?= base_url()?>/list-users">Liste Utilisateurs</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">

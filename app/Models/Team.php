@@ -4,56 +4,52 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Partner extends Model
-{   
-    protected $table            = 'partners';
-    protected $primaryKey       = 'part_id';
-    protected $allowedFields    = ['part_name','part_logo','address','city','city', 'country','part_email','part_tel','created_at','updated_at'];
+class Team extends Model
+{
+    protected $table            = 'team';
+    protected $primaryKey       = 'member_id';
+    protected $allowedFields    = ['firstname','lastname','profession','phone','picture','created_at','updated_at'];
+
 
     // Validation
     protected $validationRules      = [
-        'part_name'   => [
-            'label' => 'Nom Complet', 'rules' => 'required',
+        'firstname'   => [
+            'label' => 'Prénom', 'rules' => 'required',
             'errors' => [
                 'required' => 'Complètez ce champ',
             ]
         ],
-        'address'    => [
-            'label' => 'Adresse', 'rules' => 'required',
+        'lastname'    => [
+            'label' => 'Nom', 'rules' => 'required',
             'errors' => [
                 'required' => 'Complètez ce champ',
             ]
         ],        
-        'city'    => [
-            'label' => 'Ville', 'rules' => 'required',
-            'errors' => [
-                'required' => 'Complètez ce champ',
-            ]
-        ],
-        'part_email'    => [
-            'label' => 'Email', 'rules' => 'required',
+        'profession'    => [
+            'label' => 'Profession', 'rules' => 'required',
             'errors' => [
                 'required' => 'Complètez ce champ',
             ]
         ],
         
-        'part_tel'  => [
+        'phone'  => [
             'label' => 'Téléphone', 'rules' => 'required',
             'errors' => [
                 'required' => 'Complètez ce champ',
             ]
         ],
-        'part_logo' => [
+        'picture' => [
             'label' => 'Image',
-            'rules' => 'uploaded[part_logo]|is_image[part_logo]|max_size[part_logo,200]',
+            'rules' => 'uploaded[picture]|is_image[picture]|max_size[picture,1024]',
             'errors' => [
                 'uploaded' => 'Ne doit pas être vide',
                 'is_image' => 'Le format de cet image est inconnu',
-                'max_size' => 'La taille ne doit pas dépasser 200 Ko', 
+                'max_size' => 'La taille ne doit pas dépasser 1 Mo', 
             ]
-        ] 
+        ]
     ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
+
 }
