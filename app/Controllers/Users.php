@@ -23,6 +23,10 @@ class Users extends BaseController
         return view('users/admin/index',$data);
     }
 
+    public function profile(){
+        $user_data = session()->get('user_data');
+        return view('users/admin/profile',compact('user_data'));
+    }
 
     function addImage()
     {
@@ -44,20 +48,21 @@ class Users extends BaseController
     {
         $data[] = null;
         $user = session()->get('user_data');
+        
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'photo' =>
                     [
                         'label' => 'Image',
-                        'rules' => 'uploaded[photo]|max_size[photo, 4096]|is_image[photo]'
+                        'rules' => 'uploaded[photo]|max_size[photo,4096]|is_image[photo]'
                     ]
             ];
             if ($this->validate($rules)) {
 
                 $path = './resources/images/mrd';
-                $path_user = './resouces/images/user';
+                $path_user = './resources/images/user';
 
-                $file = $this->request->getFile('picture');
+                $file = $this->request->getFile('photo');
                 $imageName = $file->getRandomName();
 
                 if ($file->isValid() && !$file->hasMoved()) {
@@ -68,7 +73,7 @@ class Users extends BaseController
                         ->fit(80, 80, 'center')
                         ->save($path_user . '/' . $imageName);
 
-                    $data = ['u_picture' => $imageName];
+                    $data = ['photo' => $imageName];
 
                     $id = $user['u_id'];
                     $this->userModel->update($id, $data);
@@ -93,22 +98,4 @@ class Users extends BaseController
             return redirect()->to('list-users');
         }
     }
-    function active($u_id){
-        $data = $this->userModel->findUserByID($u_id);
-        $id = $data['u_id'];
-        if(!empty($data)) {
-            if($data['status'] == 'desabled'){
-                $data['status'] ='active';
-            }elseif ($data['status'] == 'active'){
-                $data['status'] = 'desabled';
-            }
-            else{
-                return redirect()->back();
-            }
-            $this->userModel->update($id, $data);
-        }else{
-            return redirect()->back();
-        }
-        return redirect()->to('list-users');   
-    }  
 }

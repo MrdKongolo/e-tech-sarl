@@ -47,6 +47,7 @@ $routes->get('contact', 'Home::contact');
 
 // Projects
 $routes->get('projects', 'Projects::index');
+$routes->post('message', 'Auth::message');
 
 // Services
 $routes->get('services', 'Services::index');
@@ -66,6 +67,10 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->get('categories-list', 'Categories::index');
     $routes->match(['get', 'post'],'add-category', 'Categories::add');
 
+    // Coords
+
+    $routes->get('coords', 'Coords::index');    
+    $routes->post('coords-update', 'Coords::update'); 
 
     // Elements
     $routes->get('elements-list', 'Elements::index');
@@ -102,7 +107,8 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->get('dashboard', 'Users::dashboard');
     $routes->get('details', 'Users::details');
     $routes->get('list', 'Users::list');
-    $routes->get('/save-picture', 'Users::saveImage');
+    $routes->get('add-picture', 'Users::addImage');
+    $routes->post('save-picture', 'Users::saveImage');
 });
 
 /*

@@ -17,13 +17,15 @@ class Home extends BaseController
         }
         $data = [
             'services' => $this->servModel->findAll(),
+            'coords'=> $this->coords
         ];
         return view('pages/' .$page, $data);
     }
 
     public function team(){
         $data = [
-            'title' => 'Equipe | E-Tech'
+            'title' => 'Equipe | E-Tech',
+            'coords'=> $this->coords
         ];
         return view ('team/index', $data);
     }
@@ -33,6 +35,7 @@ class Home extends BaseController
     public function contact(){
         $data = [
             'title' => 'Contact | E-Tech',
+            'coords'=> $this->coords
         ];
         return view('pages/contact', $data);
     }

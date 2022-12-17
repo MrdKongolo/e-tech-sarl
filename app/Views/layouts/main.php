@@ -154,7 +154,7 @@
                                 <li><a href="tel:+243 852 769 918"><i class="far fa-phone"></i>+243 852 769 918</a></li>
                                 <li><a href=""><i class="far fa-envelope"></i><span class="__cf_email__" data-cfemail="cea7a0a8a18eabb6afa3bea2abe0ada1a3">[email&#160;protected]</span></a>
                                 </li>
-                                <li><i class="far fa-clock"></i>Lu - Ven (90:00 - 16:00)</li>
+                                <li><i class="far fa-clock"></i>Lu - Sa (24h/24)</li>
                             </ul>
                         </div>
                     </div>                    
@@ -183,7 +183,6 @@
     <a href="#" id="scroll-top"><i class="far fa-long-arrow-up"></i></a>
 
 
-<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="<?= base_url()?>/assets/js/jquery-3.6.0.min.js"></script>
 <script src="<?= base_url()?>/assets/js/modernizr.min.js"></script>
 <script src="<?= base_url()?>/assets/js/bootstrap.bundle.min.js"></script>

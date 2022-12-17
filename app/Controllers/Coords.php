@@ -9,16 +9,16 @@ class Coords extends BaseController
     public $coordModel; 
    public function __construct()
    {
-       $this->coordModel = model(CoordonneeModel::class);
+       $this->coordModel = model(Coord::class);
    }
     public function index()
     {   
         $data = [
             'title'     => 'Les Coordonnées',
             'user_data' =>  session()->get('user_data'),
-            'coords'    =>  $this->coordModel->first(),
+            'coords'=> $this->coords
         ];
-        return view ('coords/admin/details',$data);
+        return view ('coords/details',$data);
     }
     function update()
     {

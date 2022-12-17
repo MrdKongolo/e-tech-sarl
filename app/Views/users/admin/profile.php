@@ -1,7 +1,9 @@
-<?= $this->extend('dashboard/base')?>
+<?= $this->extend('layouts/base')?>
 <?= $this->section('content')?>
 <!-- [ Main Content ] start -->
-
+<?php
+helper('text');
+;?>
 <div class="pcoded-main-container">
     <div class="pcoded-content">
         <!-- [ Main Content ] start -->
@@ -30,7 +32,7 @@
                                     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="profile-dp">
                                             <div class="position-relative d-inline-block">
-                                                <img class="img-radius img-fluid wid-100" src="<?= base_url()?>/assets/es_admin/images/user/<?= $user_data['u_picture'] ?? "user-default-avatar.png"?>" alt="User image">
+                                                <img class="img-radius img-fluid wid-100" src="<?= base_url()?>/resources/images/user/<?= $user_data['photo'] ?? "user-default-avatar.png"?>" alt="User image">
                                             </div>
                                             <div class="overlay">
                                                 <span>change</span>
@@ -42,7 +44,7 @@
                                         </div>
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="<?= base_url()?>/add-picture"><i class="feather icon-upload-cloud mr-2"></i>Nouvelle photo</a>
+                                        <a class="dropdown-item" href="<?= base_url()?>/users/addImage"><i class="feather icon-upload-cloud mr-2"></i>Nouvelle photo</a>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +54,7 @@
                         <div class="col-md-8 mt-md-4">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <?php if(($user_data['role'] === 'admin') || ($user_data['role'] === 'org manager')) :?>
+                                    <?php if(($user_data['role'] === 'admin')) :?>
 
                                     <?php endif; ?>
                                     <div class="clearfix"></div>
@@ -98,58 +100,52 @@
                             <div class="card-body border-top pro-det-edit collapse show" id="pro-det-edit-1">
                                 <form>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label font-weight-bolder">Nom Entreprise</label>
+                                        <label class="col-sm-3 col-form-label font-weight-bolder">Nom complet</label>
                                         <div class="col-sm-9" style="padding-top: 12px;">
-                                            <?= ucfirst($coords['name']) ?? '';?>
+                                            <?= ucfirst($user_data['username']);?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label font-weight-bolder">Téléphone</label>
                                         <div class="col-sm-9" style="padding-top: 12px;">
-                                            <?= $coords['phone'] ?? "N° Téléphone" ?>
+                                            <?= $user_data['phone'] ?? "N° Téléphone" ?>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label font-weight-bolder">Email </label>
+                                        <label class="col-sm-3 col-form-label font-weight-bolder">Adresse Email </label>
                                         <div class="col-sm-9" style="padding-top: 12px;">
-                                            <?= $coords['email'] ?? "" ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label font-weight-bolder">Adresse</label>
-                                        <div class="col-sm-9" style="padding-top: 12px;">
-                                            <?= $coords['address'] ?? "" ?>
+                                            <?= $user_data['email'] ?? "utilisateur@email.com" ?>
                                         </div>
                                     </div>
 
                                 </form>
                             </div>
                             <div class="card-body border-top pro-det-edit collapse " id="pro-det-edit-2">
-                                <?= form_open("coords-update")?>
+                                <?= form_open("update-one-self")?>
                                     <?= csrf_field();?>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label font-weight-bolder">Nom Entreprise</label>
+                                        <label class="col-sm-3 col-form-label font-weight-bolder">Prénom</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="name" class="form-control" placeholder="Entreprise" value="<?= $coords['name'] ?? "" ?>">
+                                            <input type="text" name="u_firstname" class="form-control" placeholder="Prénom" value="<?= $user_data['u_firstname'] ?? "" ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label font-weight-bolder">Nom</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="u_lastname" class="form-control" placeholder="Nom" value="<?= $user_data['u_lastname'] ?? "" ?>">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label font-weight-bolder">Téléphone</label>
                                         <div class="col-sm-9">
-                                            <input type="tel" name="phone" class="form-control" placeholder="Téléphone" value="<?= $coords['phone'] ?? "" ?>">
+                                            <input type="tel" name="phone" class="form-control" placeholder="Téléphone" value="<?= $user_data['phone'] ?? "" ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label font-weight-bolder">Email</label>
+                                        <label class="col-sm-3 col-form-label font-weight-bolder">Adresse Email</label>
                                         <div class="col-sm-9">
-                                            <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $coords['email'] ?? "" ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label font-weight-bolder">Adresse</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" name="address" class="form-control" placeholder="Adresse" value="<?= $coords['address'] ?? "" ?>">
+                                            <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $user_data['email'] ?? "" ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">

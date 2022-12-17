@@ -34,6 +34,9 @@ abstract class BaseController extends Controller
     public $elmtModel;
     public $servModel;
     public $teamModel;
+    public $coords;
+    public $email;
+
     public $validation;
 
     /**
@@ -57,10 +60,14 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $this->validation = \Config\Services::validation();
+        $this->email = \Config\Services::email();
+        
         $this->userModel = model(User::class);
         $this->catModel = model(Category::class);
         $this->elmtModel = model(Element::class);
         $this->servModel = model(Service::class);
         $this->teamModel = model(Team::class);
+        $this->coordModel = model(Coord::class);
+        $this->coords =  $this->coordModel->first();
     }
 }

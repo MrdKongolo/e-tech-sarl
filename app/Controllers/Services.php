@@ -10,12 +10,14 @@ class Services extends BaseController
     {
         $data = [
             'title'=> "Tous les secteurs | E-Tech",
+            'coords'=> $this->coords
         ];
         return view('services/index',$data);
     }
     public function details($segment = null){
         $data = [
             'title'=> "Détails Service",
+            'coords'=> $this->coords
         ];
         return view('services/details', $data);
     }    
@@ -32,6 +34,7 @@ class Services extends BaseController
     public function services(){
         $data = [
             'services' => $this->servModel->findAll(),
+            'coords'=> $this->coords
         ];
         return view ('services/services',$data);
     }
@@ -137,7 +140,7 @@ class Services extends BaseController
                     $data = ['picture' => $imageName];
                     
                     $this->servModel->update($id,$data);
-                    $file->move('./assets/es_admin/images/services', $imageName);
+                    $file->move('./resources/images/services', $imageName);
                     return redirect()->to('/service-list');
                 }
             } else {

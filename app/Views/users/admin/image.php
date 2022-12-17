@@ -41,9 +41,9 @@
                                 <div class="row text-c">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="file" class="form-control" name="picture">
+                                            <input type="file" class="form-control" name="photo">
                                         </div>
-                                        <small id="input-help" class="form-text text-danger mb-2"><?= $validation['picture'] ?? null; ?></small>
+                                        <small id="input-help" class="form-text text-danger mb-2"><?= $validation['photo'] ?? null; ?></small>
                                     </div>
                                     <div class="col-sm-12">
                                         <button type="submit" class="btn btn-icon btn-primary has-ripple p-2"><i class="feather icon-check"></i></button>
