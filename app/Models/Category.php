@@ -25,4 +25,11 @@ class Category extends Model
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
+    public function getServiceCategories($srv){
+        if($srv === null){
+            return false;
+        }
+        return $this->where(['srv_id'=> $srv])->findAll();
+    }
+
 }

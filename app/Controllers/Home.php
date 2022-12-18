@@ -39,4 +39,10 @@ class Home extends BaseController
         ];
         return view('pages/contact', $data);
     }
+    public function blog(){
+        $data = [
+            'title' => 'Réalisations'
+        ];
+        return view ('pages/blog',$data);
+    }
 }

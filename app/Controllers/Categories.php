@@ -50,4 +50,5 @@ class Categories extends BaseController
                                 ->findAll();
         return json_encode($categ);
     }
+    
 }

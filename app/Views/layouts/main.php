@@ -28,6 +28,10 @@
             margin-bottom: 0px;
             height: 93px;
         }
+        .site-breadcrumb::after {
+            border: 50px solid #3edd0a !important;
+            opacity: 0.6 !important;
+        }
     </style>
 </head>
 
@@ -73,7 +77,7 @@
                                 <a class="nav-link </?= ($uri->getSegment(1) == 'projects' ? 'active' :null)?>" href="</?=base_url();?>/projects"> Projets </a>
                             </li>                             -->
                             <li class="nav-item">
-                                <a class="nav-link" href=""> Réalisations </a>
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'blog' ? 'active' : null)?>" href="<?=base_url();?>/blog"> Réalisations </a>
                             </li>                            
                             
                             <li class="nav-item">
@@ -110,7 +114,7 @@
     <main class="home-3 main">
 
     <?= $this->renderSection('content');?>
-
+        
     </main>
 
     <footer class="footer-area">

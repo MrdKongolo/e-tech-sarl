@@ -39,5 +39,11 @@ class Service extends Model
         }
         return  $this->where(['srv_id' => $id])->first();
     }
+    public function getServiceBySlug($slug){
+        if($slug === null){
+            return false;
+        }
+        return  $this->where(['srv_slug' => $slug])->first();
+    }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+// use App\Controllers\Categories as Categ;
 
 class Services extends BaseController
 {
@@ -15,12 +16,32 @@ class Services extends BaseController
         return view('services/index',$data);
     }
     public function details($segment = null){
+        $service = $this->servModel->getServiceBySlug($segment);
+        $categ = $this->catModel->join('services','services.srv_id= categories.srv_id')
+                                ->where('categories.srv_id', $service['srv_id'])
+                                ->findAll();
         $data = [
             'title'=> "Détails Service",
-            'coords'=> $this->coords
+            'coords'=> $this->coords,
+            'service'=> $service,
+            'categories'=> $categ,
+            'nb'=> count($categ)
         ];
         return view('services/details', $data);
     }    
+
+    public function getServiceCategories($srv){
+        $categ = $this->catModel->join('services','services.srv_id= categories.srv_id')
+                                ->where('categories.srv_id', $srv)
+                                ->findAll();
+        return view('services/categories',$categ);
+    }
+    public function getElementsByCategory($cat){
+        $categ = $this->elmtModel->join('categories','categories.cat_id= elements.cat_id')
+                                ->where('elements.cat_id', $cat)
+                                ->findAll();
+        return view('services/categories',$categ);
+    }
 
     public function list(){
         $data = [

@@ -55,6 +55,7 @@ $routes->get('services/(:segment)', 'Services::details/$1');
 
 // Team
 $routes->get('team', [\App\Controllers\Home::class, 'team']);
+$routes->get('blog', [\App\Controllers\Home::class, 'blog']);
 
 $routes->match(['get', 'post'],'signin','Auth::signin', ['filter' => 'alreadyloggedin']);
 // Admin

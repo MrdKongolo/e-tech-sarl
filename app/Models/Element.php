@@ -29,4 +29,11 @@ class Element extends Model
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
+
+    public function getElementsByCategory($cat){
+        if($cat === null){
+            return false;
+        }
+        return $this->where(['cat_id'=> $cat])->findAll();
+    }
 }
