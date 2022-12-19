@@ -18,7 +18,7 @@
             <div class="col-lg-6">
                 <div class="about-left">
                     <div class="about-img">
-                        <img class="about-img-1" src="assets/img/about/01.jpg" alt="">
+                        <img class="about-img-1" src="<?=base_url()?>/assets/img/slider/e-tech.jpg" alt="">
                     </div>
                     <div class="about-left-content">
                         <div class="about-left-info">
@@ -76,21 +76,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="partner-area pt-70 pb-70">
-    <div class="container">
-        <div class="partner-wrapper partner-slider owl-carousel owl-theme">
-            <img src="assets/img/partner/01.jpg" alt="thumb">
-            <img src="assets/img/partner/02.jpg" alt="thumb">
-            <img src="assets/img/partner/03.jpg" alt="thumb">
-            <img src="assets/img/partner/04.jpg" alt="thumb">
-            <img src="assets/img/partner/01.jpg" alt="thumb">
-            <img src="assets/img/partner/02.jpg" alt="thumb">
-            <img src="assets/img/partner/03.jpg" alt="thumb">
         </div>
     </div>
 </div>

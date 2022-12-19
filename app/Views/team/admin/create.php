@@ -30,7 +30,7 @@
                     </div>
                     <div class="card-body">
 
-                        <?= form_open_multipart('add-member')?>
+                        <?= form_open_multipart('add-team')?>
                             <?= csrf_field()?>
                             <div class="row">
                                 <div class="col-sm-6">

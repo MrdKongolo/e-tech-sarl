@@ -17,6 +17,7 @@ class Home extends BaseController
         }
         $data = [
             'services' => $this->servModel->findAll(),
+            'parts' => $this->partModel->findAll(),
             'coords'=> $this->coords
         ];
         return view('pages/' .$page, $data);
@@ -25,7 +26,9 @@ class Home extends BaseController
     public function team(){
         $data = [
             'title' => 'Equipe | E-Tech',
-            'coords'=> $this->coords
+            'coords'=> $this->coords,
+            'parts' => $this->partModel->findAll(),
+            'team' => $this->teamModel->findAll()
         ];
         return view ('team/index', $data);
     }
@@ -35,13 +38,15 @@ class Home extends BaseController
     public function contact(){
         $data = [
             'title' => 'Contact | E-Tech',
-            'coords'=> $this->coords
+            'coords'=> $this->coords,
+            'parts' => $this->partModel->findAll(),
         ];
         return view('pages/contact', $data);
     }
     public function blog(){
         $data = [
-            'title' => 'Réalisations'
+            'title' => 'Réalisations',
+            'parts' => $this->partModel->findAll(),
         ];
         return view ('pages/blog',$data);
     }

@@ -11,7 +11,8 @@ class Services extends BaseController
     {
         $data = [
             'title'=> "Tous les secteurs | E-Tech",
-            'coords'=> $this->coords
+            'coords'=> $this->coords,
+            'parts' => $this->partModel->findAll(),
         ];
         return view('services/index',$data);
     }
@@ -25,6 +26,7 @@ class Services extends BaseController
             'coords'=> $this->coords,
             'service'=> $service,
             'categories'=> $categ,
+            'parts' => $this->partModel->findAll(),
             'nb'=> count($categ)
         ];
         return view('services/details', $data);
@@ -55,17 +57,18 @@ class Services extends BaseController
     public function services(){
         $data = [
             'services' => $this->servModel->findAll(),
-            'coords'=> $this->coords
+            'coords'=> $this->coords,
+            'parts' => $this->partModel->findAll(),
         ];
         return view ('services/services',$data);
     }
     
 
     public function create(){
-        $user = session()->get('user_data');
         $data = [
             'title' => "Ajout Service",
             'validation' => null,
+            'parts' => $this->partModel->findAll(),
         ];
         $rules = $this->servModel->getValidationRules();
         

@@ -8,7 +8,7 @@ class Partner extends Model
 {   
     protected $table            = 'partners';
     protected $primaryKey       = 'part_id';
-    protected $allowedFields    = ['part_name','part_logo','address','city','city', 'country','part_email','part_tel','created_at','updated_at'];
+    protected $allowedFields    = ['part_name','part_logo','address','city', 'country','part_email','part_tel','created_at','updated_at'];
 
     // Validation
     protected $validationRules      = [
@@ -26,6 +26,12 @@ class Partner extends Model
         ],        
         'city'    => [
             'label' => 'Ville', 'rules' => 'required',
+            'errors' => [
+                'required' => 'Complètez ce champ',
+            ]
+        ],
+        'country'    => [
+            'label' => 'Pays', 'rules' => 'required',
             'errors' => [
                 'required' => 'Complètez ce champ',
             ]

@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="<?= base_url()?>/resources/css/plugins/dataTables.bootstrap4.min.css">
     <!-- select2 css -->
     <link rel="stylesheet" href="<?= base_url()?>/resources/css/plugins/select2.min.css">
-    <link rel="stylesheet" href="<?= base_url()?>/resources/css/formulaire.css">
 
     <!-- vendor css -->
     <link rel="stylesheet" href="<?= base_url()?>/resources/css/style.css">
@@ -96,19 +95,19 @@
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Partenaire</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="<?= base_url()?>/add-partner">Ajouter Partenaire</a></li>
-                            <li><a href="">Liste Partenaires</a></li>
+                            <li><a href="<?= base_url()?>/partners-list">Liste Partenaires</a></li>
                         </ul>
                     </li>                    
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Utilisateurs</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/list-users">Liste Utilisateurs</a></li>
+                            <li><a href="">Liste Utilisateurs</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Equipe</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url()?>/add-member">Ajouter Membre</a></li>
+                            <li><a href="<?= base_url()?>/add-team">Ajouter Membre</a></li>
                             <li><a href="<?= base_url()?>/team-list"">Liste Equipe</a></li>
                         </ul>
                     </li>
@@ -168,7 +167,7 @@
                         <ul class="pro-body">
                             <li><a href="<?= base_url()?>/profile" class="dropdown-item"><i class="feather icon-user"></i>Profile</a></li>
                             <li><a href="<?= base_url()?>/logout" class="dropdown-item"><i class="feather icon-lock"></i>Déconnexion</a></li>
-                            <li><a href="<?= base_url()?>/change-pwd" class="dropdown-item"><i class="feather icon-settings"></i>Changer Mot de Passe</a></li>
+                            <!-- <li><a href="</?= base_url()?>/change-pwd" class="dropdown-item"><i class="feather icon-settings"></i>Changer Mot de Passe</a></li> -->
                             <li><a href="<?= base_url()?>" class="dropdown-item"><i class="feather icon-home"></i>Voir le Site</a></li>
                         </ul>
                     </div>

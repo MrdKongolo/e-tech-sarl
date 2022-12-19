@@ -13,6 +13,7 @@ class Auth extends BaseController
     public function about(){
         $data = [
             'title' => 'Qui nous sommes | E-Tech',
+            'parts' => $this->partModel->findAll(),
             'coords'=> $this->coords
         ];
         return view('pages/about',$data);
@@ -57,7 +58,8 @@ class Auth extends BaseController
         $data = [
             'title'         => "Nous Contacter'",
             'validation'    => null,
-            'coords'    =>  $this->coords
+            'coords'    =>  $this->coords,
+            'parts' => $this->partModel->findAll(),
         ];
         if ($this->request->getMethod() == 'post') {
             $this->validation->setRules([

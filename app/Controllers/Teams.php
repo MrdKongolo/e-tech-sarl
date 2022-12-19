@@ -20,7 +20,7 @@ class Teams extends BaseController
         $data = [
             'user_data' => session()->get('user_data'),
             'title'     => 'Les Membres | E-Tech',
-            'members'   => $this->teamModel->asObject()->getMembers(null)
+            'members'   => $this->teamModel->asObject()->findAll()
         ];
         return view('team/admin/list',$data);
     }
@@ -59,9 +59,9 @@ class Teams extends BaseController
                     
                 return redirect()->to('/team-list')->with('success',"Membre créé avec succès !");                    
                  
-            } else {
-                $data['validation'] = $this->validation->getErrors();
-            }
+            } 
+        }else {
+            $data['validation'] = $this->validation->getErrors();
         }
         $data['title'] = 'E-Tech SARL | Les Membres';
         echo view('team/admin/create', $data);

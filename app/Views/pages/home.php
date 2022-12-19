@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-md-5 col-lg-5">
                     <div class="hero-img">
-                        <img src="assets/img/slider/hero-2.jpg" alt="">
+                        <img src="<?=base_url()?>/assets/img/slider/e-tech.jpg" height="490" alt="">
                     </div>
                 </div>
             </div>
@@ -89,17 +89,5 @@
     </div>
 </div>
 
-<div class="partner-area pt-70 pb-70">
-    <div class="container">
-        <div class="partner-wrapper partner-slider owl-carousel owl-theme">
-            <img src="assets/img/partner/01.jpg" alt="thumb">
-            <img src="assets/img/partner/02.jpg" alt="thumb">
-            <img src="assets/img/partner/03.jpg" alt="thumb">
-            <img src="assets/img/partner/04.jpg" alt="thumb">
-            <img src="assets/img/partner/01.jpg" alt="thumb">
-            <img src="assets/img/partner/02.jpg" alt="thumb">
-            <img src="assets/img/partner/03.jpg" alt="thumb">
-        </div>
-    </div>
-</div>
+
 <?= $this->endSection('content'); ?>

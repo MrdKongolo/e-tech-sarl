@@ -113,7 +113,19 @@
 
     <main class="home-3 main">
 
-    <?= $this->renderSection('content');?>
+    <?= $this->renderSection('content');?>    
+
+    <div class="partner-area pt-70 pb-70">
+        <div class="container">
+            <?php if(isset($parts)):?>
+                <div class="partner-wrapper partner-slider owl-carousel owl-theme">
+                    <?php foreach($parts as $val):?>
+                        <img src="<?= base_url();?>/resources/images/partners/<?= $val['part_logo'];?>" alt="thumb">
+                    <?php endforeach;?>
+                </div>
+            <?php endif;?>
+        </div>
+    </div>
         
     </main>
 

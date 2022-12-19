@@ -34,6 +34,7 @@ abstract class BaseController extends Controller
     public $elmtModel;
     public $servModel;
     public $teamModel;
+    public $partModel;
     public $coords;
     public $email;
 
@@ -68,6 +69,7 @@ abstract class BaseController extends Controller
         $this->servModel = model(Service::class);
         $this->teamModel = model(Team::class);
         $this->coordModel = model(Coord::class);
+        $this->partModel = model(Partner::class);
         $this->coords =  $this->coordModel->first();
     }
 }

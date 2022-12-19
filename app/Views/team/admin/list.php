@@ -15,7 +15,7 @@
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>/dashboard"><i
                                         class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Les Membres</a></li>
-                            <?php if($user_data['u_role'] === 'admin'):?>
+                            <?php if($user_data['role'] === 'admin'):?>
                                 <li class="breadcrumb-item"><a href="<?= base_url() ?>/users/create">Ajouter Un Utilisateur</a>
                             <?php endif;?>
                             </li>
@@ -39,7 +39,7 @@
                         <div class="dt-responsive table-responsive">
                             <table id="user-list-table" class="table nowrap">
                                 
-                                <?php if($user_data['u_role'] === 'admin'):?>
+                                <?php if($user_data['role'] === 'admin'):?>
                                     <thead>
                                         <tr>
                                             <th>Noms</th>
@@ -53,12 +53,12 @@
                                             <tr>
                                                 <td>
                                                     <div class="d-inline-block align-middle">
-                                                        <img src="<?= base_url() ?>/assets/es_admin/images/team/<?= $row->picture ?? "no-image.jpg"?>"
+                                                        <img src="<?= base_url() ?>/resources/images/team/<?= $row->picture ?? "no-image.jpg"?>"
                                                              alt="user image" class="img-radius align-top m-r-15"
                                                              style="width:40px;">
                                                         <div class="d-inline-block">
                                                             <h6 class="m-b-0"><?= ucfirst($row->firstname) .' '.  ucfirst($row->lastname) ?></h6>
-                                                            <p class="m-b-0"><?= $row->u_email ?? "" ?></p>
+                                                            <p class="m-b-0"><?= $row->profession ?? "" ?></p>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -66,12 +66,10 @@
                                                 <td><?= ucfirst($row->profession) ?? "" ?></td>
                                                 <td>                                                    
                                                     <div class="overlay-edit">
-                                                        <a type="button" class="btn btn-icon btn-primary"
+                                                        <a type="button" class="btn btn-icon btn-success"
                                                            href="" data-toggle="tooltip" data-placement="top" title="Voir Plus">
                                                             <i class="feather icon-eye"></i>
                                                         </a>
-                                                        <a type="button" class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Activer/Désactiver"
-                                                            href=""><i class="feather icon-check-circle"></i></a>
                                                         <a type="button" href="" data-toggle="tooltip" data-placement="top" title="Supprimer"
                                                             class="btn btn-icon btn-danger" onclick="return confirm('Etes-vous sûr de supprimer cet utilisateur ?')"><i
                                                                 class="feather icon-trash-2"></i></a>

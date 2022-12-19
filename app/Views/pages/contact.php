@@ -110,6 +110,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function(){
         $('#contact-form').on('submit', function(event){
