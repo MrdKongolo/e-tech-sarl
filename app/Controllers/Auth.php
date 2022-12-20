@@ -6,10 +6,7 @@ use App\Controllers\BaseController;
 
 class Auth extends BaseController
 {
-    public function __construct()
-    {
-        
-    }
+
     public function about(){
         $data = [
             'title' => 'Qui nous sommes | E-Tech',
@@ -21,7 +18,7 @@ class Auth extends BaseController
     public function signin(){
         $data = [
             'title' => 'Connexion | E-Tech',
-            'coords'=> $this->coords
+            'coords'=> $this->coords,
         ];
         $rules = $this->userModel->getValidationRules();
 

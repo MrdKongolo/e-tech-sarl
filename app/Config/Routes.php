@@ -112,6 +112,15 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->post('save-picture', 'Users::saveImage');
 });
 
+$routes->set404Override(function(){
+    $model = model(Coord::class);
+    $coords =  $model->first();
+    $data = [
+        'title'=> 'Erreur',
+        'coords'=> $coords
+    ];
+    return view('errors/404.php',$data);
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing

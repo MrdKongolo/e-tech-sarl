@@ -1,3 +1,6 @@
+<?php 
+$user_data = session()->get('user_data');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,8 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nous garantissons la réussite et surtout la satisfaction de nos partenaires.">
-    <meta name="keywords" content="imprimerie,construction,agropastoral,fournitures,consultance">
+    <meta name="description" content="Nous sommes une entreprise qui oeuvre dans les secteurs de l'imprimerie, l'agropastoral, le numérique et la construction.">
+    <meta name="keywords" content="imprimerie,construction,agropastoral,fournitures,consultance,renforcement de capacites">
     <meta name="author" content="Medard Kongolo">
 
     <title><?= $title ?? 'E-Tech SARL'?></title>
@@ -20,7 +23,7 @@
     <link rel="stylesheet" href="<?= base_url()?>/assets/css/magnific-popup.min.css">
     <link rel="stylesheet" href="<?= base_url()?>/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url()?>/assets/css/style.css">
-    <style>
+    <style>        
         .site-breadcrumb::before {
             background-image: linear-gradient(to top,#f9f5f4 0%,#f9f5f4 0%);
         }
@@ -31,6 +34,10 @@
         .site-breadcrumb::after {
             border: 50px solid #3edd0a !important;
             opacity: 0.6 !important;
+        }            
+        .navbar-brand img {
+            width: 160px;
+            height: 84px;
         }
     </style>
 </head>
@@ -72,10 +79,7 @@
                             </li>                            
                             <li class="nav-item">
                                 <a class="nav-link <?= ($uri->getSegment(1) == 'team' ? 'active' : null)?>" href="<?=base_url();?>/team"> Equipe </a>
-                            </li>                            
-                            <!-- <li class="nav-item">
-                                <a class="nav-link </?= ($uri->getSegment(1) == 'projects' ? 'active' :null)?>" href="</?=base_url();?>/projects"> Projets </a>
-                            </li>                             -->
+                            </li>                               
                             <li class="nav-item">
                                 <a class="nav-link <?= ($uri->getSegment(1) == 'blog' ? 'active' : null)?>" href="<?=base_url();?>/blog"> Réalisations </a>
                             </li>                            
@@ -120,7 +124,7 @@
             <?php if(isset($parts)):?>
                 <div class="partner-wrapper partner-slider owl-carousel owl-theme">
                     <?php foreach($parts as $val):?>
-                        <img src="<?= base_url();?>/resources/images/partners/<?= $val['part_logo'];?>" alt="thumb">
+                        <img src="<?= base_url();?>/resources/images/partners/<?= $val['part_logo'];?>" alt="thumb" id="partner">
                     <?php endforeach;?>
                 </div>
             <?php endif;?>
@@ -144,9 +148,8 @@
                             </p>
                             <ul class="footer-social">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://api.whatsapp.com/send?phone=243814590209"><i class="fab fa-whatsapp"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -157,8 +160,13 @@
                                 <li><a href="<?=base_url()?>"><i class="fas fa-caret-right"></i> Accueil</a></li>
                                 <li><a href="<?=base_url()?>/about-us"><i class="fas fa-caret-right"></i> A Propos</a></li>
                                 <li><a href="<?=base_url()?>/services"><i class="fas fa-caret-right"></i> Services</a></li>
-                                <li><a href="<?=base_url()?>/"><i class="fas fa-caret-right"></i> Réalisations</a></li>
-                                <li><a href="<?=base_url()?>/contact"><i class="fas fa-caret-right"></i> Contact</a></li>
+                                <li><a href="<?=base_url()?>/blog"><i class="fas fa-caret-right"></i> Réalisations</a></li>
+                                <?php if (empty($user_data)):?>
+                                    <li><a href="<?=base_url()?>/signin"><i class="fas fa-caret-right"></i>Connexion</a></li>
+                                    <?php endif;?>
+                                <?php if(isset($user_data)) :?>
+                                    <li><a href="<?=base_url()?>/logout"><i class="fas fa-caret-right"></i>Déconnexion</a></li>
+                                <?php endif;?>
                             </ul>
                         </div>
                     </div>
@@ -167,8 +175,8 @@
                             <h4 class="footer-widget-title">Contact</h4>
                             <ul class="footer-contact">
                                 <li><i class="far fa-map-marker-alt"></i>05, Av. Tshisawaka, C/ Kampemba, Lubumbashi-RDC</li>
-                                <li><a href="tel:+243 852 769 918"><i class="far fa-phone"></i>+243 852 769 918</a></li>
-                                <li><a href=""><i class="far fa-envelope"></i><span class="__cf_email__" data-cfemail="cea7a0a8a18eabb6afa3bea2abe0ada1a3">[email&#160;protected]</span></a>
+                                <li><a href="tel:+243 852 769 918"><i class="far fa-phone"></i><?= $coords['phone']?></a></li>
+                                <li><a href=""><i class="far fa-envelope"></i><span class="__cf_email__" data-cfemail=""><?= $coords['email'] ?? 'Email' ?></span></a>
                                 </li>
                                 <li><i class="far fa-clock"></i>Lu - Sa (24h/24)</li>
                             </ul>
@@ -180,12 +188,19 @@
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 align-self-center">
+                    <div class="col-lg-4 align-self-center">
                         <p class="copyright-text">
                             &copy; Copyright <span id="date"></span> <a href="#"> E-Tech Sarl </a> Tous droits reservés.
                         </p>
                     </div>
-                    <div class="col-lg-6 align-self-center">
+                    <div class="col-lg-4 align-self-center text-center">
+                        <p class="copyright-text">
+                        RCCM : CD/LSH/RCCM/21-B-00869 <br>
+                        Id. Nat. : 05-C1700-N86668E <br>
+                        N° Fiscal : A2170599M
+                        </p>
+                    </div>
+                    <div class="col-lg-4 align-self-center">
                         <ul class="footer-menu">
                             <li><a href="https://api.whatsapp.com/send?phone=243976739301">Dévéloppé par <span style="color:red">MrdKB</span> </a></li>
                         </ul>
@@ -198,19 +213,18 @@
 
     <a href="#" id="scroll-top"><i class="far fa-long-arrow-up"></i></a>
 
-
-<script src="<?= base_url()?>/assets/js/jquery-3.6.0.min.js"></script>
-<script src="<?= base_url()?>/assets/js/modernizr.min.js"></script>
-<script src="<?= base_url()?>/assets/js/bootstrap.bundle.min.js"></script>
-<script src="<?= base_url()?>/assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="<?= base_url()?>/assets/js/jquery.magnific-popup.min.js"></script>
-<script src="<?= base_url()?>/assets/js/isotope.pkgd.min.js"></script>
-<script src="<?= base_url()?>/assets/js/jquery.appear.min.js"></script>
-<script src="<?= base_url()?>/assets/js/jquery.easing.min.js"></script>
-<script src="<?= base_url()?>/assets/js/owl.carousel.min.js"></script>
-<script src="<?= base_url()?>/assets/js/counter-up.js"></script>
-<script src="<?= base_url()?>/assets/js/wow.min.js"></script>
-<script src="<?= base_url()?>/assets/js/main.js"></script>
+    <script src="<?= base_url()?>/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/modernizr.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/isotope.pkgd.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/jquery.appear.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/jquery.easing.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/owl.carousel.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/counter-up.js"></script>
+    <script src="<?= base_url()?>/assets/js/wow.min.js"></script>
+    <script src="<?= base_url()?>/assets/js/main.js"></script>
 </body>
 
 

@@ -4,12 +4,16 @@
     h4>a {
         text-align: center;
     }
-    div>p{
+    div>p {
         text-align: justify;
     }
-    div>img{
+    div>img {
         width: 416px;
         height: 277px;
+    }
+    img#partner {
+        width: 144.33px;
+        height: 109.55px;
     }
 </style>
 <div class="site-breadcrumb">
@@ -28,7 +32,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/salles.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/salles.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
@@ -41,12 +45,12 @@
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/etudes.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/etudes.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
                             <a href="#">
-                            Etudes topographiques à 100m du péage Kanyaka
+                                Etudes topographiques à 100m du péage Kanyaka
                             </a>
                         </h4>
                         <p>Etudes topographiques à 100m du péage Kanyaka sur la route Kasumbalesa où sera construit un parking + 2 bâtiments R+2 </p>
@@ -56,20 +60,20 @@
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/oignons.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/oignons.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
                             <a href="#">Sous-traitance agricole dans une ferme</a>
                         </h4>
-                        <p> Sous-traitance agricole à la ferme POULE AUX ŒUFS D’OR (cuture des oignons) </p>                        
+                        <p> Sous-traitance agricole à la ferme POULE AUX ŒUFS D’OR (cuture des oignons) </p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/site.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/site.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
@@ -82,7 +86,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/etangs.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/etangs.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
@@ -96,7 +100,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/parking.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/parking.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
@@ -109,14 +113,14 @@
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/livres.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/livres.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
                             <a href="#">Production des livres</a>
                         </h4>
                         <p>
-                            Reliure cartonnée des cahiers des charge de l’ONG Alternatives Plus. 
+                            Reliure cartonnée des cahiers des charge de l’ONG Alternatives Plus.
                             Production livres A6 fondation Cité de la Jeune Fille
                         </p>
                     </div>
@@ -125,7 +129,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
-                        <img src="<?=base_url()?>/assets/img/blog/serres.jpg" alt="Thumb">
+                        <img src="<?= base_url() ?>/assets/img/blog/serres.jpg" alt="Thumb">
                     </div>
                     <div class="blog-item-info">
                         <h4 class="blog-title">
@@ -135,8 +139,9 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
+
 
 <?= $this->endSection('content'); ?>

@@ -136,21 +136,8 @@
         </a>
     </div>
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
-                <div class="search-bar">
-                    <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </li>
-        </ul>
+        
         <ul class="navbar-nav ml-auto">
-            <li>
-
-            </li>
             <li>
                 <div class="dropdown drp-user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -234,7 +221,6 @@
 <script src="<?= base_url()?>/resources/js/plugins/bootstrap.min.js"></script>
 <script src="<?= base_url()?>/resources/js/ripple.js"></script>
 <script src="<?= base_url()?>/resources/js/pcoded.min.js"></script>
-<script src="<?= base_url()?>/resources/js/menu-setting.min.js"></script>
 
 <!-- Apex Chart -->
 <script src="<?= base_url()?>/resources/js/plugins/apexcharts.min.js"></script>
@@ -253,7 +239,6 @@
 <script src="<?= base_url()?>/resources/js/pages/ac-notification.js"></script>
 <!-- file-upload Js -->
 <script src="<?= base_url()?>/resources/js/plugins/dropzone-amd-module.min.js"></script>
-<script src="<?= base_url()?>/resources/js/menu-setting.min.js"></script>
 <!-- select2 Js -->
 <script src="<?= base_url()?>/resources/js/plugins/select2.full.min.js"></script>
 <!-- form-select-custom Js -->
