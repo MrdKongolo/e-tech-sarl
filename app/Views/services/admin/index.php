@@ -73,18 +73,13 @@
                                                     
                                                     <td class="table-action">
                                                         
-                                                        <a type="button" href="<?= base_url()?>/service-edit/<?= $row['srv_id']?>" data-toggle="tooltip"  data-placement="top" title="Modifier"  class="btn btn-icon btn-outline-success">
+                                                        <a type="button" href="<?= base_url()?>/service/edit/<?= $row['srv_id']?>" data-toggle="tooltip"  data-placement="top" title="Modifier"  class="btn btn-icon btn-outline-success">
                                                             <i class="feather icon-edit"></i>
                                                         </a>
 
                                                         <a type="button" href="<?= base_url()?>/service-image/<?= $row['srv_id']?>" data-toggle="tooltip" data-placement="top" title="Changer Image"
                                                                 class="btn btn-icon btn-outline-info">
                                                             <i class="feather icon-image"></i>
-                                                        </a>
-                                                        <a href="<?= base_url()?>/delete-service/<?= $row['srv_id']?>" data-toggle="tooltip" data-placement="top" title="Supprimer"
-                                                            class="btn btn-icon btn-outline-danger" onclick="return confirm('Voulez-vous supprimmer cet élément ?')"
-                                                        >
-                                                            <i class="feather icon-trash-2"></i>
                                                         </a>
                                                     </td>
                                                    

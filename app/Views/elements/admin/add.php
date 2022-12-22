@@ -58,10 +58,30 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="Text">Noms Eléments</label>
+                                        <label for="Text">Nom Elément</label>
                                         <input type="text" class="form-control" name="el_title" value="<?= set_value('el_title')?>" >
                                         <small id="input-help" class="form-text text-danger"><?= $validation['el_title'] ?? null ;  ?></small>
                                     </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="units">Unité de vente</label>
+                                        <input type="text" class="form-control" name="units" value="<?= set_value('phone')?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['units'] ?? null ;  ?></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="price_inf">Prix Unitaire</label>
+                                        <input type="number" class="form-control" name="price_inf" value="<?= set_value('price_inf')?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['price_inf'] ?? null ;  ?></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="file" class="form-control" name="picture">
+                                    </div>
+                                    <small id="input-help" class="form-text text-danger"><?= $validation['picture'] ?? null; ?></small>
                                 </div>
                                 <div class="col-sm-6 text-right">
                                     <input type="submit" class="btn btn-md btn-primary" value="Enregistrer">

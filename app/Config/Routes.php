@@ -74,8 +74,13 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->post('coords-update', 'Coords::update'); 
 
     // Elements
-    $routes->get('elements-list', 'Elements::index');
+    $routes->get('elements', 'Elements::index');
     $routes->match(['get', 'post'],'add-element', 'Elements::add');
+    $routes->get('element/edit/(:num)', 'Elements::edit/$1');
+    $routes->add('update-element', 'Elements::update');
+    $routes->get('element-image/(:num)', 'Elements::addImage/$1');
+    $routes->add('element-update-image', 'Elements::updateImage');
+    $routes->delete('delete-element/(:segment)', 'Elements::delete/$1');
 
 
     // Partenaires
@@ -84,9 +89,7 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
 
     
 
-
     // Réalisations
-
 
     // Secteurs
 
@@ -95,7 +98,10 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->get('services-list', 'Services::list');
     $routes->get('services/(:segment)', 'Services::details');
     $routes->match(['get', 'post'],'add-service', 'Services::create');
-    $routes->put('update-service/(:segment)', 'Services::update/$1');
+    $routes->get('service/edit/(:num)', 'Services::edit/$1');
+    $routes->add('update-service', 'Services::update');
+    $routes->get('service-image/(:num)', 'Services::addImage/$1');
+    $routes->add('service-update-image', 'Services::updateImage');
     $routes->delete('delete-service/(:segment)', 'Services::delete/$1');
     $routes->get('testing', 'Services::testing');
 
@@ -112,15 +118,15 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->post('save-picture', 'Users::saveImage');
 });
 
-$routes->set404Override(function(){
-    $model = model(Coord::class);
-    $coords =  $model->first();
-    $data = [
-        'title'=> 'Erreur',
-        'coords'=> $coords
-    ];
-    return view('errors/404.php',$data);
-});
+// $routes->set404Override(function(){
+//     $model = model(Coord::class);
+//     $coords =  $model->first();
+//     $data = [
+//         'title'=> 'Erreur',
+//         'coords'=> $coords
+//     ];
+//     return view('errors/404.php',$data);
+// });
 /*
  * --------------------------------------------------------------------
  * Additional Routing

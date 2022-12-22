@@ -8,7 +8,7 @@ class Element extends Model
 {
     protected $table            = 'elements';
     protected $primaryKey       = 'el_id';
-    protected $allowedFields    = ['cat_id','el_title','created_at','updated_at'];
+    protected $allowedFields    = ['cat_id','el_title','created_at','updated_at','price_inf', 'price_max','units','picture'];
 
 
     // Validation
@@ -25,6 +25,22 @@ class Element extends Model
             'label' => 'Eléments','rules' => 'required',
             'errors' => ['required' => 'Remplissez ce champ'],
         ],
+        'price_inf' => [
+            'label' => 'Prix','rules' => 'required',
+            'errors' => ['required' => 'Remplissez ce champ'],
+        ],
+        'units' => [
+            'label' => 'Remplissez l\'unité de vente','rules' => 'required',
+            'errors' => ['required' => 'Unités de vente'],
+        ],
+        'picture' => [
+            'label' => 'Image',
+            'rules' => 'uploaded[picture]|is_image[picture]|mime_in[picture,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+            'errors' => [
+                'uploaded' => 'Veuillez choisir une phote',
+                'is_image' => 'Le format de cet image est inconnu',
+            ]
+        ]
     ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
@@ -35,5 +51,11 @@ class Element extends Model
             return false;
         }
         return $this->where(['cat_id'=> $cat])->findAll();
+    }
+    public function getElement($id){
+        if($id === null){
+            return false;
+        }
+        return $this->where(['el_id'=> $id])->first();
     }
 }

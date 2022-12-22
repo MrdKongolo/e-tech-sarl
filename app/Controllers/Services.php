@@ -109,14 +109,16 @@ class Services extends BaseController
     public function update(){
         $id = $this->request->getVar('srv_id');   
         $data = array(
-            'name' => $this->request->getVar('name'),
-            'description' => $this->request->getVar('description'),
+            'srv_title'=>$this->request->getVar('srv_title'),
+            'srv_description'=>$this->request->getVar('srv_description'),
+            'srv_slug'=>url_title($this->request->getVar('srv_title')),
+            'updated_at'=>date('Y-m-d H:s:i'),
         );
         if(!empty($data)){
             $this->servModel->update($id,$data);
             $session = session();
             $session->setFlashData("success", "Modifié avec succès !");
-            return redirect()->to('/service-list');
+            return redirect()->to('/services-list');
         }else{
             echo view('services/admin/edit/'.$id);
         }
@@ -146,9 +148,9 @@ class Services extends BaseController
                 'service' => [
                     'label' => 'Service ID',
                     'rules' => 'required'],
-                'picture'   => [
+                'photo' => [
                     'label' => 'Image',
-                    'rules' => 'uploaded[picture]|is_image[picture]',
+                    'rules' => 'uploaded[photo]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'errors' => [
                         'uploaded' => 'Ne doit pas être vide',
                         'is_image' => 'Le format de cet image est inconnu',
@@ -187,4 +189,5 @@ class Services extends BaseController
             return redirect()->to('/service-list');
         }
     }
+    
 }

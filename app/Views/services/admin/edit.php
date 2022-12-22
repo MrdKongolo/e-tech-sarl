@@ -10,12 +10,12 @@
                     <div class="row align-items-center">
                         <div class="col-md-12">
                             <div class="page-header-title">
-                                <h5 class="m-b-10">Services</h5>
+                                <h5 class="m-b-10">Les Services</h5>
                             </div>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= base_url()?>/dashboard"><i class="feather icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="<?= base_url()?>/media/list">Services</a></li>
-                                <li class="breadcrumb-item"><a href="#!">Modifier l'image</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url()?>/service-list">Services</a></li>
+                                <li class="breadcrumb-item"><a href="#!">Modifier Service</a></li>
                             </ul>
                         </div>
                     </div>
@@ -27,30 +27,31 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Service</h5>
+                            <h5>Services</h5>
                         </div>
                         <div class="card-body">
 
-                            <?= form_open_multipart('service-update')?>
+                            <?= form_open_multipart('update-service')?>
+                            <input type="hidden" name="_method" value="PUT" />
                                 <?= csrf_field()?>
                                 <div class="row">
-                                    <input type="hidden" class="form-control" name="srv_id" value="<?= $service['srv_id'];?>">
+                                <input type="hidden" class="form-control" name="srv_id" value="<?= $service['srv_id'];?>">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label class="floating-label" for="name">Titre</label>
-                                            <input type="text" class="form-control" name="name" value="<?= $service['name']?>">
-                                            <small id="input-help" class="form-text text-danger"><?= $validation['name'] ?? null ;  ?></small>
+                                            <label class="floating-label" for="srv_title">Titre</label>
+                                            <input type="text" class="form-control" name="srv_title" value="<?= $service['srv_title']?>">
+                                            <small id="input-help" class="form-text text-danger"><?= $validation['srv_title'] ?? null ;  ?></small>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label class="floating-label" for="description">Déscription</label>
-                                            <textarea class="form-control" name="description" id="" cols="30" rows="3" ><?= $service['description']?></textarea>
-                                            <small id="input-help" class="form-text text-danger"><?= $validation['description']  ?? null ;  ?></small>
+                                            <label class="floating-label" for="srv_description">Déscription</label>
+                                            <textarea class="form-control" name="srv_description" id="" cols="30" rows="3" ><?= $service['srv_description']?></textarea>
+                                            <small id="input-help" class="form-text text-danger"><?= $validation['srv_description']  ?? null ;  ?></small>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
-                                        <input type="submit" class="btn btn-md btn-primary" value="Enregistrer les modifications">
+                                        <input type="submit" class="btn btn-md btn-primary" value="Enregistrer Modifications">
                                     </div>
                                 </div>
                             </form>

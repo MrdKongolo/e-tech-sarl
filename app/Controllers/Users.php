@@ -59,18 +59,17 @@ class Users extends BaseController
             ];
             if ($this->validate($rules)) {
 
-                $path = './resources/images/mrd';
                 $path_user = './resources/images/user';
 
                 $file = $this->request->getFile('photo');
                 $imageName = $file->getRandomName();
+                $tempfile = $file->getTempName();
 
                 if ($file->isValid() && !$file->hasMoved()) {
-                    $file->move($path, $imageName);
 
                     // resizing image
-                    \Config\Services::image()->withFile($path . '/' . $imageName)
-                        ->fit(80, 80, 'center')
+                    \Config\Services::image()->withFile($tempfile)
+                        ->fit(80, 80, 'center')                        
                         ->save($path_user . '/' . $imageName);
 
                     $data = ['photo' => $imageName];

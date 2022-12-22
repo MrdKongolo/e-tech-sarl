@@ -45,6 +45,7 @@ class Home extends BaseController
         $data = [
             'title' => 'Réalisations',
             'parts' => $this->partModel->findAll(),
+            'coords'=> $this->coords,
         ];
         return view ('pages/blog',$data);
     }

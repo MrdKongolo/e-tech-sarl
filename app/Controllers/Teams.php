@@ -34,9 +34,9 @@ class Teams extends BaseController
 
             $file = $this->request->getFile('picture'); 
 
-            $path = './resources/images/redeem';
             $path_user = './resources/images/team';
-
+            $tempfile = $file->getTempName();
+            
             if ($file->isValid() && !$file->hasMoved()) {
                 $imageName = $file->getRandomName();                    
 
@@ -50,10 +50,8 @@ class Teams extends BaseController
                 ); 
                 $this->teamModel->insert($data);
 
-                $file->move($path, $imageName);
-
                 // resizing image
-                \Config\Services::image()->withFile($path . '/' . $imageName)
+                \Config\Services::image()->withFile($tempfile)
                     ->fit(450, 550, 'center')
                     ->save($path_user . '/' . $imageName);
                     
