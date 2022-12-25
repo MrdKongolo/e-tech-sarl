@@ -45,6 +45,11 @@ $routes->get(':any', 'Home::view/$1');
 $routes->get('about-us', 'Auth::about');
 $routes->get('contact', 'Home::contact');
 
+// Cart
+$routes->get('shopping', 'Carts::index');
+$routes->get('service-details/(:any)', 'Carts::detail/$1');
+$routes->get('unity/(:any)', 'Carts::unity/$1');
+
 // Projects
 $routes->get('projects', 'Projects::index');
 $routes->post('message', 'Auth::message');

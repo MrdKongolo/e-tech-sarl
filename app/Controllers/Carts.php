@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use \Config\Services;
 
 class Carts extends BaseController
 {
@@ -11,21 +12,49 @@ class Carts extends BaseController
     public $cmdModel;
 
     function __construct(){
-        $this->productModel = model(ProductModel::class);
+        $this->productModel = model(Element::class);
         $this->cart         = Services::cart();
-        $this->cartModel    = model(CartModel::class);
-        $this->cmdModel     = model(CommandeModel::class);
+        $this->cartModel    = model(Cart::class);
+        $this->cmdModel     = model(Commande::class);
         helper('date');       
     }
 
     public function index(){
         $data = [
-            'title'     => 'Ajout au Panier | Heaven flag',
+            'title'     => 'Ajout au Panier | E-Tech SARL',
             'coords'    => $this->coordModel->first(),
-            'products'  => $this->productModel->getProduct()
+            // 'products'  => $this->productModel->getProduct()
         ];
         return view('carts/index',$data);
     }
+    public function detail($segment = null){
+        $service = $this->servModel->getServiceBySlug($segment);
+        $categ = $this->catModel->join('services','services.srv_id= categories.srv_id')
+                                ->where('categories.srv_id', $service['srv_id'])
+                                ->findAll();
+        $data = [
+            'title'=> "Détails Service",
+            'coords'=> $this->coords,
+            'service'=> $service,
+            'categories'=> $categ,
+            'parts' => $this->partModel->findAll(),
+            'nb'=> count($categ)
+        ];
+        return view('carts/index',$data);
+    }   
+
+    public function unity($segment, $name = null) {
+        $element = $this->elmtModel->getElement($segment);
+        $data = [
+            'title'=> "Ajouter au Panier",
+            'element'=> $element,
+            // 'categories'=> $categ,
+            // 'parts' => $this->partModel->findAll(),
+            // 'nb'=> count($categ)
+        ];
+        return view('carts/unity',$data);
+    }
+
     public function shopping(){
         $hash = md5(str_shuffle("abcdefghijklmnopqrstuvwxyz".time()));
         $data = [
