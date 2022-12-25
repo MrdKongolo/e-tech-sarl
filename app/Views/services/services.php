@@ -25,74 +25,28 @@
         </div>
         <div class="row popup-gallery">
             <div class="row">
-                <div class="col-md-3 col-lg-3">
-                    <a href="<?=base_url()?>/services/<?=strtolower($services[0]['srv_slug']);?>">
-                        <div class="case-item">
-                            <div class="case-img">
-                                <img 
-                                    class="img-fluid" 
-                                    src="<?= base_url();?>/resources/images/services/<?= $services[0]['photo'];?>" style="width:300px;height:400px"
-                                    alt="services"                                
-                                >
-                            </div>
-                            <div class="case-content">
-                                <div class="case-content-info">
-                                    <h4><a href="<?=base_url()?>/services/<?=strtolower($services[0]['srv_slug']);?>">Imprimerie </a></h4>
-                                    <small>Textiles, Papiers & Calicots</small>
+                <?php foreach($services as $serv):?>
+                    <div class="col-md-3 col-lg-3">
+                        <a href="<?=base_url()?>/services/<?=strtolower($serv['srv_slug']);?>">
+                            <div class="case-item">
+                                <div class="case-img">
+                                    <img 
+                                        class="img-fluid" 
+                                        src="<?= base_url();?>/resources/images/services/<?= $serv['photo'];?>" style="width:300px;height:400px"
+                                        alt="services"                                
+                                    >
                                 </div>
-                                <a href="<?=base_url()?>/services/<?=strtolower($services[0]['srv_slug']);?>" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-lg-3">
-                    <a href="<?=base_url()?>/services/<?=strtolower($services[1]['srv_slug']);?>">
-                        <div class="case-item">
-                            <div class="case-img">
-                                <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[1]['photo'];?>" alt="" style="width:300px;height:400px">
-                            </div>
-                            <div class="case-content">
-                                <div class="case-content-info">
-                                    <small>Agropastoral</small>
-                                    <h4><a href="<?=base_url()?>/services/<?=strtolower($services[1]['srv_slug']);?>">Agropastoral</a></h4>
+                                <div class="case-content">
+                                    <div class="case-content-info">
+                                        <h4><a href="<?=base_url()?>/services/<?=strtolower($serv['srv_slug']);?>">Imprimerie </a></h4>
+                                        <small>Textiles, Papiers & Calicots</small>
+                                    </div>
+                                    <a href="<?=base_url()?>/services/<?=strtolower($serv['srv_slug']);?>" class="case-arrow"><i class="far fa-arrow-right"></i></a>
                                 </div>
-                                <a href="<?=base_url()?>/services/<?=strtolower($services[1]['srv_slug']);?>" class="case-arrow"><i class="far fa-arrow-right"></i></a>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-lg-3">
-                    <a href="<?=base_url()?>/services/<?=strtolower($services[2]['srv_slug']);?>">
-                        <div class="case-item">
-                            <div class="case-img">
-                                <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[2]['photo'];?>" alt="" style="width:300px;height:400px">
-                            </div>
-                            <div class="case-content">
-                                <div class="case-content-info">
-                                    <h4><a href="<?=base_url()?>/services/<?=strtolower($services[2]['srv_slug']);?>">Construction</a></h4>
-                                    <small>Construction & Travaux Publics</small>
-                                </div>
-                                <a href="<?=base_url()?>/services/<?=strtolower($services[2]['srv_slug']);?>" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-3 col-lg-3">
-                    <a href="<?=base_url()?>/services/<?=strtolower($services[3]['srv_slug']);?>">
-                        <div class="case-item">
-                            <div class="case-img">
-                                <img class="img-fluid" src="<?= base_url();?>/resources/images/services/<?= $services[3]['photo'];?>" alt="" style="width:300px;height:400px">
-                            </div>
-                            <div class="case-content">
-                                <div class="case-content-info">
-                                    <small>Formation</small>
-                                    <h4><a href="<?=base_url()?>/services/<?=strtolower($services[3]['srv_slug']);?>">Formation</a></h4>
-                                </div>
-                                <a href="<?=base_url()?>/services/<?=strtolower($services[3]['srv_slug']);?>" class="case-arrow"><i class="far fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                <?php endforeach;?>
             </div>
         </div>
     </div>

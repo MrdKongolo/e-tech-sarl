@@ -40,7 +40,7 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"></?= $serv;?></h2>
+                                    <h2 class="m-0"><?= $serv ?? '';?></h2>
                                     <span class="text-c-green"><strong><a href="<?= base_url()?>/services-list">SERVICES</a></strong></span>
                                     <p class="mb-3 mt-3"><a href="">Total Services</a></p>
                                 </div>
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $serv;?></span>
+                                            <span><?= $serv ?? '';?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/services-list" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -69,7 +69,7 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"></?= $services;?></h2>
+                                    <h2 class="m-0"><?= $cat ?? '';?></h2>
                                     <span class="text-c-blue"><strong><a href="<?= base_url()?>/categories-list">CATEGORIES</a></strong></span>
                                     <p class="mb-3 mt-3"><a style="color: black" href="<?= base_url()?>">Total Catégories</a></p>
                                 </div>
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $cat;?></span>
+                                            <span><?= $cat ?? '';?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/categories-list" data-toggle="tooltip" data-placement="top" title="Liste"
@@ -98,13 +98,13 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
-                                    <h2 class="m-0"></?= $services;?></h2>
+                                    <h2 class="m-0"><?= $prod ?? '';?></h2>
                                     <span class="text-c-red">
                                         <strong>
-                                            <a class="text-c-red" href="">ELEMENTS</a>
+                                            <a class="text-c-red" href="">PRODUITS</a>
                                         </strong>
                                     </span>
-                                    <p class="mb-3 mt-3"><a style="color: black" href="">Total Eléments</a></p>
+                                    <p class="mb-3 mt-3"><a style="color: black" href="<?= base_url()?>/elements">Total Produits</a></p>
                                 </div>
                                 <div class="card-footer bg-info text-white">
                                     <div class="row text-center">
@@ -116,10 +116,10 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $services;?></span>
+                                            <span><?= $prod ?? '';?></span>
                                         </div>
                                         <div class="col">
-                                            <a type="button" href="" data-toggle="tooltip" data-placement="top" title="Liste"
+                                            <a type="button" href="<?= base_url()?>/elements" data-toggle="tooltip" data-placement="top" title="Liste"
                                                 class="btn btn-icon btn-secondary">
                                                 <i class="feather icon-eye"></i>
                                             </a>

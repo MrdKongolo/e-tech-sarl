@@ -35,7 +35,7 @@ class Service extends Model
 
     public function getService($id){
         if($id === null){
-            return $this->findAll();
+            return false;
         }
         return  $this->where(['srv_id' => $id])->first();
     }

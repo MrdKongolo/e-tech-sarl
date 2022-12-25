@@ -125,58 +125,50 @@ class Services extends BaseController
         
     }
 
-
-    function addImage($key)
+    function image($key)
     {
-        $data[] = null;
         $data = [
             'service' => $this->servModel->getService($key)
         ];
         if (!empty($data['service'])) {
+            session()->set('service', $data['service']);
             echo view('services/admin/image', $data);
-        } else {
-            return redirect()->back();
         }
     }
 
     function saveImage()
     {
         $data[] = null;
-        $id = $this->request->getVar('service');
-        if ($this->request->getMethod() == 'post') {
-            $rules = [
-                'service' => [
-                    'label' => 'Service ID',
-                    'rules' => 'required'],
-                'photo' => [
-                    'label' => 'Image',
-                    'rules' => 'uploaded[photo]|is_image[photo]|mime_in[photo,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
-                    'errors' => [
-                        'uploaded' => 'Ne doit pas être vide',
-                        'is_image' => 'Le format de cet image est inconnu',
-                    ]
-                ]
-            ];
+        $service = session()->get('service');    
+        
+        $oldfile = $service['photo'];
+        $path = './resources/images/services';    
+        $id = $service['srv_id'];
+        $data['service'] = $service;
+
+        if ($this->request->getMethod() === 'post') {
+            $rules = $this->servModel->getValidationRules(['only' => ['photo']]);
             if ($this->validate($rules)) {
 
-                $file = $this->request->getFile('picture');
+                $file = $this->request->getFile('photo');
 
                 if ($file->isValid() && !$file->hasMoved()) {
                     $imageName = $file->getRandomName();
-                    $data = ['picture' => $imageName];
+                    $data = ['photo' => $imageName];
                     
+                    if(file_exists($path .'/'. $oldfile) && $oldfile !== null){
+                        unlink($path .'/'. $oldfile);
+                    }
                     $this->servModel->update($id,$data);
-                    $file->move('./resources/images/services', $imageName);
-                    return redirect()->to('/service-list');
+                    $file->move($path, $imageName);
+                    return redirect()->to('/services-list');
                 }
             } else {
                 $data['validation'] = $this->validation->getErrors();
             }
-        }
+        }        
         echo view('services/admin/image', $data);
-
     }
-
   
     function delete($id){
         $data = [

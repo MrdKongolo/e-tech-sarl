@@ -9,6 +9,9 @@ class Users extends BaseController
     function dashboard(){
         $data = [
             'title' => 'Dashboard | E-Tech',
+            'serv' => $this->servModel->countAll(),
+            'cat' => $this->catModel->countAll(),
+            'prod' => $this->elmtModel->countAll(),
         ];
         return view('users/dashboard',$data);
     }
@@ -36,9 +39,7 @@ class Users extends BaseController
         $data['user'] = $this->userModel->findUserByID($user_id);
 
         if (!empty($data['user'])) {
-
             echo view('users/admin/image',$data);
-
         } else {
             return redirect()->back();
         }
@@ -54,18 +55,21 @@ class Users extends BaseController
                 'photo' =>
                     [
                         'label' => 'Image',
-                        'rules' => 'uploaded[photo]|max_size[photo,4096]|is_image[photo]'
+                        'rules' => 'uploaded[photo]|max_size[photo,500]|is_image[photo]'
                     ]
             ];
             if ($this->validate($rules)) {
 
                 $path_user = './resources/images/user';
-
                 $file = $this->request->getFile('photo');
                 $imageName = $file->getRandomName();
                 $tempfile = $file->getTempName();
-
+                $oldfile = $user['photo'];
                 if ($file->isValid() && !$file->hasMoved()) {
+
+                    if(file_exists($path_user .'/'. $oldfile) && $oldfile !== null){
+                        unlink($path_user .'/'. $oldfile);
+                    }
 
                     // resizing image
                     \Config\Services::image()->withFile($tempfile)

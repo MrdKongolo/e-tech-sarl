@@ -79,8 +79,8 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->get('element/edit/(:num)', 'Elements::edit/$1');
     $routes->add('update-element', 'Elements::update');
     $routes->get('element-image/(:num)', 'Elements::addImage/$1');
-    $routes->add('element-update-image', 'Elements::updateImage');
-    $routes->delete('delete-element/(:segment)', 'Elements::delete/$1');
+    $routes->add('element-update-image', 'Elements::saveImage');
+    $routes->add('delete-element/(:segment)', 'Elements::delete/$1');
 
 
     // Partenaires
@@ -100,8 +100,8 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->match(['get', 'post'],'add-service', 'Services::create');
     $routes->get('service/edit/(:num)', 'Services::edit/$1');
     $routes->add('update-service', 'Services::update');
-    $routes->get('service-image/(:num)', 'Services::addImage/$1');
-    $routes->add('service-update-image', 'Services::updateImage');
+    $routes->get('service-image/(:num)', 'Services::image/$1');
+    $routes->post('service-update-image', 'Services::saveImage');
     $routes->delete('delete-service/(:segment)', 'Services::delete/$1');
     $routes->get('testing', 'Services::testing');
 
@@ -118,6 +118,8 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->post('save-picture', 'Users::saveImage');
 });
 
+
+
 // $routes->set404Override(function(){
 //     $model = model(Coord::class);
 //     $coords =  $model->first();
@@ -127,6 +129,7 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
 //     ];
 //     return view('errors/404.php',$data);
 // });
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
