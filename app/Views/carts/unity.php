@@ -1,6 +1,25 @@
-<?= $this->extend('carts/shopping');?>
- <?= $this->section('content');?>
- <!-- Slider -->
+<?= $this->extend('carts/shopping'); ?>
+<?= $this->section('content'); ?>
+<style>
+    #add_to_cart {
+        width: 160px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #fe4c50;
+        margin-left: 19px;
+        font-size: 12px !important;
+        display: block;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 40px;
+        width: 100%;
+    }
+</style>
+<!-- Slider -->
 
 <div class="container single_product_container">
     <div class="row">
@@ -10,9 +29,9 @@
 
             <div class="breadcrumbs d-flex flex-row align-items-center">
                 <ul>
-                    <li><a href="<?=base_url()?>">Accueil</a></li>
-                    <li><a href="<?=base_url()?>/services"><i class="fa fa-angle-right" aria-hidden="true"></i>Produit</a></li>
-                    <li class="active"><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i><?= $element['el_title'] ;?></a></li>
+                    <li><a href="<?= base_url() ?>">Accueil</a></li>
+                    <li><a href="<?= base_url() ?>/services"><i class="fa fa-angle-right" aria-hidden="true"></i>Produits</a></li>
+                    <li class="active"><a href="javascript:javascript:history.go(-1)"><i class="fa fa-angle-right" aria-hidden="true"></i>Retour</a></li>
                 </ul>
             </div>
 
@@ -25,16 +44,12 @@
                 <div class="row">
                     <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
                         <div class="single_product_thumbnails">
-                            <ul>
-                                <li><img src="images/single_1_thumb.jpg" alt="" data-image="images/single_1.jpg"></li>
-                                <li class="active"><img src="images/single_2_thumb.jpg" alt="" data-image="images/single_2.jpg"></li>
-                                <li><img src="images/single_3_thumb.jpg" alt="" data-image="images/single_3.jpg"></li>
-                            </ul>
+
                         </div>
                     </div>
                     <div class="col-lg-9 image_col order-lg-2 order-1">
-                        <div class="single_product_image">
-                            <div class="single_product_image_background" style="background-image:url(images/single_2.jpg)"></div>
+                        <div class="single_product_image" style="height: 428px;">
+                            <div class="single_product_image_background" style="background-image:url(<?= base_url() ?>/resources/images/elements/<?= $element['picture'] ?? 'no-image.png'; ?>)"></div>
                         </div>
                     </div>
                 </div>
@@ -43,88 +58,41 @@
         <div class="col-lg-5">
             <div class="product_details">
                 <div class="product_details_title">
-                    <h2><?= $element['el_title'] ;?></h2>
+                    <h2><?= $element['el_title']; ?></h2>
                     <p></p>
                 </div>
                 <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-                    <span class="ti-truck"></span><span>free delivery</span>
+                    <span class="ti-truck"></span><span>Ajouter au Panier</span>
                 </div>
-                <div class="original_price">$629.99</div>
-                <div class="product_price">$495.00</div>
-                <ul class="star_rating">
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                </ul>
-                <div class="product_color">
-                    <span>Select Color:</span>
-                    <ul>
-                        <li style="background: #e54e5d"></li>
-                        <li style="background: #252525"></li>
-                        <li style="background: #60b3f3"></li>
-                    </ul>
-                </div>
+                <?php if ($element['price_max']) : ?>
+                    <div class="original_price" style="padding-top: 5px;">$<?= $element['price_max']; ?></div>
+                <?php endif; ?>
+                <div class="product_price pt-3">$<?= $element['price_inf'] ?? 0.0; ?></div>
                 <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                    <span>Quantity:</span>
+                    <span>Quantité:</span>
                     <div class="quantity_selector">
                         <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                        <span id="quantity_value">1</span>
+                        <span id="quantity_value" onchange="setQuantity()">1</span>
                         <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
                     </div>
-                    <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                    <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+                    <input type="hidden" name="quantity" id="quantity<?= $element['el_id'] ?>" class="form-control text-center" value="1" />
+                    <input type="hidden" name="hidden_name" id="name<?= $element["el_id"] ?>" value="<?= $element["el_title"] ?>" />
+                    <input type="hidden" name="hidden_price" id="price<?= $element["el_id"] ?>" value="<?= $element["price_inf"] ?>" />
+                    <input type="button" id="add_to_cart" type="submit" value="Ajouter au Panier" onclick="alert('bonjour')" />
                 </div>
             </div>
         </div>
     </div>
 
-</div>    
-
-<!-- New Arrivals -->
-
-<div class="new_arrivals" style="margin-bottom: 20px;">
-    <div class="container">
-        <?php if (isset($categories)):?>
-            <?php foreach($categories as $cat):?>
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="section_title new_arrivals_title">
-                            <h2><?=$cat['cat_title']?></h2>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                    $elements = (new App\Models\Element)->getElementsByCategory($cat['cat_id']);
-                ?>
-                <?php if (isset($elements)):?>
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-                                <?php foreach ($elements as $elt):?>                
-                                    <div class="product-item">
-                                        <div class="product product_filter">
-                                            <div class="product_image">
-                                                <img src="<?= base_url()?>/public/images/product_10.png" alt="">
-                                            </div>
-                                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span><?=$elt['price_max'] ?? 0.0 ?></span></div>
-                                         
-                                            <div class="product_info">
-                                                <h6 class="product_name"><a href=""><?=$elt['el_title']?? 'Produit'?></a></h6>
-                                                <div class="product_price">$<?=$elt['price_inf'] ?? 0.0 ?></div>
-                                                <h6 class="product_name" style="margin-top: 5px;"><a href=""><?=$elt['units']?? 'Unité de vente'?></a></h6>
-                                            </div>
-                                        </div>
-                                        <div class="red_button add_to_cart_button" style="width: 100%;margin-left: 0px;"><a href="#">Ajouter au panier</a></div>
-                                    </div>                                    
-                                <?php endforeach;?>   
-                            </div>
-                        </div>
-                    </div>
-                <?php endif ;?>
-            <?php endforeach;?>
-        <?php endif;?> 
-    </div>
 </div>
-<?= $this->endSection('content');?>
+<script>
+    $(document).ready(function() {
+        setQuantity();
+        function setQuantity() {
+            let text = document.getElementById('quantity_value').textContent;
+            
+            console.log(text);
+        }
+    });
+</script>
+<?= $this->endSection('content'); ?>

@@ -43,14 +43,21 @@ class Carts extends BaseController
         return view('carts/index',$data);
     }   
 
+    public function carting() {
+        return view('carts/carting');
+    }
+    public function checkout() {
+        $data = [
+            'coords'=> $this->coords,
+            'parts' => $this->partModel->findAll(),
+        ];
+        return view('carts/checkout',$data);
+    }
     public function unity($segment, $name = null) {
         $element = $this->elmtModel->getElement($segment);
         $data = [
             'title'=> "Ajouter au Panier",
             'element'=> $element,
-            // 'categories'=> $categ,
-            // 'parts' => $this->partModel->findAll(),
-            // 'nb'=> count($categ)
         ];
         return view('carts/unity',$data);
     }

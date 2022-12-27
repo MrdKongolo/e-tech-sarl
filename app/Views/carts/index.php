@@ -17,7 +17,7 @@
             </div>
 
         </div>
-    </div>
+    </div>    
 
     <div class="row">
         <div class="col-lg-6">
@@ -35,7 +35,7 @@
             <div class="product_details">
                 <div class="product_details_title">
                     <h2><?= $service['srv_title']?? 'Secteur';?></h2>
-                    <p><?= $service['srv_description'] ?? 'Description';?></p>
+                    <p style="text-align: justify;"><?= $service['srv_description'] ?? 'Description';?></p>
                 </div>
                 <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                     <span class="ti-truck"></span><span>Choisissez un produit en bas</span>
@@ -43,12 +43,11 @@
             </div>
         </div>
     </div>
-
-</div>    
+</div>  
 
 <!-- New Arrivals -->
 
-<div class="new_arrivals" style="margin-bottom: 20px;">
+<div class="new_arrivals" style="margin-bottom: 20px;" id="commandes">
     <div class="container">
         <?php if (isset($categories)):?>
             <?php foreach($categories as $cat):?>
@@ -63,14 +62,19 @@
                     $elements = (new App\Models\Element)->getElementsByCategory($cat['cat_id']);
                 ?>
                 <?php if (isset($elements)):?>
-                    <div class="row justify-content-center">
+                    <div class="row">
                         <div class="col">
                             <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
                                 <?php foreach ($elements as $elt):?>                
                                     <div class="product-item">
                                         <div class="product product_filter">
                                             <div class="product_image">
-                                                <img src="<?= base_url()?>/public/images/product_10.png" alt="">
+                                                <!-- <img src="</?= base_url()?>/public/images/product_10.png" alt=""> -->
+                                                <img 
+                                                    src="<?= base_url()?>/resources/images/elements/<?=$elt['picture'] ?? 'no-image.png';?>" 
+                                                    alt=""
+                                                    style="border-radius: 20px;width: 221px;height:221px;padding:2%;"
+                                                >
                                             </div>
                                             <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span><?=$elt['price_max'] ?? 0.0 ?></span></div>
                                          
@@ -80,7 +84,7 @@
                                                 <h6 class="product_name" style="margin-top: 5px;"><a href=""><?=$elt['units']?? 'Unité de vente'?></a></h6>
                                             </div>
                                         </div>
-                                        <div class="red_button add_to_cart_button" style="width: 100%;margin-left: 0px;"><a href="<?=base_url();?>/unity/<?=$elt['el_id']?>/<?=url_title($elt['el_title'])?>">Ajouter au panier</a></div>
+                                        <div class="red_button add_to_cart_button"><a href="<?=base_url();?>/unity/<?=$elt['el_id']?>/<?=strtolower(url_title($elt['el_title']))?>">Ajouter au panier</a></div>
                                     </div>                                    
                                 <?php endforeach;?>   
                             </div>
