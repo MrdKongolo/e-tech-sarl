@@ -30,11 +30,13 @@ class Commande extends Model
             'errors' => ['required' => 'Aucun moyen de paiment séléctionné'],
         ],
         'proof' => [
-            'label' => 'Preuve','rules' => 'required|is_unique[commandes.proof]',
+            'label' => 'Image',
+            'rules' => 'uploaded[proof]|is_image[proof]|mime_in[proof,image/jpg,image/jpeg,image/gif,image/png,image/webp]|max_size[proof,1024]',
             'errors' => [
-                'required' => 'Complétez la preuve',
-                'is_unique' => 'Cette preuve a déjà été enregistré'
-            ],
+                'uploaded' => 'Veuillez télécharger votre preuve',
+                'is_image' => 'Le format de cet image est inconnu',
+                'max_size' => 'La taille ne doit pas dépasser 1MB',
+            ]
         ],
         'client' => [
             'label' => 'Client','rules' => 'required',

@@ -23,7 +23,6 @@ class Carts extends BaseController
         $data = [
             'title'     => 'Ajout au Panier | E-Tech SARL',
             'coords'    => $this->coordModel->first(),
-            // 'products'  => $this->productModel->getProduct()
         ];
         return view('carts/index',$data);
     }
@@ -49,7 +48,6 @@ class Carts extends BaseController
     public function checkout() {
         $data = [
             'coords'=> $this->coords,
-            'parts' => $this->partModel->findAll(),
         ];
         return view('carts/checkout',$data);
     }
@@ -65,34 +63,43 @@ class Carts extends BaseController
     public function shopping(){
         $hash = md5(str_shuffle("abcdefghijklmnopqrstuvwxyz".time()));
         $data = [
-            'title'     => 'Shopping Cart',
+            'title'     => 'Shopping Cart | E-Tech',
             'coords'    => $this->coordModel->first(),
-            'products'  => $this->productModel->getProduct(),
             'total'     => $this->cart->total(),
             'hash'      => $hash,
         ];
         $rules = $this->cmdModel->validationRules;
         
         if($this->request->getMethod() === 'post' && $this->validate($rules)){
-            $data = [
-                'hash'          => $hash,
-                'client'        => $this->request->getPost('client'),
-                'phone'         => $this->request->getPost('phone'),
-                'mean'          => $this->request->getPost('mean'),
-                'proof'         => $this->request->getPost('proof'),
-                'amount'        => $this->request->getPost('amount'),
-                'status'        => 'attente',
-                'created_at'    => date('Y-m-d H:i:s'),
-            ];
-            $this->cmdModel->insert($data);
-            session()->set('carting', $data);
-            $this->saveCart();
-            return redirect()->to('/success');
+            $file = $this->request->getFile('proof');   
+                   
+            if ($file->isValid() && !$file->hasMoved()) {
+                $imageName = $file->getRandomName();
+                $data = [
+                    'hash'          => $hash,
+                    'client'        => $this->request->getPost('client'),
+                    'phone'         => $this->request->getPost('phone'),
+                    'mean'          => $this->request->getPost('mean'),
+                    'proof'         => $imageName,
+                    'amount'        => $this->request->getPost('amount'),
+                    'status'        => 'attente',
+                    'created_at'    => date('Y-m-d H:i:s'),
+                ];
+
+                if($this->cmdModel->save($data)) {
+                    $file->move('./resources/images/proofs', $imageName);
+                    session()->set('carting', $data);
+                    $this->saveCart();
+                    return $this->success();
+                }else {
+                    return redirect()->back()->with('error','Impossible, une erreur s\'est produite');
+                }
+            }
         }else{
             $data['validation'] = $this->validation->getErrors();
         }
 
-        return view ('carts/shopping',$data);
+        return view ('carts/checkout',$data);
     }
     public function success(){
         $data = [
@@ -101,7 +108,7 @@ class Carts extends BaseController
         ];
         $this->cart->destroy();
         session()->remove('carting');
-        return view('products/success',$data);
+        return view('carts/success',$data);
     }
     function clear(){
         if($this->request->isAJAX()){            
@@ -191,7 +198,7 @@ class Carts extends BaseController
         $datum = [
             'cart_details'		=>	$output,
             'total_price'		=>	'$' . $this->cart->total(),
-            'total_item'		=>	$this->cart->totalItems()
+            'total_item'		=>	''. $this->cart->totalItems()
         ];
         return json_encode($datum);
     }
@@ -217,7 +224,6 @@ class Carts extends BaseController
 
     function dealing($hash, $typekey)
     {
-        if (!is_logged()) return redirect()->to('/login');
         $cmd = $this->cmdModel->getCommandeByHash($hash);
         if (!empty($cmd)) {
 
@@ -244,8 +250,8 @@ class Carts extends BaseController
     }
     
     function getProductName($prod){
-        $product = $this->productModel->getProduct($prod);
-        return $product['name']; 
+        $product = $this->elmtModel->getElement($prod);
+        return $product['el_title']; 
     }
     function getProductPicture($prod){
         $product = $this->productModel->getProduct($prod);

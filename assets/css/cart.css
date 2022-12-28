@@ -1,0 +1,152 @@
+ 
+    .form-control.nombre {
+        width: 115px;
+        font-size: small;
+        text-align: center;
+    }
+    .btn-valid {
+        border-radius: 20px;
+    }
+
+    .btn.valider {
+        border-radius: 30px;
+    }
+
+    .form-insc, .form-profil, .form-cnx {
+        max-width: 500px;
+        margin: 10px auto;
+        padding: 10px 80px;
+        box-shadow: 0px 0px 7px rgba(0,0,0,.4);
+    }
+
+    @media (max-width: 576px) {
+        .form-insc, .form-profil, .form-cnx {
+            margin: 5px auto;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 768px ) {
+        .form-insc, .form-profil, .form-cnx {
+            max-width: 460px;
+            padding: 10px 50px;
+        }
+    }
+
+    .div-alert-info {
+        font-style: italic;
+        text-align: center;
+        box-shadow: 2px 3px 6px rgba(0,0,0,.5);
+    }
+
+    .principal {
+        background-color: #c8e8d5;
+        margin-top: 70px;
+    }
+
+    .card.card-calc .card-body {
+        border-radius: 9px;
+        box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+    }
+
+    .card-title {
+        text-align: center;
+    }
+
+    .card.card-calc {
+        max-width: 500px;
+        margin: 20px auto;
+        background-color: rgb(251,252,255);
+    }
+
+    @media (min-width: 576px) {
+        .form-control.nombre {
+            width: 120px;
+            font-size: small;
+            text-align: center;
+        }
+    }
+
+    .form-control.nombre {
+        width: 115px;
+        font-size: small;
+        text-align: center;
+    }
+
+    .field-calc {
+        width: 133px;
+    }
+
+    @media (min-width: 576px) {
+        .field-calc {
+            padding-top: 4px;
+            width: 150px;
+        }
+    }
+
+    .field-calc-fin {
+        width: 45px;
+        font-weight: bold;
+        padding: 5px 0px 0px 6px;
+        border: 1px solid rgb(195,222,225);
+        border-radius: 6px;
+    }
+
+    .group-calc {
+        margin: 5px 0px;
+    }
+
+    @media (min-width: 576px) {
+        .group-calc {
+            margin: 5px 40px;
+        }
+    }
+
+    .field-calc,  .field-calc-fin, .field-produit, .nombre-produit {
+        height: 35px;
+    }
+    #qty{
+        width:160px !important;
+    }
+
+    .ckbx-accepte {
+        font-size: 34px;
+        margin-right: 5px;
+    }
+
+    .form-control.phone {
+        width: 143px;
+    }
+
+    .nombre-produit, .txt-produit {
+        width: 130px;
+    }
+
+    @media (min-width: 576px) {
+        .nombre-produit, .txt-produit {
+            width: 180px;
+        }
+    }
+
+    @media (min-width: 576px) {
+    .field-produit {
+        width: 180px;
+    }
+    }
+
+    .field-produit {
+    width: 137px;
+    padding-top: 8px;
+    }
+
+    .field-calc-autre {
+    max-width: 120px;
+    }
+
+    .form-control.preuve {
+    max-width: 180px;
+    }   
+    .btn-block {
+        display: block;
+        width: 100%;
+    }

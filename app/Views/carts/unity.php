@@ -1,13 +1,11 @@
 <?= $this->extend('carts/shopping'); ?>
 <?= $this->section('content'); ?>
 <style>
-    #add_to_cart {
-        width: 160px;
+    .add_to_cart {
         border: none;
         border-radius: 5px;
         cursor: pointer;
         background-color: #fe4c50;
-        margin-left: 19px;
         font-size: 12px !important;
         display: block;
         color: #FFFFFF;
@@ -61,24 +59,31 @@
                     <h2><?= $element['el_title']; ?></h2>
                     <p></p>
                 </div>
-                <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+                <div class="free_delivery d-flex flex-row align-items-center justify-content-center" style="margin-top:10px">
                     <span class="ti-truck"></span><span>Ajouter au Panier</span>
                 </div>
                 <?php if ($element['price_max']) : ?>
                     <div class="original_price" style="padding-top: 5px;">$<?= $element['price_max']; ?></div>
                 <?php endif; ?>
                 <div class="product_price pt-3">$<?= $element['price_inf'] ?? 0.0; ?></div>
+                <div>
+                    <input type="radio" name="price" id=""> Avec votre Produit
+                </div>
+                <div>                  
+                    <input type="radio" name="price" id=""> Avec Notre Produit
+                </div>
                 <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                     <span>Quantité:</span>
                     <div class="quantity_selector">
-                        <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                        <span id="quantity_value" onchange="setQuantity()">1</span>
-                        <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        <span id="quantity_value">
+                            <input type="number" name="quantity" id="quantity<?= $element['el_id'] ?>" class="form-control text-center" value="1" min="1" />
+                        </span>
                     </div>
-                    <input type="hidden" name="quantity" id="quantity<?= $element['el_id'] ?>" class="form-control text-center" value="1" />
                     <input type="hidden" name="hidden_name" id="name<?= $element["el_id"] ?>" value="<?= $element["el_title"] ?>" />
                     <input type="hidden" name="hidden_price" id="price<?= $element["el_id"] ?>" value="<?= $element["price_inf"] ?>" />
-                    <input type="button" id="add_to_cart" type="submit" value="Ajouter au Panier" onclick="alert('bonjour')" />
+                </div>
+                <div class="mt-5">
+                    <input type="button" class="add_to_cart" name="add_to_cart" id="<?= $element["el_id"]?>" type="submit" value="Ajouter au Panier" />
                 </div>
             </div>
         </div>
@@ -86,13 +91,20 @@
 
 </div>
 <script>
+    
     $(document).ready(function() {
+
         setQuantity();
         function setQuantity() {
             let text = document.getElementById('quantity_value').textContent;
             
             console.log(text);
         }
+
+        $(document).on('input',"#qty",function(){
+            var qty = $('#qty').val();
+            $("#total").val(qty*($('#pu').val()));
+        });
     });
 </script>
 <?= $this->endSection('content'); ?>

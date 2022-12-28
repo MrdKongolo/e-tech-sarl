@@ -46,9 +46,14 @@ $routes->get('about-us', 'Auth::about');
 $routes->get('contact', 'Home::contact');
 
 // Cart
-$routes->get('shopping', 'Carts::index');
+// $routes->get('checkout', 'Carts::checkout');
+$routes->add('shopping', 'Carts::shopping');
 $routes->get('service-details/(:any)', 'Carts::detail/$1');
 $routes->get('unity/(:any)', 'Carts::unity/$1');
+$routes->get('success', 'Carts::success');
+
+$routes->add('dealing/(:any)/(:any)', 'Carts::dealing/$1/$2');  
+$routes->add('cart-details/(:any)', 'Carts::details/$1');  
 
 // Projects
 $routes->get('projects', 'Projects::index');

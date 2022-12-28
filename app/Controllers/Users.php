@@ -6,6 +6,12 @@ use App\Controllers\BaseController;
 
 class Users extends BaseController
 {
+    public $quotes;
+    public function __construct(){
+        helper('date');
+        $this->quotes = model(Commande::class);
+    }
+
     function dashboard(){
         $data = [
             'title' => 'Dashboard | E-Tech',
@@ -26,9 +32,16 @@ class Users extends BaseController
         return view('users/admin/index',$data);
     }
 
-    public function profile(){
+    function profile()
+    {
         $user_data = session()->get('user_data');
-        return view('users/admin/profile',compact('user_data'));
+        $data = [
+            'user_data' => $user_data,
+            'title'     => 'Profile',
+            'quotes'    => $this->quotes->asObject()->findAll(),           
+        ];
+       
+        echo view('users/admin/profile', $data);
     }
 
     function addImage()

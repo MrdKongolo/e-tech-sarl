@@ -35,12 +35,6 @@
             </div>
         </div>
     </div>
-    <script>
-        // const form = document.getElementById('form');
-        // $("#form").submit(function(e) {
-        //     e.preventDefault();
-        // });
-    </script>
     <?= $this->endSection('content');?>
 
     
