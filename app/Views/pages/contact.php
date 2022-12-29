@@ -2,15 +2,16 @@
 <?= $title ?? 'E-Tech'; ?>
 <?= $this->section('content'); ?>
 <script src="<?= base_url()?>/assets/js/jquery-3.6.0.min.js"></script>
-<div class="site-breadcrumb">
-    <div class="container">
-        <h2 class="breadcrumb-title">Contact</h2>
-        <ul class="breadcrumb-menu">
-            <li><a href="<?= base_url() ?>">Accueil</a></li>
-            <li class="active">Contact</li>
-        </ul>
-    </div>
-</div>
+<style>
+    .case-img::before {
+        content: '';
+        position: absolute;
+        top: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+    }
+</style>
 
 <div class="contact-area py-120">
     <div class="container">

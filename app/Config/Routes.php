@@ -46,14 +46,18 @@ $routes->get('about-us', 'Auth::about');
 $routes->get('contact', 'Home::contact');
 
 // Cart
-// $routes->get('checkout', 'Carts::checkout');
+// // $routes->get('checkout', 'Carts::checkout');
 $routes->add('shopping', 'Carts::shopping');
+$routes->add('carts/load', 'Carts::load');
+$routes->add('carts/add', 'Carts::add');
+$routes->add('carts/remove', 'Carts::remove');
+$routes->add('carts/clear', 'Carts::clear');
+$routes->add('view', 'Carts::view');
+
 $routes->get('service-details/(:any)', 'Carts::detail/$1');
 $routes->get('unity/(:any)', 'Carts::unity/$1');
 $routes->get('success', 'Carts::success');
 
-$routes->add('dealing/(:any)/(:any)', 'Carts::dealing/$1/$2');  
-$routes->add('cart-details/(:any)', 'Carts::details/$1');  
 
 // Projects
 $routes->get('projects', 'Projects::index');
@@ -73,6 +77,13 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     
     // Auth
     $routes->get('logout', 'Auth::logout');
+
+    // Cart
+    // $routes->get('checkout', 'Carts::checkout');
+
+    $routes->add('dealing/(:any)/(:any)', 'Carts::dealing/$1/$2');
+    $routes->add('cart-details/(:any)', 'Carts::details/$1');  
+    $routes->add('cart-see-proof', 'Carts::proofing');
 
     // Categories
     $routes->get('categories-list', 'Categories::index');
@@ -126,6 +137,7 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->get('list', 'Users::list');
     $routes->get('add-picture', 'Users::addImage');
     $routes->post('save-picture', 'Users::saveImage');
+    $routes->post('update-one-self', 'Users::updateOneSelf');
 });
 
 

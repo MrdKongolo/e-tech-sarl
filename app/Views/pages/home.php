@@ -9,7 +9,7 @@
                 <div class="col-md-7 col-lg-7">
                     <div class="hero-content">
                         <h6 class="hero-sub-title wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".25s">
-                            Qui Sommes-Nous
+                            Bienvenue Sur E-Tech SARL
                         </h6>
                         <h1 class="hero-title wow animate__animated animate__fadeInUp" data-wow-duration="1s" data-wow-delay=".50s">
                             E-Tech SARL
@@ -34,6 +34,7 @@
         </div>
     </div>
 </div>
+
 <!-- Section Secteurs ou Services -->
 <?= view_cell('\App\Controllers\Services::services');?>
 <!-- End Sections Secteurs-->
@@ -63,31 +64,23 @@
     <div class="container">
         <div class="counter-wrapper">
             <div class="row">
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-6 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-social-media"></i></div>
-                        <span class="counter" data-count="+" data-to="100" data-speed="3000">100</span>
-                        <h6 class="title">+ Projets Réalisés</h6>
+                        <span class="counter" data-count="+" data-to="300" data-speed="3000">300</span>
+                        <h6 class="title">+ Marchés Réalisés</h6>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-6 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-customer"></i></div>
-                        <span class="counter" data-count="+" data-to="80" data-speed="3000">80</span>
+                        <span class="counter" data-count="+" data-to="270" data-speed="3000">270</span>
                         <h6 class="title">+ Clients Statisfaits</h6>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="counter-box">
-                        <div class="icon"><i class="icon-recruit"></i></div>
-                        <span class="counter" data-count="+" data-to="4" data-speed="3000">4</span>
-                        <h6 class="title">+ Equipe</h6>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <?= $this->endSection('content'); ?>

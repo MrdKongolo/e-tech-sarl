@@ -61,19 +61,22 @@ class Elements extends BaseController
             'title' => 'Editer Produit | E-Tech',
             'element' => $this->elmtModel->getElement($id),
         ];
+        session()->set('element', $data['element']);
         return view('elements/admin/edit',$data);
     }
     public function update(){
-        $id = $this->request->getVar('el_id');   
+        $element = session()->get('element');   
+        $id = $element['el_id'];   
         $data = array(
-            'cat_id' => $this->request->getVar('cat_id'),
             'el_title' => $this->request->getVar('el_title'),
             'price_inf' => $this->request->getVar('price_inf'),
+            'price_max' => $this->request->getVar('price_max'),
             'units' => $this->request->getVar('units'),
             'updated_at'=>date('Y-m-d H:s:i'),
         );
         if(!empty($data)){
             $this->elmtModel->update($id,$data);
+            session()->remove('element');
             $session = session();
             $session->setFlashData("success", "Modifié avec succès !");
             return redirect()->to('/elements');

@@ -1,19 +1,20 @@
 <?= $this->extend('layouts/main'); ?>
 <?= $this->section('content'); ?>
 
-<div class="site-breadcrumb">
-    <div class="container">
-        <h2 class="breadcrumb-title">A Propos de Nous</h2>
-        <ul class="breadcrumb-menu">
-            <li><a href="<?=base_url()?>">Accueil</a></li>
-            <li class="active">Qui Nous Sommes</li>
-        </ul>
-    </div>
-</div>
+<style>
+    .case-img::before {
+        content: '';
+        position: absolute;
+        top: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+    }
+</style>
 
 
 <div class="about-area py-120">
-    <div class="container">
+    <div class="container pt-5">
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="about-left">
@@ -31,7 +32,7 @@
             <div class="col-lg-6">
                 <div class="about-right">
                     <div class="site-heading mb-3">
-                        <span class="site-title-tagline">Qui Sommes-Nous</span>
+                        <span class="site-title-tagline">Qui Sommes-Nous ?</span>
                         <h2 class="site-title">E-Tech SARL</h2>
                     </div>
                     <p class="about-text" style="text-align:justify">
@@ -53,26 +54,19 @@
 <div class="counter-area">
     <div class="container">
         <div class="counter-wrapper">
-        <div class="row">
-                <div class="col-lg-4 col-sm-6">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-social-media"></i></div>
-                        <span class="counter" data-count="+" data-to="100" data-speed="3000">100</span>
-                        <h6 class="title">+ Projets Réalisés</h6>
+                        <span class="counter" data-count="+" data-to="300" data-speed="3000">300</span>
+                        <h6 class="title">+ Marchés Réalisés</h6>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-6 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-customer"></i></div>
-                        <span class="counter" data-count="+" data-to="80" data-speed="3000">80</span>
+                        <span class="counter" data-count="+" data-to="270" data-speed="3000">270</span>
                         <h6 class="title">+ Clients Statisfaits</h6>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="counter-box">
-                        <div class="icon"><i class="icon-recruit"></i></div>
-                        <span class="counter" data-count="+" data-to="4" data-speed="3000">4</span>
-                        <h6 class="title">+ Equipe</h6>
                     </div>
                 </div>
             </div>

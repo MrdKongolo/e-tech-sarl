@@ -17,7 +17,9 @@ class Users extends BaseController
             'title' => 'Dashboard | E-Tech',
             'serv' => $this->servModel->countAll(),
             'cat' => $this->catModel->countAll(),
+            'coords'=> $this->coords,
             'prod' => $this->elmtModel->countAll(),
+            'part' => $this->partModel->countAll(),
         ];
         return view('users/dashboard',$data);
     }
@@ -38,6 +40,7 @@ class Users extends BaseController
         $data = [
             'user_data' => $user_data,
             'title'     => 'Profile',
+            'coords'=> $this->coords,
             'quotes'    => $this->quotes->asObject()->findAll(),           
         ];
        
@@ -112,6 +115,24 @@ class Users extends BaseController
             $session = session();
             $session->setFlashData("success", "Utilisateur supprimé avec succès");
             return redirect()->to('list-users');
+        }
+    }
+    function updateOneSelf()
+    {
+        if (!empty($session_data)) {
+            if ($this->request->getMethod() == 'post') {
+                $id = $session_data['id'];
+                $data = $_POST;
+                if (!empty($data))
+                {
+                    $this->userModel->update($id,$data);
+                    $data["sess_data"] = $this->userModel->findUserByID($id);
+                    session()->set('user_data', $data["sess_data"]);
+                    return redirect()->to("/profile");
+                }
+            }
+        } else {
+            return redirect()->to("/logout");
         }
     }
 }

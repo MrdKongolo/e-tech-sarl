@@ -90,21 +90,4 @@
     </div>
 
 </div>
-<script>
-    
-    $(document).ready(function() {
-
-        setQuantity();
-        function setQuantity() {
-            let text = document.getElementById('quantity_value').textContent;
-            
-            console.log(text);
-        }
-
-        $(document).on('input',"#qty",function(){
-            var qty = $('#qty').val();
-            $("#total").val(qty*($('#pu').val()));
-        });
-    });
-</script>
 <?= $this->endSection('content'); ?>

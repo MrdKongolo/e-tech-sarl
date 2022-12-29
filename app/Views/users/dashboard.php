@@ -149,7 +149,7 @@
                                         </div>
                                         <div class="col">
                                             <h5 class="m-0 text-white">Total</h5>
-                                            <span></?= $part;?></span>
+                                            <span><?= $part;?></span>
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url()?>/partners-list" data-toggle="tooltip" data-placement="top" title="Liste"

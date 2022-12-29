@@ -59,7 +59,6 @@ $user_data = session()->get('user_data');
                         <img src="<?= base_url()?>/assets/img/logo/logo-e-tech.png" alt="logo">
                     </a>
                     <div class="mobile-menu-right">
-                        <a href="#" class="mobile-search-btn search-box-outer"><i class="far fa-search"></i></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"><i class="far fa-stream"></i></span>
                         </button>
@@ -72,17 +71,17 @@ $user_data = session()->get('user_data');
                                 <a class="nav-link  <?= ($uri->getSegment(1) == '' ? 'active' : null)?>" href="<?=base_url();?>">Accueil</a>                               
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?= ($uri->getSegment(1) == 'about-us' ? 'active' : null)?>" href="<?=base_url();?>/about-us"> A Propos </a>
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'about-us' ? 'active' : null)?>" href="<?=base_url();?>/about-us"> A Propos de Nous</a>
                             </li>                            
                             <li class="nav-item">
-                                <a class="nav-link <?= ($uri->getSegment(1) == 'services' ? 'active' : null)?>" href="<?=base_url();?>/services"> Services </a>
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'services' ? 'active' : null)?>" href="<?=base_url();?>/services">Nos Services </a>
                             </li>                            
                             <li class="nav-item">
-                                <a class="nav-link <?= ($uri->getSegment(1) == 'team' ? 'active' : null)?>" href="<?=base_url();?>/team"> Equipe </a>
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'blog' ? 'active' : null)?>" href="<?=base_url();?>/blog">Nos Réalisations </a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'team' ? 'active' : null)?>" href="<?=base_url();?>/team">Nos Personnels </a>
                             </li>                               
-                            <li class="nav-item">
-                                <a class="nav-link <?= ($uri->getSegment(1) == 'blog' ? 'active' : null)?>" href="<?=base_url();?>/blog"> Réalisations </a>
-                            </li>                            
                             
                             <li class="nav-item">
                                 <a class="nav-link <?= ($uri->getSegment(1) == 'contact' ? 'active' : null)?>" href="<?=base_url();?>/contact">Contact</a>

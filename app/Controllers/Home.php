@@ -13,6 +13,7 @@ class Home extends BaseController
         if (! is_file(APPPATH . 'views/pages/' . $page . '.php')) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
+        
         $data = [
             'services' => $this->servModel->findAll(),
             'parts' => $this->partModel->findAll(),

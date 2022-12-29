@@ -62,15 +62,16 @@
                                                         <?= $row['created_at']?><br>
                                                         <p style="color: violet;"><strong><?= Time::parse($row['created_at'])->humanize();?></strong></p>
                                                     </td>
+                                                    <?php  $produit = (new App\Models\Element)->getElement($row['prod_id']);?>
                                                     <td class="align-middle">
-                                                        <img src="</?= base_url();?>/assets/hf_admin/images/products/</?= $row['picture'];?>"
+                                                        <img src="<?= base_url();?>/resources/images/products/<?= $produit['picture'];?>"
                                                              alt="product"
                                                              title="product-img"
                                                              class="rounded mr-3"
                                                              style="width: 36px;height: 48px;"
                                                         />
                                                         <p class="m-0 d-inline-block align-middle font-16">
-                                                            <a href="#!" class="text-body"><?= view_cell('\App\Controllers\Carts::getProductName', ['prod_id' => $row['prod_id']]) ?></a>
+                                                            <a href="#!" class="text-body"><?= $produit['el_title'] ?? '';?></a>
                                                             <br />
                                                         </p>
                                                     </td>

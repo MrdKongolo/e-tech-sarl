@@ -8,7 +8,7 @@ class Commande extends Model
 {
     protected $table            = 'commandes';
     protected $primaryKey       = 'cmd_id';
-    protected $allowedFields    = ['hash','client','mean','proof','phone','amount','status','created_at','proof','updated_at'];    
+    protected $allowedFields    = ['hash','client','mean','proof','phone','amount','status','created_at','proof','attendu','updated_at'];    
 
     public function getCommande($cde){
         if($cde === null){

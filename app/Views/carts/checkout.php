@@ -96,7 +96,7 @@
                             </div>
                             <div class="form-group group-calc">
                                 <label>Nom Client</label>
-                                <input class="form-control" type="text" name="client">
+                                <input class="form-control" type="text" name="client" value="<?= set_value('client')?>">
                                 <small id="input-help" class="form-text text-danger"><?= $validation['client'] ?? null; ?></small>
                             </div>
                             <div class="form-group">
@@ -113,7 +113,7 @@
     $(document).on('focusout',"#amount",function(){
         var price = $('#amount').val();
         var avance = <?= $total *0.3 ?>;
-        if(price < avance) {
+        if(price > 0 && price < avance) {
             $('#valider').attr('disabled','disabled');
             $('#verif').fadeIn(1000);
         }else {

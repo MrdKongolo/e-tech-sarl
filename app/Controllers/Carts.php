@@ -83,6 +83,7 @@ class Carts extends BaseController
                     'proof'         => $imageName,
                     'amount'        => $this->request->getPost('amount'),
                     'status'        => 'attente',
+                    'attendu'       => $this->request->getPost('total'),
                     'created_at'    => date('Y-m-d H:i:s'),
                 ];
 
@@ -254,7 +255,7 @@ class Carts extends BaseController
         return $product['el_title']; 
     }
     function getProductPicture($prod){
-        $product = $this->productModel->getProduct($prod);
+        $product = $this->elmtModel->getElement($prod);
         return $product['picture']; 
     }
 }

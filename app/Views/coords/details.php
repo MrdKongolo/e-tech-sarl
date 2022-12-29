@@ -30,7 +30,7 @@
                                     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="profile-dp">
                                             <div class="position-relative d-inline-block">
-                                                <img class="img-radius img-fluid wid-100" src="<?= base_url()?>/assets/es_admin/images/user/<?= $user_data['u_picture'] ?? "user-default-avatar.png"?>" alt="User image">
+                                                <img class="img-radius img-fluid wid-100" src="<?= base_url()?>/resources/images/user/<?= $user_data['photo'] ?? "user-default-avatar.png"?>" alt="User image">
                                             </div>
                                             <div class="overlay">
                                                 <span>change</span>
@@ -52,7 +52,7 @@
                         <div class="col-md-8 mt-md-4">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <?php if(($user_data['role'] === 'admin') || ($user_data['role'] === 'org manager')) :?>
+                                    <?php if($user_data['role'] === 'admin') :?>
 
                                     <?php endif; ?>
                                     <div class="clearfix"></div>
@@ -64,7 +64,7 @@
                                     <div class="media">
                                         <i class="feather icon-map-pin mr-2 mt-1 f-18"></i>
                                         <div class="media-body">
-                                            <p class="mb-0 text-muted"><?= $user_data->org_adress ?? ""?></p>
+                                            <p class="mb-0 text-muted"><?= $coords['address'] ?? ""?></p>
                                         </div>
                                     </div>
                                 </div>
