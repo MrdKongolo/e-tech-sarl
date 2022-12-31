@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Accueil;
 use App\Models\Element;
 use App\Models\Service;
 use CodeIgniter\Controller;
@@ -35,7 +36,9 @@ abstract class BaseController extends Controller
     public $servModel;
     public $teamModel;
     public $partModel;
+    public $docModel;
     public $coords;
+    public $accModel;
     public $email;
 
     public $validation;
@@ -70,6 +73,8 @@ abstract class BaseController extends Controller
         $this->teamModel = model(Team::class);
         $this->coordModel = model(Coord::class);
         $this->partModel = model(Partner::class);
+        $this->docModel = model(Document::class);
+        $this->accModel = model(Accueil::class);
         $this->coords =  $this->coordModel->first();
     }
 }

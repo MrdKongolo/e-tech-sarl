@@ -13,7 +13,7 @@
     }
 </style>
 
-<div class="contact-area py-120">
+<div class="contact-area pt-5">
     <div class="container">
         <div class="contact-wrapper">
             <div class="row">

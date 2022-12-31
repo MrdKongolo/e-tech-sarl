@@ -19,6 +19,7 @@ class Users extends BaseController
             'cat' => $this->catModel->countAll(),
             'coords'=> $this->coords,
             'prod' => $this->elmtModel->countAll(),
+            'docs' => $this->docModel->countAll(),
             'part' => $this->partModel->countAll(),
         ];
         return view('users/dashboard',$data);
@@ -83,6 +84,7 @@ class Users extends BaseController
                 $oldfile = $user['photo'];
                 if ($file->isValid() && !$file->hasMoved()) {
 
+                    // Check if another user image file exists and then delete it
                     if(file_exists($path_user .'/'. $oldfile) && $oldfile !== null){
                         unlink($path_user .'/'. $oldfile);
                     }

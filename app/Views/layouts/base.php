@@ -96,10 +96,17 @@ $user_data = session()->get('user_data');
                     </li>
 
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Partenaire</span></a>
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Partenaires</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="<?= base_url() ?>/add-partner">Ajouter Partenaire</a></li>
                             <li><a href="<?= base_url() ?>/partners-list">Liste Partenaires</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Documents</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="<?= base_url() ?>/add-documents">Ajouter Document</a></li>
+                            <li><a href="<?= base_url() ?>/documents">Liste Documents</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
@@ -124,150 +131,150 @@ $user_data = session()->get('user_data');
 <!-- [ navigation menu ] end -->
 <!-- [ Header ] start -->
 <header class=" navbar pcoded-header navbar-expand-lg navbar-light header-blue">
-                                    <div class="m-header">
-                                        <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-                                        <a href="#!" class="b-brand">
-                                            <!-- ========   change your logo hear   ============ -->
-                                            <img src="<?= base_url() ?>/assets/img/logo/logo-e-tech.png" alt="logo" alt="logo" class="logo" style="height: 60px; width: 70px;">
-                                        </a>
-                                        <a href="#!" class="mob-toggler">
-                                            <i class="feather icon-more-vertical"></i>
-                                        </a>
-                                    </div>
-                                    <div class="collapse navbar-collapse">
+<div class="m-header">
+    <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+    <a href="#!" class="b-brand">
+        <!-- ========   change your logo hear   ============ -->
+        <img src="<?= base_url() ?>/assets/img/logo/logo-e-tech.png" alt="logo" alt="logo" class="logo" style="height: 60px; width: 70px;">
+    </a>
+    <a href="#!" class="mob-toggler">
+        <i class="feather icon-more-vertical"></i>
+    </a>
+</div>
+<div class="collapse navbar-collapse">
 
-                                        <ul class="navbar-nav ml-auto">
-                                            <li>
-                                                <div class="dropdown drp-user">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                        <i class="feather icon-user"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right profile-notification">
-                                                        <div class="pro-head">
-                                                            <img src="<?= base_url() ?>/resources/images/user/<?= $user_data['photo'] /*?? "user-default-avatar.png"*/ ?>" class="img-radius" alt="pix">
-                                                            <span><?= ucfirst($user_data['username']) ?? "" ?></span>
-                                                            <a href="<?= base_url() ?>/logout" class="dud-logout" title="Déconnexion">
-                                                                <i class="feather icon-log-out"></i>
-                                                            </a>
-                                                        </div>
-                                                        <ul class="pro-body">
-                                                            <li><a href="<?= base_url() ?>/profile" class="dropdown-item"><i class="feather icon-user"></i>Profile</a></li>
-                                                            <li><a href="<?= base_url() ?>/logout" class="dropdown-item"><i class="feather icon-lock"></i>Déconnexion</a></li>
-                                                            <!-- <li><a href="</?= base_url()?>/change-pwd" class="dropdown-item"><i class="feather icon-settings"></i>Changer Mot de Passe</a></li> -->
-                                                            <li><a href="<?= base_url() ?>" class="dropdown-item"><i class="feather icon-home"></i>Voir le Site</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    </header>
-                                    <!-- [ Header ] end -->
+    <ul class="navbar-nav ml-auto">
+        <li>
+            <div class="dropdown drp-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="feather icon-user"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right profile-notification">
+                    <div class="pro-head">
+                        <img src="<?= base_url() ?>/resources/images/user/<?= $user_data['photo'] /*?? "user-default-avatar.png"*/ ?>" class="img-radius" alt="pix">
+                        <span><?= ucfirst($user_data['username']) ?? "" ?></span>
+                        <a href="<?= base_url() ?>/logout" class="dud-logout" title="Déconnexion">
+                            <i class="feather icon-log-out"></i>
+                        </a>
+                    </div>
+                    <ul class="pro-body">
+                        <li><a href="<?= base_url() ?>/profile" class="dropdown-item"><i class="feather icon-user"></i>Profile</a></li>
+                        <li><a href="<?= base_url() ?>/logout" class="dropdown-item"><i class="feather icon-lock"></i>Déconnexion</a></li>
+                        <!-- <li><a href="</?= base_url()?>/change-pwd" class="dropdown-item"><i class="feather icon-settings"></i>Changer Mot de Passe</a></li> -->
+                        <li><a href="<?= base_url() ?>" class="dropdown-item"><i class="feather icon-home"></i>Voir le Site</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</header>
+<!-- [ Header ] end -->
 
-                                    <!--Content Render-->
-                                    <?= $this->renderSection('content') ?>
+<!--Content Render-->
+<?= $this->renderSection('content') ?>
 
 
-                                    <!-- Required Js -->
-                                    <script src="<?= base_url() ?>/resources/js/vendor-all.min.js"></script>
-                                    <script src="<?= base_url() ?>/resources/js/plugins/bootstrap.min.js"></script>
-                                    <script src="<?= base_url() ?>/resources/js/ripple.js"></script>
-                                    <script src="<?= base_url() ?>/resources/js/pcoded.min.js"></script>
+<!-- Required Js -->
+<script src="<?= base_url() ?>/resources/js/vendor-all.min.js"></script>
+<script src="<?= base_url() ?>/resources/js/plugins/bootstrap.min.js"></script>
+<script src="<?= base_url() ?>/resources/js/ripple.js"></script>
+<script src="<?= base_url() ?>/resources/js/pcoded.min.js"></script>
 
-                                    <!-- Apex Chart -->
-                                    <script src="<?= base_url() ?>/resources/js/plugins/apexcharts.min.js"></script>
-                                    <!-- custom-chart js -->
-                                    <script src="<?= base_url() ?>/resources/js/pages/dashboard-main.js"></script>
-                                    <!-- tag-input js -->
-                                    <script src="<?= base_url() ?>/resources/js/plugins/bootstrap-tagsinput.min.js"></script>
+<!-- Apex Chart -->
+<script src="<?= base_url() ?>/resources/js/plugins/apexcharts.min.js"></script>
+<!-- custom-chart js -->
+<script src="<?= base_url() ?>/resources/js/pages/dashboard-main.js"></script>
+<!-- tag-input js -->
+<script src="<?= base_url() ?>/resources/js/plugins/bootstrap-tagsinput.min.js"></script>
 
-                                    <!-- datatable Js -->
-                                    <script src="<?= base_url() ?>/resources/js/plugins/jquery.dataTables.min.js"></script>
-                                    <script src="<?= base_url() ?>/resources/js/plugins/dataTables.bootstrap4.min.js"></script>
-                                    <script src="<?= base_url() ?>/resources/js/pages/data-advance-custom.js"></script>
+<!-- datatable Js -->
+<script src="<?= base_url() ?>/resources/js/plugins/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>/resources/js/plugins/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url() ?>/resources/js/pages/data-advance-custom.js"></script>
 
-                                    <!-- notification Js -->
-                                    <script src="<?= base_url() ?>/resources/js/plugins/bootstrap-notify.min.js"></script>
-                                    <script src="<?= base_url() ?>/resources/js/pages/ac-notification.js"></script>
-                                    <!-- file-upload Js -->
-                                    <script src="<?= base_url() ?>/resources/js/plugins/dropzone-amd-module.min.js"></script>
-                                    <!-- select2 Js -->
-                                    <script src="<?= base_url() ?>/resources/js/plugins/select2.full.min.js"></script>
-                                    <!-- form-select-custom Js -->
-                                    <script src="<?= base_url() ?>/resources/js/pages/form-select-custom.js"></script>
-                                    <script src="<?= base_url() ?>/resources/js/plugins/lightbox.min.js"></script>
-                                    <script>
-                                        lightbox.option({
-                                            'resizeDuration': 200,
-                                            'wrapAround': true
-                                        })
-                                    </script>
+<!-- notification Js -->
+<script src="<?= base_url() ?>/resources/js/plugins/bootstrap-notify.min.js"></script>
+<script src="<?= base_url() ?>/resources/js/pages/ac-notification.js"></script>
+<!-- file-upload Js -->
+<script src="<?= base_url() ?>/resources/js/plugins/dropzone-amd-module.min.js"></script>
+<!-- select2 Js -->
+<script src="<?= base_url() ?>/resources/js/plugins/select2.full.min.js"></script>
+<!-- form-select-custom Js -->
+<script src="<?= base_url() ?>/resources/js/pages/form-select-custom.js"></script>
+<script src="<?= base_url() ?>/resources/js/plugins/lightbox.min.js"></script>
+<script>
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    })
+</script>
 
-                                    <script>
-                                        $('#user-list-table').DataTable();
-                                    </script>
-                                    <script>
-                                        // DataTable start
-                                        $('#report-table').DataTable();
-                                        // DataTable end
-                                    </script>
-                                    <script>
-                                        $(document).ready(function() {
-                                            checkCookie();
-                                        });
+<script>
+    $('#user-list-table').DataTable();
+</script>
+<script>
+    // DataTable start
+    $('#report-table').DataTable();
+    // DataTable end
+</script>
+<script>
+    $(document).ready(function() {
+        checkCookie();
+    });
 
-                                        function setCookie(cname, cvalue, exdays) {
-                                            var d = new Date();
-                                            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-                                            var expires = "expires=" + d.toGMTString();
-                                            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-                                        }
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
 
-                                        function getCookie(cname) {
-                                            var name = cname + "=";
-                                            var decodedCookie = decodeURIComponent(document.cookie);
-                                            var ca = decodedCookie.split(';');
-                                            for (var i = 0; i < ca.length; i++) {
-                                                var c = ca[i];
-                                                while (c.charAt(0) == ' ') {
-                                                    c = c.substring(1);
-                                                }
-                                                if (c.indexOf(name) == 0) {
-                                                    return c.substring(name.length, c.length);
-                                                }
-                                            }
-                                            return "";
-                                        }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
 
-                                        function checkCookie() {
-                                            var ticks = getCookie("modelopen");
-                                            if (ticks != "") {
-                                                ticks++;
-                                                setCookie("modelopen", ticks, 1);
-                                                if (ticks == "2" || ticks == "1" || ticks == "0") {
-                                                    $('#exampleModalCenter').modal();
-                                                }
-                                            } else {
-                                                // user = prompt("Please enter your name:", "");
-                                                $('#exampleModalCenter').modal();
-                                                ticks = 1;
-                                                setCookie("modelopen", ticks, 1);
-                                            }
-                                        }
-                                    </script>
-                                    <!-- Ckeditor js -->
-                                    <script src="<?= base_url() ?>/resources/js/plugins/ckeditor.js"></script>
-                                    <script type="text/javascript">
-                                        $(window).on('load', function() {
-                                            ClassicEditor.create(document.querySelector('#classic-editor'))
-                                                .catch(error => {
-                                                    console.error(error);
-                                                });
-                                        });
-                                    </script>
-                                    <!--Include Js Php file-->
-                                    <?= $this->include('layouts/js_script') ?>
-                                    <!-- Js Php file-->
-                                    </body>
+    function checkCookie() {
+        var ticks = getCookie("modelopen");
+        if (ticks != "") {
+            ticks++;
+            setCookie("modelopen", ticks, 1);
+            if (ticks == "2" || ticks == "1" || ticks == "0") {
+                $('#exampleModalCenter').modal();
+            }
+        } else {
+            // user = prompt("Please enter your name:", "");
+            $('#exampleModalCenter').modal();
+            ticks = 1;
+            setCookie("modelopen", ticks, 1);
+        }
+    }
+</script>
+<!-- Ckeditor js -->
+<script src="<?= base_url() ?>/resources/js/plugins/ckeditor.js"></script>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        ClassicEditor.create(document.querySelector('#classic-editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>
+<!--Include Js Php file-->
+<?= $this->include('layouts/js_script') ?>
+<!-- Js Php file-->
+</body>
 
 </html>

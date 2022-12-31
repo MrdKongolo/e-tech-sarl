@@ -9,30 +9,31 @@
     }
 </style>
 
-<div class="case-area py-120">
+<div class="case-area py-120" id="serv" style="background: #f9f5f4;">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline">Services</span>
-                    <h2 class="site-title">Nos Secteurs d'activité</h2>
+                    <span class="site-title-tagline">&nbsp;</span>
+                    <h2 class="site-title">Nos Secteurs</h2>
                     <div class="heading-divider"></div>
                     <p>
-                        Voici certains de nos secteurs clés d'activité
+                        Voici certains de nos secteurs clés d'activité <br>
+                        Cliquez sur un service pour voir les détails.
                     </p>
                 </div>
             </div>
         </div>
         <div class="row popup-gallery">
-            <div class="row">
+            <div class="row mx-auto">
                 <?php foreach($services as $serv):?>
-                    <div class="col-md-3 col-lg-3">
+                    <div class="col-md-6 col-lg-4  mx-auto">
                         <a href="<?=base_url()?>/service-details/<?=strtolower($serv['srv_slug']);?>">
                             <div class="case-item">
                                 <div class="case-img">
                                     <img 
                                         class="img-fluid" 
-                                        src="<?= base_url();?>/resources/images/services/<?= $serv['photo'];?>" style="width:300px;height:400px"
+                                        src="<?= base_url();?>/resources/images/services/<?= $serv['photo'];?>" style="height:543px"
                                         alt="services"                                
                                     >
                                 </div>

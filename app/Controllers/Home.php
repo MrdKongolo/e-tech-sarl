@@ -17,6 +17,7 @@ class Home extends BaseController
         $data = [
             'services' => $this->servModel->findAll(),
             'parts' => $this->partModel->findAll(),
+            'accueil' => $this->accModel->first(),
             'coords'=> $this->coords
         ];
         return view('pages/' .$page, $data);
@@ -26,7 +27,6 @@ class Home extends BaseController
         $data = [
             'title' => 'Equipe | E-Tech',
             'coords'=> $this->coords,
-            'parts' => $this->partModel->findAll(),
             'team' => $this->teamModel->findAll()
         ];
         return view ('team/index', $data);

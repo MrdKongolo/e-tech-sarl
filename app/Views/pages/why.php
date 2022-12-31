@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
-                <div class="site-heading text-center">
-                    <span class="site-title-tagline">Mille et une raison de nous choisir</span>
+                <div class="site-heading text-center pt-5">
                     <h2 class="site-title">Pourquoi Nous ?</h2>
+                    <span class="site-title-tagline">Mille et une raison de nous choisir</span>
                     <p>
                         
                     </p>

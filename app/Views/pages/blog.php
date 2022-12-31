@@ -16,7 +16,7 @@
         height: 109.55px;
     }
 </style>
-<div class="site-breadcrumb">
+<!-- <div class="site-breadcrumb">
     <div class="container">
         <h2 class="breadcrumb-title">Quelques réalisations </h2>
         <ul class="breadcrumb-menu">
@@ -24,10 +24,19 @@
             <li class="active">Nos Réalisations</li>
         </ul>
     </div>
-</div>
+</div> -->
 
 <div class="blog-area py-120">
     <div class="container" style="text-align:center;align-items:center;">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline"></span>
+                    <h2 class="site-title">Quelques Réalisations</h2>
+                    <div class="heading-divider"></div>                    
+                </div>
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="blog-item">

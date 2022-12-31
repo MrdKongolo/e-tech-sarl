@@ -30,12 +30,21 @@
             <div class="col-lg-12">
                 <div class="card user-profile-list">
                     <div class="card-body">
-                        <?php if(session()->getFlashdata('error')):?>
-                            <div class="alert alert-danger"><?=session()->getFlashdata('error');?></div>
-                        <?php endif;?>
                         <?php if(session()->getFlashdata('success')):?>
                             <div class="alert alert-success"><?=session()->getFlashdata('success');?></div>
                         <?php endif;?>
+                        <?php if(session()->getFlashdata('error')):?>
+                            <div class="alert alert-danger"><?=session()->getFlashdata('error');?></div>
+                        <?php endif;?>
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-sm-6">
+                            </div>
+                            <?php if ($user_data['role'] === 'admin') : ?>
+                                <div class="col-sm-6 text-right">
+                                    <a type="button" href="<?= base_url() ?>/add-team" class="btn btn-success btn-sm btn-round has-ripple"><i class="feather icon-plus"></i>&nbsp;Membre</a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                         <div class="dt-responsive table-responsive">
                             <table id="user-list-table" class="table nowrap">
                                 
@@ -66,11 +75,19 @@
                                                 <td><?= ucfirst($row->profession) ?? "" ?></td>
                                                 <td>                                                    
                                                     <div class="overlay-edit">
-                                                        <a type="button" class="btn btn-icon btn-success"
+                                                        <!-- <a type="button" class="btn btn-icon btn-success"
                                                            href="" data-toggle="tooltip" data-placement="top" title="Voir Plus">
                                                             <i class="feather icon-eye"></i>
+                                                        </a> -->
+                                                        <a type="button" class="btn btn-icon btn-info" href="<?= base_url()?>/team-edit/<?= $row->member_id;?>" data-toggle="tooltip"  data-placement="top" title="Modifier"  class="btn btn-icon btn-outline-success">
+                                                            <i class="feather icon-edit"></i>
                                                         </a>
-                                                        <a type="button" href="" data-toggle="tooltip" data-placement="top" title="Supprimer"
+
+                                                        <a type="button" class="btn btn-icon btn-success"
+                                                           href="<?=base_url()?>/team-image/<?= $row->member_id;?>" data-toggle="tooltip" data-placement="top" title="Image">
+                                                            <i class="feather icon-image"></i>
+                                                        </a>
+                                                        <a type="button" href="<?=base_url()?>/delete-member/<?= $row->member_id;?>" data-toggle="tooltip" data-placement="top" title="Supprimer"
                                                             class="btn btn-icon btn-danger" onclick="return confirm('Etes-vous sûr de supprimer cet utilisateur ?')"><i
                                                                 class="feather icon-trash-2"></i></a>
                                                     </div>

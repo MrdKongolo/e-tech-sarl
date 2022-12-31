@@ -19,7 +19,7 @@
             <div class="col-lg-6">
                 <div class="about-left">
                     <div class="about-img">
-                        <img class="about-img-1" src="<?=base_url()?>/assets/img/slider/e-tech.jpg" alt="">
+                        <img class="about-img-1" src="<?= base_url() ?>/assets/img/slider/e-tech.jpg" alt="">
                     </div>
                     <div class="about-left-content">
                         <div class="about-left-info">
@@ -42,13 +42,20 @@
                         Ce qui fait de nous un panel de talentueux..
                     </p>
                 </div>
+                <div class="widget service-download">
+                    <h4 class="widget-title">Documents</h4>
+                    <a href="<?= base_url() ?>/resources/docs/domino.pdf" target="_blank""><i class="far fa-file-pdf"></i> Télécharger Status</a>
+                    <a href="<?= base_url() ?>/resources/docs/domino.pdf" target="_blank""><i class="far fa-file-alt"></i> Télécharger Profil</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+</div>
+</div>
 
 <!-- Section Why-->
-<?= view_cell('\App\Controllers\Home::why');?>
+<?= view_cell('\App\Controllers\Home::why'); ?>
 <!-- End Section Why-->
 
 <div class="counter-area">

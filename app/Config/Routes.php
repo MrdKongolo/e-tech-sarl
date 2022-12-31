@@ -90,9 +90,17 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->match(['get', 'post'],'add-category', 'Categories::add');
 
     // Coords
-
     $routes->get('coords', 'Coords::index');    
     $routes->post('coords-update', 'Coords::update'); 
+
+    // Documents
+    $routes->get('documents', 'Documents::list');    
+    $routes->match(['get', 'post'],'add-document', 'Documents::createDocument');
+    $routes->add('delete-document/(:segment)', 'Documents::delete/$1');
+
+    // Accueil
+    $routes->get('accueil-edit', 'Accueils::edit');
+    $routes->add('update-accueil', 'Accueils::update');
 
     // Elements
     $routes->get('elements', 'Elements::index');
@@ -129,6 +137,11 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     // Team 
     $routes->get('team-list', 'Teams::list');
     $routes->match(['get', 'post'],'add-team', 'Teams::create');
+    $routes->get('team-image/(:num)', 'Teams::image/$1');
+    $routes->post('team-update-image', 'Teams::saveImage');
+    $routes->add('delete-member/(:num)', 'Teams::delete/$1');
+    $routes->get('team-edit/(:num)', 'Teams::edit/$1');
+    $routes->add('update-team', 'Teams::update');
 
     // Users   
     $routes->get('profile', 'Users::profile');

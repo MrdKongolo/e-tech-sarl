@@ -52,4 +52,10 @@ class Team extends Model
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
+    public function getMember($id){
+        if($id === null){
+            return false;
+        }
+        return  $this->where(['member_id' => $id])->first();
+    }
 }
