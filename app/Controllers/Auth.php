@@ -6,12 +6,18 @@ use App\Controllers\BaseController;
 
 class Auth extends BaseController
 {
+    public $docModel;
+
+    public function __construct(){
+        $this->docModel = model(DocumentModel::class);
+    }
 
     public function about(){
         $data = [
             'title' => 'Qui nous sommes | E-Tech',
             'parts' => $this->partModel->findAll(),
-            'coords'=> $this->coords
+            'coords'=> $this->coords,
+            'docs'  => $this->docModel->findAll()
         ];
         return view('pages/about',$data);
     }   

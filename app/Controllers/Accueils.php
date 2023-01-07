@@ -12,8 +12,9 @@ class Accueils extends BaseController
             'accueil'    => $this->accModel->first(),
         ];
         return view('documents/admin/accueil',$data);
-    }
-   
+    }   
+    
+
     function update()
     {
         $accueil = $this->accModel->first();
@@ -28,6 +29,53 @@ class Accueils extends BaseController
             return redirect()->to("/dashboard")->with("success", "Modifié avec succès !");            
         }
         return redirect()->back()->with("error", "Une erreur s'est produite !");  
-    }     
+    }  
+    
+    public function image()
+    {        
+        $data = [            
+            'accueil'    => $this->accModel->first(),
+        ];
+        if (!empty($data['accueil'])) {
+            session()->set('accueil', $data['accueil']);
+            return view('coords/image',$data);
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    function saveImage()
+    {
+        $data[] = null;           
+        $accueil = session()->get('accueil');  
+        $oldfile = $accueil['photo'];
+        $path = './resources/images/slider';    
+        $id = $accueil['id'];
+        $data['accueil'] = $accueil;
+
+        if ($this->request->getMethod() === 'post') {
+            $rules = $this->accModel->getValidationRules(['only' => ['photo']]);
+            if ($this->validate($rules)) {
+
+                $file = $this->request->getFile('photo');
+
+                if ($file->isValid() && !$file->hasMoved()) {
+                    $imageName = $file->getRandomName();
+                    $data = ['photo' => $imageName];
+                    
+                    if(file_exists($path .'/'. $oldfile) && $oldfile !== null){
+                        unlink($path .'/'. $oldfile);
+                    }
+                    $this->accModel->update($id,$data);
+                    $file->move($path, $imageName);
+                    session()->remove('accueil');
+                    return redirect()->to('/dashboard')->with('error', "Image ajoutée avec succès");
+                }
+            } else {
+                $data['validation'] = $this->validation->getErrors();
+            }
+        }        
+        echo view('coords/image', $data);
+    }
     
 }

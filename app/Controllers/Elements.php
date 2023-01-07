@@ -102,10 +102,7 @@ class Elements extends BaseController
     }
 
     function saveImage()
-    {
-        
-        // $id = $this->request->getVar('element');
-        // $element = $this->elmtModel->getElement($id);        
+    {      
         $element = session()->get('element');    
         $oldfile = $element['picture'];
         $path = './resources/images/elements'; 

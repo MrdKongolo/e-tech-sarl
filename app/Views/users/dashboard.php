@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url() ?>/services-list" data-toggle="tooltip" data-placement="top" title="Liste" class="btn btn-icon btn-info">
-                                                <i class="feather icon-eye"></i>
+                                                <i class="feather icon-list"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url() ?>/categories-list" data-toggle="tooltip" data-placement="top" title="Liste" class="btn btn-icon btn-info">
-                                                <i class="feather icon-eye"></i>
+                                                <i class="feather icon-list"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url() ?>/elements" data-toggle="tooltip" data-placement="top" title="Liste" class="btn btn-icon btn-secondary">
-                                                <i class="feather icon-eye"></i>
+                                                <i class="feather icon-list"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                     <div class="row text-center">
                                         <div class="col">
                                             <a type="button" href="<?= base_url() ?>/add-document" data-placement="top" data-toggle="tooltip" title="Ajouter" class="btn btn-icon btn-danger">
-                                                <i class="feather icon-plus"></i>
+                                                <i class="feather icon-file-plus"></i>
                                             </a>
                                         </div>
                                         <div class="col">
@@ -147,7 +147,7 @@
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url() ?>/documents" data-toggle="tooltip" data-placement="top" title="Liste" class="btn btn-icon btn-info">
-                                                <i class="feather icon-eye"></i>
+                                                <i class="feather icon-list"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                         </div>
                                         <div class="col">
                                             <a type="button" href="<?= base_url() ?>/partners-list" data-toggle="tooltip" data-placement="top" title="Liste" class="btn btn-icon btn-info">
-                                                <i class="feather icon-eye"></i>
+                                                <i class="feather icon-list"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -202,16 +202,9 @@
                             <div class="card-footer bg-facebook text-white">
                                 <div class="row text-center">
                                     <div class="col">
-                                        <h5 class="m-0 text-white"></h5>
-                                        <span></span>
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="m-0 text-white"></h5>
-                                        <span></span>
-                                    </div>
-                                    <div class="col">
-                                        <h5 class="m-0 text-white"></h5>
-                                        <span></span>
+                                        <a type="button" href="<?= base_url() ?>/coords" data-placement="top" data-toggle="tooltip" title="Modifier" class="btn btn-icon btn-danger">
+                                            <i class="feather icon-settings"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -227,16 +220,18 @@
                             <div class="card-footer bg-facebook text-white">
                                 <div class="row text-center">
                                     <div class="col">
-                                        <h5 class="m-0 text-white"></h5>
-                                        <span></span>
+                                        <a type="button" href="<?= base_url() ?>/accueil-edit" data-placement="top" data-toggle="tooltip" title="Ajout Elément" class="btn btn-icon btn-danger">
+                                            <i class="feather icon-home"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <h5 class="m-0 text-white"></h5>
                                         <span></span>
                                     </div>
                                     <div class="col">
-                                        <h5 class="m-0 text-white"></h5>
-                                        <span></span>
+                                        <a type="button" href="<?= base_url() ?>/image-home" data-toggle="tooltip" data-placement="top" title="Image" class="btn btn-icon btn-info">
+                                            <i class="feather icon-image"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

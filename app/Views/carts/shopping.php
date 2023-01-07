@@ -99,11 +99,11 @@
                             <nav class="navbar">
                                 <ul class="navbar_menu">
                                     <li><a href="<?= base_url(); ?>">Acueil</a></li>
-                                    <li><a href="<?= base_url(); ?>/about-us">A Propos</a></li>
-                                    <li><a href="<?= base_url(); ?>/services">Services</a></li>
-                                    <li><a href="<?= base_url(); ?>/team">Equipe</a></li>
-                                    <li><a href="<?= base_url(); ?>/blog">Réalisations</a></li>
-                                    <li><a href="<?= base_url(); ?>/contact">Contact</a></li>
+                                    <li><a href="<?= base_url(); ?>/about-us">A Propos de Nous</a></li>
+                                    <li><a href="<?= base_url(); ?>/services">Nos Services</a></li>
+                                    <li><a href="<?= base_url(); ?>/team">Nos Personnels</a></li>
+                                    <li><a href="<?= base_url(); ?>/blog">Nos Réalisations</a></li>
+                                    <li><a href="<?= base_url(); ?>/contact">Nos Contacts</a></li>
                                 </ul>
                                 <?= view_cell('App\Controllers\Carts::carting'); ?>
                             </nav>

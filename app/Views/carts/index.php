@@ -1,6 +1,15 @@
  <?= $this->extend('carts/shopping');?>
  <?= $this->section('content');?>
  <!-- Slider -->
+<style>
+    @media screen and (min-width : 480px){        
+        #product_image>img {
+            width: 221px;
+            height:221px;
+            padding:2%;
+        }
+    }
+</style>
 
 <div class="container single_product_container">
     <div class="row">
@@ -69,11 +78,10 @@
                                     <div class="product-item">
                                         <div class="product product_filter">
                                             <div class="product_image">
-                                                <!-- <img src="</?= base_url()?>/public/images/product_10.png" alt=""> -->
                                                 <img 
                                                     src="<?= base_url()?>/resources/images/elements/<?=$elt['picture'] ?? 'no-image.png';?>" 
                                                     alt=""
-                                                    style="border-radius: 20px;width: 221px;height:221px;padding:2%;"
+                                                    style="border-radius: 15px;"                                                    
                                                 >
                                             </div>
                                             <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span><?=$elt['price_max'] ?? 0.0 ?></span></div>

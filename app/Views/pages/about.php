@@ -43,9 +43,12 @@
                     </p>
                 </div>
                 <div class="widget service-download">
-                    <h4 class="widget-title">Documents</h4>
-                    <a href="<?= base_url() ?>/resources/docs/domino.pdf" target="_blank""><i class="far fa-file-pdf"></i> Télécharger Status</a>
-                    <a href="<?= base_url() ?>/resources/docs/domino.pdf" target="_blank""><i class="far fa-file-alt"></i> Télécharger Profil</a>
+                    <h4 class="widget-title">Documents à télécharger</h4>
+                    <?php if(isset($docs)):?>
+                        <?php foreach($docs as $doc):?>
+                            <a href="<?= base_url();?>/resources/documents/<?=$doc['file'];?>" target="_blank""><i class="far fa-file-alt"></i><?=$doc['name'];?></a>
+                        <?php endforeach;?>
+                    <?php endif;?>
                 </div>
             </div>
         </div>

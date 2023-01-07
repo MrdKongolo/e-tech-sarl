@@ -78,6 +78,13 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     // Auth
     $routes->get('logout', 'Auth::logout');
 
+    
+    // Accueil
+    $routes->get('accueil-edit', 'Accueils::edit');
+    $routes->add('update-accueil', 'Accueils::update');
+    $routes->get('image-home', 'Accueils::image');
+    $routes->add('home-update-image', 'Accueils::saveImage');
+
     // Cart
     // $routes->get('checkout', 'Carts::checkout');
 
@@ -98,9 +105,6 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->match(['get', 'post'],'add-document', 'Documents::createDocument');
     $routes->add('delete-document/(:segment)', 'Documents::delete/$1');
 
-    // Accueil
-    $routes->get('accueil-edit', 'Accueils::edit');
-    $routes->add('update-accueil', 'Accueils::update');
 
     // Elements
     $routes->get('elements', 'Elements::index');

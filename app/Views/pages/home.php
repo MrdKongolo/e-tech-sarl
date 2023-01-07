@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-5 col-lg-5">
                     <div class="hero-img">
-                        <img src="<?= base_url() ?>/assets/img/slider/e-tech.jpg" height="490" alt="">
+                        <img src="<?= base_url() ?>/resources/images/slider/<?= $accueil['photo'] ?? 'e-tech.jpg'?>" height="490" alt="">
                     </div>
                 </div>
             </div>
