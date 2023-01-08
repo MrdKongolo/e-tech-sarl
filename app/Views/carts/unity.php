@@ -76,9 +76,12 @@
                     <span>Quantité:</span>
                     <div class="quantity_selector">
                         <span id="quantity_value">
-                            <input type="number" name="quantity" id="quantity<?= $element['el_id'] ?>" class="form-control text-center" value="1" min="1" />
+                            <input type="number" name="quantity" id="quantity<?= $element['el_id'] ?>"  
+                                class="form-control text-center" value="1" min="1" 
+                                oninput="this.value = Math.round(this.value);"
+                            />
                         </span>
-                    </div>
+                    </div>     
                     <input type="hidden" name="hidden_name" id="name<?= $element["el_id"] ?>" value="<?= $element["el_title"] ?>" />
                     <input type="hidden" name="hidden_price" id="price<?= $element["el_id"] ?>" value="<?= $element["price_inf"] ?>" />
                 </div>

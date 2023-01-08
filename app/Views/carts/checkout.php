@@ -80,13 +80,13 @@
                             <div>
                                 <div class="form-group d-inline-flex group-calc">
                                     <label class="field-calc">Montant</label>
-                                    <input class="form-control nombre" type="number" id="amount" name="amount" placeholder="Ex : 100" min="<?= 0.3*$total;?>">
+                                    <input class="form-control nombre" type="number" id="amount" step="any" name="amount" value="<?= set_value('amount')?>" placeholder="Ex : <?= 0.3*$total ?? '';?>" min="<?= 0.3*$total;?>">
                                     <label class="field-calc-fin">USD</label>
                                 </div>
                                 <div class="form-group group-calc" id="verif" style="display: none;">
                                     <label class="field-calc">
                                         <small id="input-help" class="text-danger">
-                                            Le montant doit être supérieur ou égal à <?= $total*0.3?> $
+                                            Le montant doit être supérieur ou égal à <?= $total*0.3;?> $
                                         </small>
                                     </label>
                                 </div>
@@ -119,6 +119,7 @@
         }else {
             $('#verif').fadeOut(1500);
             $('#valider').attr('disabled',false);
+            $('#amount').focusout();
         }
     });        
 </script>
