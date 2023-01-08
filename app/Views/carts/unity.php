@@ -78,7 +78,7 @@
                         <span id="quantity_value">
                             <input type="number" name="quantity" id="quantity<?= $element['el_id'] ?>"  
                                 class="form-control text-center" value="1" min="1" 
-                                oninput="this.value = Math.round(this.value);"
+                                onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                             />
                         </span>
                     </div>     
