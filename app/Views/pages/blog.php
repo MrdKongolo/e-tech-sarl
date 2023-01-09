@@ -4,13 +4,16 @@
     h4>a {
         text-align: center;
     }
+
     div>p {
         text-align: justify;
     }
+
     div>img {
         width: 416px;
         height: 277px;
     }
+
     img#partner {
         width: 144.33px;
         height: 109.55px;
@@ -33,7 +36,7 @@
                 <div class="site-heading text-center">
                     <span class="site-title-tagline"></span>
                     <h2 class="site-title">Quelques Réalisations</h2>
-                    <div class="heading-divider"></div>                    
+                    <div class="heading-divider"></div>
                 </div>
             </div>
         </div>
@@ -48,6 +51,31 @@
                             <a href="#">Construction de 6 salles de classe </a>
                         </h4>
                         <p>Construction de 6 salles de classe / Construction of 6 classrooms</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-item-meta">
+                        <ul>
+                            <li><a href="#"><i class="far fa-user-circle"></i> IMPRIMERIE</a></li>                            
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="blog-item-img">
+                        <img src="<?= base_url() ?>/assets/img/blog/etudes.jpg" alt="Thumb">
+                    </div>
+                    <div class="blog-item-info">
+                        <h4 class="blog-title">
+                            <a href="#">Sed ut perspiciatis unde iste omnis natus sit volup</a>
+                        </h4>
+                        <p>At vero eos et accusamus et iusto odio digniss ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt.</p>
+                        <div class="blog-item-meta">
+                            <ul>
+                                <li><a href="#"><i class="far fa-user-circle"></i> By Alicia Davis</a></li>
+                                <li><a href="#"><i class="far fa-calendar-alt"></i> August 21, 2022</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

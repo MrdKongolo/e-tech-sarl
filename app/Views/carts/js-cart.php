@@ -26,9 +26,12 @@
         });
 
         $(document).on('click', '.add_to_cart', function() {
+
+            var prix = document.querySelector('input[name="price"]:checked').value;
+           
             var product_id = $(this).attr("id");
             var product_name = $('#name' + product_id + '').val();
-            var product_price = $('#price' + product_id + '').val();
+            var product_price = prix;
             var product_quantity = $('#quantity' + product_id).val();
             if (product_quantity > 0) {
                 $.ajax({

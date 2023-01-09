@@ -36,6 +36,8 @@ abstract class BaseController extends Controller
     public $servModel;
     public $teamModel;
     public $partModel;
+    public $coordModel;
+    public $blogModel;
     public $docModel;
     public $coords;
     public $accModel;
@@ -75,6 +77,7 @@ abstract class BaseController extends Controller
         $this->partModel = model(Partner::class);
         $this->docModel = model(Document::class);
         $this->accModel = model(Accueil::class);
+        $this->blogModel = model(Blog::class);
         $this->coords =  $this->coordModel->first();
     }
 }

@@ -62,15 +62,14 @@
                 <div class="free_delivery d-flex flex-row align-items-center justify-content-center" style="margin-top:10px">
                     <span class="ti-truck"></span><span>Ajouter au Panier</span>
                 </div>
-                <?php if ($element['price_max']) : ?>
-                    <div class="original_price" style="padding-top: 5px;">$<?= $element['price_max']; ?></div>
-                <?php endif; ?>
-                <div class="product_price pt-3">$<?= $element['price_inf'] ?? 0.0; ?></div>
+                
                 <div>
-                    <input type="radio" name="price" id=""> Avec votre Produit
+                    <input type="radio" name="price" id="inf" value="<?= $element['price_inf']; ?>" checked> Avec votre Produit &nbsp;
+                    <div class="product_price pt-3">$<?= $element['price_inf']; ?></div>
                 </div>
                 <div>                  
-                    <input type="radio" name="price" id=""> Avec Notre Produit
+                    <input type="radio" name="price" id="max" value="<?= $element['price_max'] ?? $element['price_inf']; ?>"> Avec Notre Produit &nbsp;
+                    <div class="product_price pt-3">$<?= $element['price_max'] ?? $element['price_inf']; ?></div>
                 </div>
                 <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                     <span>Quantité:</span>
@@ -91,6 +90,5 @@
             </div>
         </div>
     </div>
-
 </div>
 <?= $this->endSection('content'); ?>

@@ -96,13 +96,13 @@ $user_data = session()->get('user_data');
                         </ul>
                         <div class="header-nav-right">
                             <div class="header-phone">
-                                <div class="header-phone-icon">
+                                <!-- <div class="header-phone-icon">
                                     <i class="fal fa-mobile-android"></i>
-                                </div>
-                                <div class="header-phone-content">
+                                </div> -->
+                                <!-- <div class="header-phone-content">
                                     <span>Téléphone</span>
                                     <h5 class="header-phone-number"><a href="tel:+243 852 769 918">+243 852 769 918</a></h5>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
