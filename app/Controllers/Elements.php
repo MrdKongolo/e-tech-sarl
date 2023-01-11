@@ -38,6 +38,8 @@ class Elements extends BaseController
                     'price_inf' => $this->request->getVar('price_inf'),
                     'price_max' => $this->request->getVar('price_inf'),
                     'units' => $this->request->getVar('units'),
+                    'option' => $this->request->getVar('option'),
+                    'autre' => $this->request->getVar('autre'),
                     'picture' => $imageName,
                     'created_at' => date('Y-m-d H:s:i'),
                 ];
@@ -72,7 +74,9 @@ class Elements extends BaseController
             'price_inf' => $this->request->getVar('price_inf'),
             'price_max' => $this->request->getVar('price_max'),
             'units' => $this->request->getVar('units'),
-            'updated_at'=>date('Y-m-d H:s:i'),
+            'option' => $this->request->getVar('option'),
+            'autre' => $this->request->getVar('autre'),
+            'updated_at'=> date('Y-m-d H:i:s'),
         );
         if(!empty($data)){
             $this->elmtModel->update($id,$data);

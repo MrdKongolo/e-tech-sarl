@@ -18,6 +18,7 @@ class AddCategory extends Migration
             'updated_at datetime default current_timestamp',
         ]);
         $this->forge->addPrimaryKey('cat_id');
+        $this->forge->addForeignKey('srv_id','services','srv_id', '', 'CASCADE');
         $this->forge->createTable('categories');
     }
 

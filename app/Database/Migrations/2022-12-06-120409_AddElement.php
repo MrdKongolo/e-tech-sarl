@@ -16,6 +16,7 @@ class AddElement extends Migration
             'updated_at datetime default current_timestamp',
         ]);
         $this->forge->addPrimaryKey('el_id');
+        $this->forge->addForeignKey('cat_id','categories','cat_id', '', 'CASCADE');
         $this->forge->createTable('elements');
     }
 

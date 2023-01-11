@@ -30,7 +30,7 @@ class Categories extends BaseController
                 'cat_title' => $this->request->getVar('cat_title'),
                 'cat_slug' => url_title($this->request->getVar('cat_title')),
                 
-                'created_at' => date('Y-m-d H:s:i'),
+                'created_at' => date('Y-m-d H:i:s'),
             ];
             $this->catModel->save($data);
             $session = session();

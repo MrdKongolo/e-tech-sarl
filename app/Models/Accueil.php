@@ -8,7 +8,7 @@ class Accueil extends Model
 {
     protected $table            = 'accueil';
     protected $primaryKey       = 'id';
-    protected $allowedFields    = ['title','subtitle','description','photo','created_at','updated_at'];
+    protected $allowedFields    = ['title','subtitle','description','photo','created_at','updated_at','logo'];
 
     // Validation
     protected $validationRules      = [
@@ -23,6 +23,15 @@ class Accueil extends Model
         'description' => [
             'label' => 'Description','rules' => 'required',
             'errors' => ['required' => 'Remplissez le texte ici'],
+        ],
+        'logo' => [
+            'label' => 'Logo',
+            'rules' => 'uploaded[logo]|is_image[logo]|mime_in[logo,image/jpg,image/jpeg,image/gif,image/png,image/webp]|max_size[logo,50]',
+            'errors' => [
+                'uploaded' => 'Veuillez choisir un logo',
+                'is_image' => 'Le format de ce logo est inconnu',
+                'max_size' => 'La taille ne doit pas dépasser 50 KB',
+            ]
         ],
         'photo' => [
             'label' => 'Image',

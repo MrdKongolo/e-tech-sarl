@@ -3,24 +3,29 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Libraries\Hash;
 
 class Users extends BaseController
 {
     public $quotes;
+    public $moyens;
     public function __construct(){
         helper('date');
         $this->quotes = model(Commande::class);
+        $this->moyens = model(Commande::class);
     }
 
     function dashboard(){
         $data = [
             'title' => 'Dashboard | E-Tech',
-            'serv' => $this->servModel->countAll(),
-            'cat' => $this->catModel->countAll(),
+            'serv'  => $this->servModel->countAll(),
+            'cat'   => $this->catModel->countAll(),
             'coords'=> $this->coords,
-            'prod' => $this->elmtModel->countAll(),
-            'docs' => $this->docModel->countAll(),
-            'part' => $this->partModel->countAll(),
+            'prod'  => $this->elmtModel->countAll(),
+            'moyens'=> $this->moyens->countAll(),
+            'docs'  => $this->docModel->countAll(),
+            'blogs' => $this->blogModel->countAll(),
+            'part'  => $this->partModel->countAll(),
         ];
         return view('users/dashboard',$data);
     }
@@ -88,16 +93,16 @@ class Users extends BaseController
                     if(file_exists($path_user .'/'. $oldfile) && $oldfile !== null){
                         unlink($path_user .'/'. $oldfile);
                     }
+                    
+                    $data = ['photo' => $imageName];
+                    
+                    $id = $user['u_id'];
+                    $this->userModel->update($id, $data);
 
                     // resizing image
                     \Config\Services::image()->withFile($tempfile)
                         ->fit(80, 80, 'center')                        
                         ->save($path_user . '/' . $imageName);
-
-                    $data = ['photo' => $imageName];
-
-                    $id = $user['u_id'];
-                    $this->userModel->update($id, $data);
 
                     $data["sess_data"] = $this->userModel->findUserByID($id);
                     session()->set('user_data', $data["sess_data"]);
@@ -136,5 +141,57 @@ class Users extends BaseController
         } else {
             return redirect()->to("/logout");
         }
+    }
+    function change(){
+
+        $data = [];
+        $user_data = session()->get('user_data');
+        $data['password'] = $user_data['password'];
+
+        if ($this->request->getMethod() == 'post'){
+
+            $this->validation->setRules([
+                'current_password' => [
+                    'label' => 'Mot de Passe Actuel',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Ne peut pas être vide',
+                    ]
+                ],
+                'new_password' => [
+                    'label' => 'Nouveau Mot de Passe',
+                    'rules' => 'required|min_length[6]',
+                    'errors' => [
+                        'required' => 'Ne peut pas être vide',
+                        'min_length' => 'Pas moins de 6 caractères'
+                    ]
+                ],
+                'conf_new_password' => [
+                    'label' => 'Confirmer Mot de Passe',
+                    'rules' => 'required|matches[new_password]',
+                    'errors' => [
+                        'required' => 'Ne peut pas être vide',
+                        'matches' => 'Les deux mots de passe ne correspondent pas'
+                    ]
+                ],
+            ]);
+            if ($this->validation->withRequest($this->request)->run()) {
+                $curr_password = $this->request->getVar("current_password");
+                if(password_verify($curr_password, $data['password'])){
+                    $data = array(
+                        'password' => Hash::make($this->request->getVar('new_password'))
+                    );
+                    $this->userModel->update($user_data['u_id'],$data);
+                    return redirect()->to('/profile')->with("success", "Mot de passe changé avec succès !");
+                }else{
+                    session()->setFlashData("error", "L'ancien mot de passe entré n'est pas correct !");
+                }
+            }else{
+                $data['validation'] = $this->validation->getErrors();
+                return view('pages/change',$data);
+            }
+        }
+        $data['title'] = "Changement de mot de passe";
+        echo view('pages/change', $data);
     }
 }

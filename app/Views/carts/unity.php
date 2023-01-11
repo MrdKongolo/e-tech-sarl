@@ -42,7 +42,29 @@
                 <div class="row">
                     <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
                         <div class="single_product_thumbnails">
-
+                            <ul>
+                                <li>
+                                    <img 
+                                        src="<?= base_url(); ?>/resources/images/elements/<?= $element['picture']; ?>" alt="" 
+                                        data-image="<?= base_url(); ?>/resources/images/elements/<?= $element['picture']; ?>"
+                                        height="136"
+                                    >
+                                </li>
+                                <li class="active">
+                                    <img 
+                                        src="<?= base_url(); ?>/resources/images/elements/<?= $element['picture']; ?>" alt="" 
+                                        data-image="<?= base_url(); ?>/resources/images/elements/<?= $element['picture']; ?>"
+                                        height="136"
+                                    >
+                                </li>
+                                <li>
+                                    <img 
+                                        src="<?= base_url(); ?>/resources/images/elements/<?= $element['picture']; ?>" alt="" 
+                                        data-image="<?= base_url(); ?>/resources/images/elements/<?= $element['picture']; ?>"
+                                        height="136"
+                                    >
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-lg-9 image_col order-lg-2 order-1">
@@ -61,16 +83,17 @@
                 </div>
                 <div class="free_delivery d-flex flex-row align-items-center justify-content-center" style="margin-top:10px">
                     <span class="ti-truck"></span><span>Ajouter au Panier</span>
-                </div>
-                
+                </div>                
                 <div>
-                    <input type="radio" name="price" id="inf" value="<?= $element['price_inf']; ?>" checked> Avec votre Produit &nbsp;
+                    <input type="radio" name="price" id="inf" value="<?= $element['price_inf']; ?>" checked> <?= $element['option'] ?> &nbsp;
                     <div class="product_price pt-3">$<?= $element['price_inf']; ?></div>
                 </div>
-                <div>                  
-                    <input type="radio" name="price" id="max" value="<?= $element['price_max'] ?? $element['price_inf']; ?>"> Avec Notre Produit &nbsp;
-                    <div class="product_price pt-3">$<?= $element['price_max'] ?? $element['price_inf']; ?></div>
-                </div>
+                <?php if($element['autre']!== null):?>
+                    <div>                  
+                        <input type="radio" name="price" id="max" value="<?= $element['price_max'] ?? $element['price_inf']; ?>"> <?= $element['autre'] ?> &nbsp;
+                        <div class="product_price pt-3">$<?= $element['price_max'] ?? $element['price_inf']; ?></div>
+                    </div>
+                <?php endif;?>
                 <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                     <span>Quantité:</span>
                     <div class="quantity_selector">

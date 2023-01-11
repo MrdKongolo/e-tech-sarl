@@ -42,11 +42,11 @@
                                     <label>Moyen de Paiement<br></label>
                                     <select class="form-control" name="mean">
                                         <optgroup label="Moyen de Paiement">
-                                            <option value="Airtel Money" selected="" <?= set_select('mean', "Airtel Money") ?>>Airtel Money (+24399XXXXXXX)</option>
-                                            <option value="Orange Money" <?= set_select('mean', "Orange Money") ?>>Orange Money (+24385YYYYYYY)</option>
-                                            <option value="M-Pesa" <?= set_select('mean', "M-Pesa") ?>>M-Pesa (+24381YYYYYYY)</option>
-                                            <option value="Dépôt Bancaire" <?= set_select('mean', "Dépôt Bancaire") ?>>Dépôt Bancaire</option>
-                                            <option value="Cash" <?= set_select('mean', "Cash") ?>>Cash</option>
+                                            <?php if(isset($moyens)):?>
+                                                <?php foreach($moyens as $moyen):?>
+                                                    <option value="<?= $moyen['id'];?>" selected="" <?= set_select('mean', $moyen['id']) ?>><?= $moyen['name'];?> (<?= $moyen['numero'];?>)</option>
+                                                <?php endforeach;?>
+                                            <?php endif;?>
                                         </optgroup>
                                     </select>
                                     <div class="form-group group-calc">

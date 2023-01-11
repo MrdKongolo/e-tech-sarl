@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="Text">Nom Produit</label>
+                                        <label class="floating-label" for="Text">Nom Produit</label>
                                         <input type="text" class="form-control" name="el_title" value="<?= set_value('el_title')?>" >
                                         <small id="input-help" class="form-text text-danger"><?= $validation['el_title'] ?? null ;  ?></small>
                                     </div>
@@ -71,6 +71,20 @@
                                         <label class="floating-label" for="units">Unité de vente</label>
                                         <input type="text" class="form-control" name="units" value="<?= set_value('units')?>">
                                         <small id="input-help" class="form-text text-danger"><?= $validation['units'] ?? null ;  ?></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="option">Option (Facultative)</label>
+                                        <input type="text" class="form-control" name="option" value="<?= set_value('option')?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['option'] ?? null ;  ?></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="autre">Option 2 (Facultative)</label>
+                                        <input type="text" class="form-control" name="autre" value="<?= set_value('autre')?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['autre'] ?? null ;  ?></small>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

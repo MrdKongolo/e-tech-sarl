@@ -75,8 +75,8 @@
                 <div class="col-lg-6 col-sm-6">
                     <div class="counter-box">
                         <div class="icon"><i class="icon-customer"></i></div>
-                        <span class="counter" data-count="+" data-to="270" data-speed="3000">270</span>
-                        <h6 class="title">+ Clients Statisfaits</h6>
+                        <span class="counter" data-count="%" data-to="99" data-speed="3000">100</span>
+                        <h6 class="title">% Clients Statisfaits</h6>
                     </div>
                 </div>
             </div>

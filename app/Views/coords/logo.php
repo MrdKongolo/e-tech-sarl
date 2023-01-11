@@ -10,13 +10,12 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Les Produits</h5>
+                            <h5 class="m-b-10">L'accueil</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>/dashboard"><i
                                         class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="<?= base_url() ?>/elements">Les Produits</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Ajouter une image</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Modifier le logo</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,18 +27,18 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5><?= $element['el_title'] ?? "Image"?></h5>
+                        <h5>Accueil</h5>
                     </div>
                     <!-- [ breadcrumb ] end -->
                     <div class="card-body">
-                        <?php $hidden = ['element' => $element['el_id']];?>
-                        <?= form_open_multipart('element-update-image','', $hidden) ?>
+                        <?php $hidden = ['accueil' => $accueil['id']];?>
+                        <?= form_open_multipart('logo-update-image','', $hidden) ?>
                             <div class="row text-c">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="file" class="form-control" name="picture">
+                                        <input type="file" class="form-control" name="logo">
                                     </div>
-                                    <small id="input-help" class="form-text text-danger"><?= $validation['picture'] ?? null; ?></small>
+                                    <small id="input-help" class="form-text text-danger"><?= $validation['logo'] ?? null; ?></small>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="submit" class="btn btn-icon btn-primary has-ripple"><i class="feather icon-check"></i></button>

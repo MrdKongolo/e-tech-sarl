@@ -77,6 +77,7 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     
     // Auth
     $routes->get('logout', 'Auth::logout');
+    $routes->match(['get', 'post'],'change', 'Users::change');
 
     
     // Accueil
@@ -84,11 +85,14 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->add('update-accueil', 'Accueils::update');
     $routes->get('image-home', 'Accueils::image');
     $routes->add('home-update-image', 'Accueils::saveImage');
+    $routes->get('logo-home', 'Accueils::logo');
+    $routes->add('logo-update-image', 'Accueils::saveLogo');
 
     // Cart
     // $routes->get('checkout', 'Carts::checkout');
 
     $routes->add('dealing/(:any)/(:any)', 'Carts::dealing/$1/$2');
+    $routes->add('dealing-cart/(:any)/(:any)', 'Carts::dealingCart/$1/$2');
     $routes->add('cart-details/(:any)', 'Carts::details/$1');  
     $routes->add('cart-see-proof', 'Carts::proofing');
 
@@ -114,15 +118,28 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->get('element-image/(:num)', 'Elements::addImage/$1');
     $routes->add('element-update-image', 'Elements::saveImage');
     $routes->add('delete-element/(:segment)', 'Elements::delete/$1');
+    
+    // Moyens de Payements
+    $routes->get('moyens', 'Moyens::index');
+    $routes->match(['get', 'post'],'add-mean', 'Moyens::add');
+    $routes->get('mean-edit/(:num)', 'Moyens::edit/$1');
+    $routes->add('update-mean', 'Moyens::update');
+    $routes->add('delete-mean/(:segment)', 'Moyens::delete/$1');
 
 
     // Partenaires
     $routes->get('partners-list', 'Partners::index');
     $routes->match(['get', 'post'],'add-partner', 'Partners::add');
 
-    
-
     // Réalisations
+    $routes->get('blogs', 'Blogs::index');
+    $routes->match(['get', 'post'],'add-blog', 'Blogs::add');
+    $routes->get('blog-image/(:num)', 'Blogs::image/$1');
+    $routes->post('blog-update-image', 'Blogs::saveImage');
+    $routes->add('delete-blog/(:num)', 'Blogs::delete/$1');
+    $routes->get('blog-edit/(:num)', 'Blogs::edit/$1');
+    $routes->add('update-blog', 'Blogs::update');
+
 
     // Secteurs
 
@@ -135,7 +152,7 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
     $routes->add('update-service', 'Services::update');
     $routes->get('service-image/(:num)', 'Services::image/$1');
     $routes->post('service-update-image', 'Services::saveImage');
-    $routes->delete('delete-service/(:segment)', 'Services::delete/$1');
+    $routes->add('delete-service/(:segment)', 'Services::delete/$1');
     $routes->get('testing', 'Services::testing');
 
     // Team 
@@ -158,16 +175,17 @@ $routes->group('',['filter' =>'authcheck'], function($routes){
 });
 
 
+$routes->set404Override(function(){
+    $model = model(Coord::class);
+    $coords =  $model->first();
+    $data = [
+        'title'=> 'Erreur',
+        'coords'=> $coords,
+        'accueil' => (model(Accueil::class))->first(),
+    ];
+    return view('errors/404.php',$data);
+});
 
-// $routes->set404Override(function(){
-//     $model = model(Coord::class);
-//     $coords =  $model->first();
-//     $data = [
-//         'title'=> 'Erreur',
-//         'coords'=> $coords
-//     ];
-//     return view('errors/404.php',$data);
-// });
 
 /*
  * --------------------------------------------------------------------

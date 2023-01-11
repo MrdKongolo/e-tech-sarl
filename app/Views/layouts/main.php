@@ -63,7 +63,7 @@ $user_data = session()->get('user_data');
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="<?= base_url() ?>">
-                        <img src="<?= base_url() ?>/assets/img/logo/logo-e-tech.png" alt="logo">
+                        <img src="<?= base_url() ?>/resources/images/logos/<?= $accueil['logo'] ?>" alt="logo">
                     </a>
                     <div class="mobile-menu-right">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,20 +91,10 @@ $user_data = session()->get('user_data');
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link <?= ($uri->getSegment(1) == 'contact' ? 'active' : null) ?>" href="<?= base_url(); ?>/contact">Contact</a>
+                                <a class="nav-link <?= ($uri->getSegment(1) == 'contact' ? 'active' : null) ?>" href="<?= base_url(); ?>/contact">Contactez-nous</a>
                             </li>
                         </ul>
-                        <div class="header-nav-right">
-                            <div class="header-phone">
-                                <!-- <div class="header-phone-icon">
-                                    <i class="fal fa-mobile-android"></i>
-                                </div> -->
-                                <!-- <div class="header-phone-content">
-                                    <span>Téléphone</span>
-                                    <h5 class="header-phone-number"><a href="tel:+243 852 769 918">+243 852 769 918</a></h5>
-                                </div> -->
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </nav>
@@ -152,7 +142,7 @@ $user_data = session()->get('user_data');
                     <div class="col-md-6 col-lg-4">
                         <div class="footer-widget-box about-us">
                             <a href="#" class="footer-logo">
-                                <img src="<?= base_url() ?>/assets/img/logo/logo-e-tech.png" alt="" style="margin-top: -22px;">
+                                <img src="<?= base_url() ?>/resources/images/logos/<?= $coords['logo']?? 'logo-e-techy.png' ?>" alt="" style="margin-top: -22px;">
                             </a>
                             <p class="mb-20" style="text-align: justify;">
                                 E-Tech Sarl est une société de droit congolais composée des professionnels très ambitieux soucieux d’exceller et d’innover.
@@ -174,6 +164,7 @@ $user_data = session()->get('user_data');
                                     <li><a href="<?= base_url() ?>/signin"><i class="fas fa-caret-right"></i>Connexion</a></li>
                                 <?php endif; ?>
                                 <?php if (isset($user_data)) : ?>
+                                    <li><a href="<?= base_url() ?>/dashboard"><i class="fas fa-caret-right"></i>Dashboard</a></li>
                                     <li><a href="<?= base_url() ?>/logout"><i class="fas fa-caret-right"></i>Déconnexion</a></li>
                                 <?php endif; ?>
                             </ul>
@@ -183,7 +174,7 @@ $user_data = session()->get('user_data');
                         <div class="footer-widget-box">
                             <h4 class="footer-widget-title">Contact</h4>
                             <ul class="footer-contact">
-                                <li><i class="far fa-map-marker-alt"></i>05, Av. Tshisawaka, C/ Kampemba, Lubumbashi-RDC</li>
+                                <li><i class="far fa-map-marker-alt"></i><?= $coords['address']?? '' ?></li>
                                 <li><a href="tel:+243 852 769 918"><i class="far fa-phone"></i><?= $coords['phone']?? '' ?></a></li>
                                 <li><a href=""><i class="far fa-envelope"></i><span class="__cf_email__" data-cfemail=""><?= $coords['email'] ?? 'Email' ?></span></a>
                                 </li>
@@ -198,7 +189,7 @@ $user_data = session()->get('user_data');
                 <div class="row">
                     <div class="col-lg-4 align-self-center">
                         <p class="copyright-text">
-                            &copy; Copyright <span id="date"></span> <a href="#"> E-Tech Sarl </a> Tous droits reservés.
+                            &copy; <span id="date"></span> <a href="#"> E-Tech Sarl </a> Tous droits reservés.
                         </p>
                     </div>
                     <div class="col-lg-4 align-self-center text-center">

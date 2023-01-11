@@ -8,6 +8,7 @@ use \Config\Services;
 class Carts extends BaseController
 {
     public $productModel;
+    public $cartModel;
     public $cart;
     public $cmdModel;
 
@@ -23,6 +24,7 @@ class Carts extends BaseController
         $data = [
             'title'     => 'Ajout au Panier | E-Tech SARL',
             'coords'    => $this->coordModel->first(),
+            'accueil' => $this->accModel->first(),
         ];
         return view('carts/index',$data);
     }
@@ -36,6 +38,7 @@ class Carts extends BaseController
             'coords'=> $this->coords,
             'service'=> $service,
             'categories'=> $categ,
+            'accueil' => $this->accModel->first(),
             'parts' => $this->partModel->findAll(),
             'nb'=> count($categ)
         ];
@@ -48,6 +51,7 @@ class Carts extends BaseController
     public function checkout() {
         $data = [
             'coords'=> $this->coords,
+            'accueil' => $this->accModel->first(),
         ];
         return view('carts/checkout',$data);
     }
@@ -56,17 +60,25 @@ class Carts extends BaseController
         $data = [
             'title'=> "Ajouter au Panier",
             'element'=> $element,
+            'accueil' => $this->accModel->first(),
         ];
         return view('carts/unity',$data);
     }
 
     public function shopping(){
+        $shopping_cart = $this->cart->contents();
+        if(empty($shopping_cart)) {
+            return redirect()->back();
+        }
         $hash = md5(str_shuffle("abcdefghijklmnopqrstuvwxyz".time()));
+        $moyens = model(Moyen::class);
         $data = [
             'title'     => 'Shopping Cart | E-Tech',
             'coords'    => $this->coordModel->first(),
             'total'     => $this->cart->total(),
             'hash'      => $hash,
+            'accueil' => $this->accModel->first(),
+            'moyens' => $moyens->findAll(),
         ];
         $rules = $this->cmdModel->validationRules;
         
@@ -240,6 +252,25 @@ class Carts extends BaseController
             return redirect()->back();
         }
         return redirect()->to('/profile');
+
+    }
+    function dealingCart($id, $typekey)
+    {
+        $cmd = $this->cartModel->find($id);
+        if (!empty($cmd)) {
+
+            if ($typekey == 'process') {
+                $data = ['status' => 'en cours'];
+            } elseif ($typekey == 'done') {
+                $data = ['status' => 'traité'];
+            }
+            $id = $cmd['cart_id'];
+            $this->cartModel->update($id,$data);
+
+        } else {
+            return redirect()->back();
+        }
+        return redirect()->back();
 
     }
     function details($hash){

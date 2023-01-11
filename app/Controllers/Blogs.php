@@ -10,11 +10,10 @@ class Blogs extends BaseController
     {
         $data =  [
             'title' => "Ajout d'un blog | E-Tech",
-            // 'elements'=>$this->elmtModel->join('categories','categories.cat_id=elements.cat_id')
-            //                             ->join('services','services.srv_id=categories.srv_id')
-            //                             ->findAll(),
+            'blogs'=>$this->blogModel->join('services','services.srv_id=blogs.srv_id')
+                                        ->findAll(),
         ];
-        return view ('blog/admin/list', $data);
+        return view ('blogs/admin/list', $data);
     }
     
     public function add(){
@@ -36,11 +35,11 @@ class Blogs extends BaseController
                     'title' => $this->request->getVar('title'),
                     'description' => $this->request->getVar('description'),
                     'picture' => $imageName,
-                    'created_at' => date('Y-m-d H:s:i'),
+                    'created_at' => date('Y-m-d H:i:s'),
                 ];
                 if($this->blogModel->save($data)) {
                     $file->move('./resources/images/blogs', $imageName);
-                    return redirect()->back()->with('success','Blog ajouté avec succès');
+                    return redirect()->to('/blogs')->with('success','Blog ajouté avec succès');
                 }else {
                     return redirect()->back()->with('error','Impossible d\'enregister');
                 }
@@ -50,7 +49,7 @@ class Blogs extends BaseController
             $data['validation'] = $this->validation->getErrors();
         }
 
-        return view ('blogs/admin/add',$data);
+        return view ('blogs/admin/create',$data);
     }
 
     public function edit($id){
@@ -67,7 +66,7 @@ class Blogs extends BaseController
         $data = array(
             'title' => $this->request->getVar('title'),
             'description' => $this->request->getVar('description'),
-            'updated_at'=>date('Y-m-d H:s:i'),
+            'updated_at'=> date('Y-m-d H:i:s'),
         );
         if(!empty($data)){
             $this->blogModel->update($id,$data);
@@ -82,11 +81,11 @@ class Blogs extends BaseController
     }
 
 
-    function addImage($key)
+    function image($key)
     {
         $data[] = null;
         $data = [
-            'blog' => $this->elmtModel->find($key)
+            'blog' => $this->blogModel->find($key)
         ];
         if (!empty($data['blog'])) {
             session()->set('blog', $data['blog']);

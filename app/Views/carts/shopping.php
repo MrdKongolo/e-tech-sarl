@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-lg-12 text-right">
                             <div class="logo_container">
-                                <a href="<?= base_url() ?>"> <img src="<?= base_url() ?>/assets/img/logo/logo-e-tech.png" alt="logo"></span></a>
+                                <a href="<?= base_url() ?>"> <img src="<?= base_url() ?>/resources/images/logos/<?= $accueil['logo'] ?>" alt="logo"></span></a>
                             </div>
                             <nav class="navbar">
                                 <ul class="navbar_menu">
@@ -161,7 +161,7 @@
                             <ul>
                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>

@@ -105,14 +105,15 @@ $user_data = session()->get('user_data');
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-calendar"></i></span><span class="pcoded-mtext">Documents</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="<?= base_url() ?>/add-documents">Ajouter Document</a></li>
+                            <li><a href="<?= base_url() ?>/add-document">Ajouter Document</a></li>
                             <li><a href="<?= base_url() ?>/documents">Liste Documents</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
-                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Utilisateurs</span></a>
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Moyens Payment</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="">Liste Utilisateurs</a></li>
+                        <li><a href="<?= base_url() ?>/add-mean">Ajouter Moyen</a></li>
+                            <li><a href="<?= base_url() ?>/moyens">Liste Moyens</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
@@ -160,6 +161,7 @@ $user_data = session()->get('user_data');
                     <ul class="pro-body">
                         <li><a href="<?= base_url() ?>/profile" class="dropdown-item"><i class="feather icon-user"></i>Profile</a></li>
                         <li><a href="<?= base_url() ?>/logout" class="dropdown-item"><i class="feather icon-lock"></i>Déconnexion</a></li>
+                        <li><a href="<?= base_url() ?>/change" class="dropdown-item"><i class="feather icon-lock"></i>Changer Mot de Passe</a></li>
                         <!-- <li><a href="</?= base_url()?>/change-pwd" class="dropdown-item"><i class="feather icon-settings"></i>Changer Mot de Passe</a></li> -->
                         <li><a href="<?= base_url() ?>" class="dropdown-item"><i class="feather icon-home"></i>Voir le Site</a></li>
                     </ul>

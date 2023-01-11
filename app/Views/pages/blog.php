@@ -41,7 +41,31 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
+            <?php if(isset($blogs)):?>
+                <?php foreach($blogs as $blog):?>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="blog-item">
+                            <div class="blog-item-meta">
+                                <ul>
+                                    <li><a href="#"><i class="far fa-user-circle"></i> <?= $blog['srv_title'];?></a></li>                            
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="blog-item-img">
+                                <img src="<?= base_url() ?>/resources/images/blogs/<?= $blog['picture'];?>" alt="Thumb">
+                            </div>
+                            <div class="blog-item-info">
+                                <h4 class="blog-title">
+                                    <a href="#"><?= $blog['title'];?></a>
+                                </h4>
+                                <p><?= $blog['description'];?></p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;?>
+            <?php endif;?>
+            <!-- <div class="col-md-6 col-lg-4">
                 <div class="blog-item">
                     <div class="blog-item-img">
                         <img src="<?= base_url() ?>/assets/img/blog/salles.jpg" alt="Thumb">
@@ -70,12 +94,7 @@
                             <a href="#">Sed ut perspiciatis unde iste omnis natus sit volup</a>
                         </h4>
                         <p>At vero eos et accusamus et iusto odio digniss ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt.</p>
-                        <div class="blog-item-meta">
-                            <ul>
-                                <li><a href="#"><i class="far fa-user-circle"></i> By Alicia Davis</a></li>
-                                <li><a href="#"><i class="far fa-calendar-alt"></i> August 21, 2022</a></li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -175,7 +194,7 @@
                         <p> Vente et Installation des serres agricoles / Sale and Installation of agricultural greenhouses</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

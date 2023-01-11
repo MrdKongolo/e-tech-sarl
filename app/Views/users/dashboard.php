@@ -157,6 +157,33 @@
                         <div class="col-sm-4 text-center">
                             <div class="card support-bar overflow-hidden">
                                 <div class="card-body pb-0">
+                                    <h2 class="m-0"><?= $blogs ?? ''; ?></h2>
+                                    <span class="text-c-green"><strong><a href="<?= base_url() ?>/blogs">REALISATIONS</a></strong></span>
+                                    <p class="mb-3 mt-3"><a href="">Total Réalisations</a></p>
+                                </div>
+                                <div class="card-footer bg-success text-white">
+                                    <div class="row text-center">
+                                        <div class="col">
+                                            <a type="button" href="<?= base_url() ?>/add-blog" data-toggle="tooltip" data-placement="top" title="Ajouter" class="btn btn-icon btn-danger">
+                                                <i class="feather icon-plus"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="m-0 text-white">Total</h5>
+                                            <span><?= $blogs ?? ''; ?></span>
+                                        </div>
+                                        <div class="col">
+                                            <a type="button" href="<?= base_url() ?>/blogs" data-toggle="tooltip" data-placement="top" title="Liste" class="btn btn-icon btn-info">
+                                                <i class="feather icon-list"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="card support-bar overflow-hidden">
+                                <div class="card-body pb-0">
                                     <h2 class="m-0"><?= $part; ?></h2>
                                     <span class="text-c-red">
                                         <strong>
@@ -225,12 +252,13 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <h5 class="m-0 text-white"></h5>
-                                        <span></span>
+                                        <a type="button" href="<?= base_url() ?>/logo-home" data-toggle="tooltip" data-placement="top" title="Logo" class="btn btn-icon btn-info">
+                                            <i class="feather icon-image"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
-                                        <a type="button" href="<?= base_url() ?>/image-home" data-toggle="tooltip" data-placement="top" title="Image" class="btn btn-icon btn-info">
-                                            <i class="feather icon-image"></i>
+                                        <a type="button" href="<?= base_url() ?>/image-home" data-toggle="tooltip" data-placement="top" title="Image" class="btn btn-icon btn-primary">
+                                            <i class="feather icon-camera"></i>
                                         </a>
                                     </div>
                                 </div>

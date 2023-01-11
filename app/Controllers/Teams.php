@@ -10,9 +10,10 @@ class Teams extends BaseController
     {
         $data = [            
             'title'  => 'L\'Equipe | E-Tech',
-            'members'   => $this->teamModel->getMembers(null),
+            'members'=> $this->teamModel->getMembers(null),
             'nombre' => $this->teamModel->countAll(),
-            'coords'    => $this->coordModel->first(),
+            'accueil'=> $this->accModel->first(),
+            'coords' => $this->coordModel->first(),
         ];
         return view('team/index',$data);
     }
@@ -45,7 +46,7 @@ class Teams extends BaseController
                     'lastname'      => $this->request->getVar('lastname'),
                     'phone'         => $this->request->getVar('phone'),
                     'profession'    => $this->request->getVar('profession'),
-                    'created_at'    => date("Y-m-d"),
+                    'created_at'    => date('Y-m-d H:i:s'),
                     'picture'       => $imageName,
                 ); 
                 $this->teamModel->insert($data);
@@ -139,11 +140,11 @@ class Teams extends BaseController
         $id = $member['member_id'];
         $data['member'] = $member;
         $data = array(
-            'firstname'     => $this->request->getVar('firstname'),
-            'lastname'      => $this->request->getVar('lastname'),
-            'phone'         => $this->request->getVar('phone'),
-            'profession'    => $this->request->getVar('profession'),
-            'updated_at'=>date('Y-m-d H:s:i'),
+            'firstname'  => $this->request->getVar('firstname'),
+            'lastname'   => $this->request->getVar('lastname'),
+            'phone'      => $this->request->getVar('phone'),
+            'profession' => $this->request->getVar('profession'),
+            'updated_at' =>date('Y-m-d H:i:s'),
         );
         if(!empty($data)){
             $this->teamModel->update($id,$data);

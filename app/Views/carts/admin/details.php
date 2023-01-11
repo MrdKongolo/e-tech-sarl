@@ -95,11 +95,11 @@
                                                     
                                                     <td class="table-action">
                                                         
-                                                        <a type="button" href="<?= base_url()?>/dealing-cart/<?= $row['prod_id']?>/" data-toggle="tooltip"  data-placement="top" title="Traiter"  class="btn btn-icon btn-outline-success">
+                                                        <a type="button" href="<?= base_url()?>/dealing-cart/<?= $row['cart_id']?>/process" data-toggle="tooltip"  data-placement="top" title="Traiter"  class="btn btn-icon btn-outline-success">
                                                             <i class="feather icon-check-circle"></i>
                                                         </a>
 
-                                                        <a type="button" href="<?= base_url()?>dealing-cart/<?= $row['prod_id']?>" data-toggle="tooltip" data-placement="top" title="Terminer"
+                                                        <a type="button" href="<?= base_url()?>/dealing-cart/<?= $row['cart_id']?>/done" data-toggle="tooltip" data-placement="top" title="Terminer"
                                                                 class="btn btn-icon btn-outline-info">
                                                             <i class="feather icon-thumbs-up"></i>
                                                         </a>

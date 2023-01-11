@@ -23,7 +23,7 @@ class Accueils extends BaseController
                 'title'=>$this->request->getVar('title'),
                 'subtitle'=>$this->request->getVar('subtitle'),
                 'description'=>$this->request->getVar('description'),
-                'updated_at'=>date('Y-m-d H:s:i'),
+                'updated_at'=>date('Y-m-d H:i:s'),
             );
             $this->accModel->update($accueil['id'],$data);                    
             return redirect()->to("/dashboard")->with("success", "Modifié avec succès !");            
@@ -76,6 +76,54 @@ class Accueils extends BaseController
             }
         }        
         echo view('coords/image', $data);
+    }
+    public function logo()
+    {        
+        $data = [            
+            'accueil'    => $this->accModel->first(),
+        ];
+        if (!empty($data['accueil'])) {
+            session()->set('accueil', $data['accueil']);
+            return view('coords/logo',$data);
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    function saveLogo()
+    {
+        $data[] = null;           
+        $accueil = session()->get('accueil');  
+        $oldfile = $accueil['logo'];
+        $path = './resources/images/logos';    
+        $id = $accueil['id'];
+        $data['accueil'] = $accueil;
+
+        if ($this->request->getMethod() === 'post') {
+            $rules = $this->accModel->getValidationRules(['only' => ['logo']]);
+            if ($this->validate($rules)) {
+
+                $file = $this->request->getFile('logo');               
+
+                $tempfile = $file->getTempName();
+
+                if ($file->isValid() && !$file->hasMoved()) {
+                    $imageName = $file->getRandomName();
+                    $data = ['logo' => $imageName];
+                    
+                    if(file_exists($path .'/'. $oldfile) && $oldfile !== null){
+                        unlink($path .'/'. $oldfile);
+                    }
+                    $this->accModel->update($id,$data);
+                    $file->move($path, $imageName);
+                    session()->remove('accueil');
+                    return redirect()->to('/dashboard')->with('success', "Logo ajouté avec succès");
+                }
+            } else {
+                $data['validation'] = $this->validation->getErrors();
+            }
+        }        
+        echo view('coords/logo', $data);
     }
     
 }

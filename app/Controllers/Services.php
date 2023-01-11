@@ -12,6 +12,7 @@ class Services extends BaseController
             'title'=> "Tous les secteurs | E-Tech",
             'coords'=> $this->coords,
             'parts' => $this->partModel->findAll(),
+            'accueil' => $this->accModel->first(),
         ];
         return view('services/index',$data);
     }
@@ -83,7 +84,7 @@ class Services extends BaseController
                     'srv_slug' => url_title($this->request->getVar('srv_title')),
                     'srv_description' => $this->request->getVar('srv_description'),
                     'photo' => $imageName,
-                    'created_at' => date('Y-m-d H:s:i'),
+                    'created_at' => date('Y-m-d H:i:s'),
                 );  
                 $this->servModel->save($data);
                 $file->move('./resources/images/services', $imageName);
@@ -111,7 +112,7 @@ class Services extends BaseController
             'srv_title'=>$this->request->getVar('srv_title'),
             'srv_description'=>$this->request->getVar('srv_description'),
             'srv_slug'=>url_title($this->request->getVar('srv_title')),
-            'updated_at'=>date('Y-m-d H:s:i'),
+            'updated_at'=> date('Y-m-d H:i:s'),
         );
         if(!empty($data)){
             $this->servModel->update($id,$data);
@@ -120,8 +121,7 @@ class Services extends BaseController
             return redirect()->to('/services-list');
         }else{
             echo view('services/admin/edit/'.$id);
-        }
-        
+        }        
     }
 
     function image($key)
@@ -169,15 +169,25 @@ class Services extends BaseController
         echo view('services/admin/image', $data);
     }
   
+ 
     function delete($id){
-        $data = [
-            'service' => $this->servModel->getService($id)
-        ];
-        if(!empty($data)){
+
+        $service = $this->servModel->getService($id);
+        
+        if(!empty($service)){
+            $oldfile = $service['photo'];
+            $path = './resources/images/services';    
+            $id = $service['srv_id'];
+            
             $this->servModel->where('srv_id',$id)->delete();
-            $session = session();
-            $session->setFlashData("success", "Image supprimé avec succès");
-            return redirect()->to('/service-list');
+            if(file_exists($path .'/'. $oldfile)){
+                unlink($path .'/'. $oldfile);
+            }
+            session()->setFlashData("success", "Service supprimé avec succès");
+            return redirect()->to('/services-list');
+        }
+        else {
+            return redirect()->back()->with("error", "Une erreur s'est produite lors de la suppression");
         }
     }
     

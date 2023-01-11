@@ -98,47 +98,30 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-item">
-                    <div class="blog-item-img">
-                        <img src="<?= base_url() ?>/assets/img/blog/salles.jpg" alt="Thumb">
+            <?php if(isset($blogs)):?>
+                <?php foreach($blogs as $blog):?>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="blog-item">
+                            <div class="blog-item-meta">
+                                <ul>
+                                    <li><a href="#"><i class="far fa-user-circle"></i> <?= $blog['srv_title'];?></a></li>                            
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="blog-item-img">
+                                <img src="<?= base_url() ?>/resources/images/blogs/<?= $blog['picture'];?>" alt="Thumb">
+                            </div>
+                            <div class="blog-item-info">
+                                <h4 class="blog-title">
+                                    <a href="#"><?= $blog['title'];?></a>
+                                </h4>
+                                <p><?= $blog['description'];?></p>
+                                
+                            </div>
+                        </div>
                     </div>
-                    <div class="blog-item-info">
-                        <h4 class="blog-title">
-                            <a href="#">Construction de 6 salles de classe </a>
-                        </h4>
-                        <p>Construction de 6 salles de classe / Construction of 6 classrooms</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-item">
-                    <div class="blog-item-img">
-                        <img src="<?= base_url() ?>/assets/img/blog/etudes.jpg" alt="Thumb">
-                    </div>
-                    <div class="blog-item-info">
-                        <h4 class="blog-title">
-                            <a href="#">
-                                Etudes topographiques à 100m du péage Kanyaka
-                            </a>
-                        </h4>
-                        <p>Etudes topographiques à 100m du péage Kanyaka sur la route Kasumbalesa où sera construit un parking + 2 bâtiments R+2 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-item">
-                    <div class="blog-item-img">
-                        <img src="<?= base_url() ?>/assets/img/blog/site.jpg" alt="Thumb">
-                    </div>
-                    <div class="blog-item-info">
-                        <h4 class="blog-title">
-                            <a href="#">Construction d’un site touristique à Mwadingusha</a>
-                        </h4>
-                        <p>Construction d’un site touristique à Mwadingusha / Construction of a tourist site in Mwadingusha</p>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach;?>
+            <?php endif;?>            
         </div>
         <div class="row">
             <div class="col-lg-6 mx-auto">

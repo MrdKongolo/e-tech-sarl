@@ -57,6 +57,20 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
+                                        <label class="floating-label" for="option">Option (Facultative)</label>
+                                        <input type="text" class="form-control" name="option" value="<?= $element['option']?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['option'] ?? null ;  ?></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="autre">Option 2 (Facultative)</label>
+                                        <input type="text" class="form-control" name="autre" value="<?= $element['autre']?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['autre'] ?? null ;  ?></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
                                         <label class="floating-label" for="price_inf">Prix Unitaire</label>
                                         <input type="number" class="form-control" name="price_inf" value="<?= $element['price_inf']?>" required>
                                         <small id="input-help" class="form-text text-danger"><?= $validation['price_inf'] ?? null ;  ?></small>

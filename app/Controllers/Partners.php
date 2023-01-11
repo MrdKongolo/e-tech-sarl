@@ -39,7 +39,7 @@ class Partners extends BaseController
                     'part_email'=> $this->request->getVar('part_email'),
                     'part_tel' => $this->request->getVar('part_tel'),
                     'part_logo' => $imageName,
-                    'created_at'=> date("Y-m-d"),
+                    'created_at'=> date('Y-m-d H:i:s'),
                 ); 
                 $this->partModel->insert($data);
                 $file->move('./resources/images/partners', $imageName);

@@ -10,12 +10,12 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Les Catégories</h5>
+                            <h5 class="m-b-10">Les Moyens de Payment</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>/dashboard"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="<?= base_url() ?>/categories-list">Catégories</a></li>
-                            <li class="breadcrumb-item"><a href="#!">Ajout Catégories</a></li>
+                            <li class="breadcrumb-item"><a href="<?= base_url() ?>/moyens">Moyens de Payment</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Modifier Moyen de Payment</a></li>
                         </ul>
                     </div>
                 </div>
@@ -27,32 +27,30 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Catégories</h5>
+                        <h5>Les Moyens de Payment</h5>
                     </div>
                     <div class="card-body">
 
-                        <?= form_open_multipart('add-category') ?>
-                        <?= csrf_field() ?>
-                            <div class="row">
-                                <div class="col-sm-12">
+                        <?= form_open_multipart('update-mean')?>
+                            <?= csrf_field() ?>
+                            <div class="row">                                
+                                <input type="hidden" class="form-control" name="moyen" value="<?= $moyen['id'] ?>">
+                                <div class="col-sm-6">
                                     <div class="form-group">
-                                        <select name="srv_id" class="form-control">
-                                            <option value="">Sélectionnez Un Service</option>
-                                            <?php foreach ($services as $srv) : ?>
-                                                <option value="<?= $srv->srv_id ?>" <?= set_select('srv_id', $srv->srv_id); ?>><?= ucfirst($srv->srv_title) ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <label class="floating-label" for="name">Nom</label>
+                                        <input type="text" class="form-control" name="name" value="<?= $moyen['name'] ?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['name'] ?? null;  ?></small>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="floating-label" for="name">Titre</label>
-                                        <input type="text" class="form-control" name="cat_title" value="<?= set_value('cat_title') ?>">
-                                        <small id="input-help" class="form-text text-danger"><?= $validation['cat_title'] ?? null;  ?></small>
+                                        <label class="floating-label" for="numero">Numéro</label>
+                                        <input type="text" class="form-control" name="numero" value="<?= $moyen['numero'] ?>">
+                                        <small id="input-help" class="form-text text-danger"><?= $validation['numero'] ?? null;  ?></small>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 text-right">
-                                    <input type="submit" class="btn btn-md btn-primary" value="Enregistrer Catégorie">
+                                <div class="col-sm-12 text-center">
+                                    <input type="submit" class="btn btn-md btn-primary" value="Enregistrer Les Modifications">
                                 </div>
                             </div>
                         </form>

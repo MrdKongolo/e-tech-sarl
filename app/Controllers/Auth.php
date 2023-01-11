@@ -17,6 +17,7 @@ class Auth extends BaseController
             'title' => 'Qui nous sommes | E-Tech',
             'parts' => $this->partModel->findAll(),
             'coords'=> $this->coords,
+            'accueil' => $this->accModel->first(),
             'docs'  => $this->docModel->findAll()
         ];
         return view('pages/about',$data);
@@ -24,6 +25,7 @@ class Auth extends BaseController
     public function signin(){
         $data = [
             'title' => 'Connexion | E-Tech',
+            'accueil' => $this->accModel->first(),
             'coords'=> $this->coords,
         ];
         $rules = $this->userModel->getValidationRules();
